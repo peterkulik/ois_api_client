@@ -5,7 +5,7 @@ from datetime import datetime, timezone
 from ois_client_sdk.common.parameter.builders.serialize_text_element import serialize_text_element
 
 
-@dataclass(init=False)
+@dataclass
 class Header:
     request_id: str
     request_version: str

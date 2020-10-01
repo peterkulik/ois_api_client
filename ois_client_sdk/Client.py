@@ -17,7 +17,7 @@ class Client:
         self.replacement_key = replacement_key
         self.namespace = namespace
 
-    def token_exchange(self, parameter: Parameter):
+    async def token_exchange(self, parameter: Parameter):
         rs = build_request_signature(parameter.header.request_id, parameter.header.timestamp, self.signature_key)
         par = parameter.serialize(rs)
 

@@ -1,6 +1,6 @@
 from datetime import datetime, timezone
 from typing import List
-import hashlib
+from hashlib import sha3_512
 
 
 def build_request_signature(request_id: str, timestamp: datetime, signature_key: str,
@@ -12,5 +12,5 @@ def build_request_signature(request_id: str, timestamp: datetime, signature_key:
         signature += ''.join(hash_list)
 
     ut8_encoded = signature.encode('UTF-8', 'strict')
-    result = hashlib.sha3_512(ut8_encoded).hexdigest()
+    result = sha3_512(ut8_encoded).hexdigest()
     return result.upper()
