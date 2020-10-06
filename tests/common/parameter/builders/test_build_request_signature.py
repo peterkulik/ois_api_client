@@ -1,6 +1,6 @@
-from ois_client_sdk.common.parameter.builders.build_request_signature import build_request_signature
-from tests.common.parameter import config
-from tests.common.parameter.config import expected_request_signature
+from ois_client_sdk.dto.serialization.build_request_signature import build_request_signature
+from tests.common import config
+from tests.common.config import expected_request_signature
 
 
 def test_build_request_signature_without_hash_list_success():

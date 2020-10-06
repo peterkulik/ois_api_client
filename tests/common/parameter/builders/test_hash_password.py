@@ -1,5 +1,5 @@
-from ois_client_sdk.common.parameter.builders.hash_password import hash_password
-from tests.common.parameter import config
+from ois_client_sdk.dto.serialization.hash_password import hash_password
+from tests.common import config
 
 
 def test_hash_password():

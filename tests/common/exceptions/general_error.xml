@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GeneralErrorResponse xmlns="http://schemas.nav.gov.hu/OSA/2.0/api" xmlns:ns2="http://schemas.nav.gov.hu/OSA/2.0/data">
+    <result>
+        <funcCode>ERROR</funcCode>
+        <errorCode>INVALID_REQUEST</errorCode>
+        <message>Helytelen kérés!</message>
+    </result>
+    <technicalValidationMessages>
+        <validationResultCode>ERROR</validationResultCode>
+        <validationErrorCode>SCHEMA_VIOLATION</validationErrorCode>
+        <message>Request body contains on line: [1] and column: [23] error: [cvc-elt.1.a: Cannot find the declaration of
+            element 'TokenExchangeRequest'.]
+        </message>
+    </technicalValidationMessages>
+    <technicalValidationMessages>
+        <validationResultCode>ERROR</validationResultCode>
+        <validationErrorCode>SCHEMA_VIOLATION</validationErrorCode>
+        <message>Request body contains on line: [1] and column: [23] error: [unexpected element (uri:"",
+            local:"TokenExchangeRequest"). Expected elements are &lt;{http://schemas.nav.gov.hu/OSA/2.0/api}ManageAnnulmentRequest&gt;,&lt;{http://schemas.nav.gov.hu/OSA/2.0/api}ManageInvoiceRequest&gt;,&lt;{http://schemas.nav.gov.hu/OSA/2.0/api}QueryInvoiceChainDigestRequest&gt;,&lt;{http://schemas.nav.gov.hu/OSA/2.0/api}QueryInvoiceCheckRequest&gt;,&lt;{http://schemas.nav.gov.hu/OSA/2.0/api}QueryInvoiceDataRequest&gt;,&lt;{http://schemas.nav.gov.hu/OSA/2.0/api}QueryInvoiceDigestRequest&gt;,&lt;{http://schemas.nav.gov.hu/OSA/2.0/api}QueryTaxpayerRequest&gt;,&lt;{http://schemas.nav.gov.hu/OSA/2.0/api}QueryTransactionListRequest&gt;,&lt;{http://schemas.nav.gov.hu/OSA/2.0/api}QueryTransactionStatusRequest&gt;,&lt;{http://schemas.nav.gov.hu/OSA/2.0/api}TokenExchangeRequest&gt;]
+        </message>
+    </technicalValidationMessages>
+</GeneralErrorResponse>
