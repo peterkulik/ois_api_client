@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import datetime
 
 
 class DateTimeIntervalParam:
@@ -8,6 +8,6 @@ class DateTimeIntervalParam:
     :param date_time_to: Datetime interval less or equals parameter
     """
 
-    def __init__(self, date_time_from: date, date_time_to: date):
+    def __init__(self, date_time_from: datetime, date_time_to: datetime):
         self.date_time_from = date_time_from
-        self.date_to = date_time_to
+        self.datetime_to = date_time_to

@@ -1,4 +1,4 @@
-from .Header import Header
+from .BasicHeader import BasicHeader
 from .User import User
 
 
@@ -8,6 +8,6 @@ class BasicRequest:
     :param header: Transactional data of the request
     :param user: Authentication data of the request
     """
-    def __init__(self, header: Header, user: User):
+    def __init__(self, header: BasicHeader, user: User):
         self.header = header
         self.user = user

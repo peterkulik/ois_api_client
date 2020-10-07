@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<QueryInvoiceDigestResponse xmlns="http://schemas.nav.gov.hu/OSA/2.0/api"
+                            xmlns:ns2="http://schemas.nav.gov.hu/OSA/2.0/data">
+    <header>
+        <requestId>202010052172</requestId>
+        <timestamp>2020-10-07T11:26:00.000Z</timestamp>
+        <requestVersion>2.0</requestVersion>
+        <headerVersion>1.0</headerVersion>
+    </header>
+    <result>
+        <funcCode>OK</funcCode>
+    </result>
+    <software>
+        <softwareId>HUU10000000TESTNUM</softwareId>
+        <softwareName>SuperSoftware</softwareName>
+        <softwareOperation>LOCAL_SOFTWARE</softwareOperation>
+        <softwareMainVersion>1.0</softwareMainVersion>
+        <softwareDevName>John Doe</softwareDevName>
+        <softwareDevContact>info@johndoe.com</softwareDevContact>
+        <softwareDevCountryCode>HU</softwareDevCountryCode>
+        <softwareDevTaxNumber>12345678</softwareDevTaxNumber>
+    </software>
+    <invoiceDigestResult>
+        <currentPage>1</currentPage>
+        <availablePage>1</availablePage>
+        <invoiceDigest>
+            <invoiceNumber>2020-01</invoiceNumber>
+            <invoiceOperation>CREATE</invoiceOperation>
+            <invoiceCategory>NORMAL</invoiceCategory>
+            <invoiceIssueDate>2020-10-07</invoiceIssueDate>
+            <supplierTaxNumber>68293008</supplierTaxNumber>
+            <supplierName>KULIK PÉTER</supplierName>
+            <customerTaxNumber>17781901</customerTaxNumber>
+            <customerName>BERGMANN KÖNYVELŐ IRODA PÉNZÜGYI SZOLGÁLTATÓ KORLÁTOLT FELELŐSSÉGŰ TÁRSASÁG ÁLTAL KÉPVISELT
+                CSOPORTOS ÁFA
+            </customerName>
+            <paymentMethod>CASH</paymentMethod>
+            <invoiceAppearance>PAPER</invoiceAppearance>
+            <source>XML</source>
+            <invoiceDeliveryDate>2020-10-07</invoiceDeliveryDate>
+            <currency>HUF</currency>
+            <invoiceNetAmount>200</invoiceNetAmount>
+            <invoiceNetAmountHUF>200</invoiceNetAmountHUF>
+            <invoiceVatAmount>36</invoiceVatAmount>
+            <invoiceVatAmountHUF>36</invoiceVatAmountHUF>
+            <transactionId>34LF2PZ84KCVB1PB</transactionId>
+            <index>1</index>
+            <insDate>2020-10-07T17:52:13.000Z</insDate>
+        </invoiceDigest>
+    </invoiceDigestResult>
+</QueryInvoiceDigestResponse>

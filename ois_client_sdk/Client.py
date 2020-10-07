@@ -27,8 +27,9 @@ class Client:
         result = deserialize_token_exchange_response(response)
         return result
 
-    def query_invoice_digest(self, data: QueryInvoiceDigestRequest, token: str):
-        par = serialize_query_invoice_digest_request(data)
+    def query_invoice_digest(self, data: QueryInvoiceDigestRequest):
+        rs = build_request_signature(data.header.request_id, data.header.timestamp, self._signature_key)
+        par = serialize_query_invoice_digest_request(data, rs, self._password_hash)
         response = self.call_operation('queryInvoiceDigest', par)
         a = response
         # result = deserialize_token_exchange_response(response)
@@ -42,6 +43,7 @@ class Client:
                            headers={'Content-Type': 'application/xml',
                                     'Accept': 'application/xml'}) as response:
             if '<GeneralErrorResponse' in response.text:
-                raise GeneralError(response.content.decode('utf-8'))
+                response_content = response.content.decode('utf-8')
+                raise GeneralError(response_content)
 
         return response.content.decode('utf-8')

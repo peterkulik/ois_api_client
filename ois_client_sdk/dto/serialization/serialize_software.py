@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 
 from ..Software import Software
-from .serialize_text_element import serialize_text_element
+from .serialize_element import serialize_text_element
 
 
 def serialize_software(data: Software) -> ET.Element:

@@ -26,5 +26,5 @@ class XmlReader:
     @staticmethod
     def find_child_as_datetime(parent: ET.Element, tag_name: str) -> datetime:
         element = parent.find(f'{{{NAMESPACE}}}{tag_name}')
-        result = datetime.strptime(element.text, '%Y-%m-%dT%H:%M:%S.%f%z')
+        result = datetime.strptime(element.text, '%Y-%m-%dT%H:%M:%S.%f%Z')
         return result
