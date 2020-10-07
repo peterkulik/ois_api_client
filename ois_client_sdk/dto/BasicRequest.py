@@ -5,8 +5,14 @@ from .User import User
 from .Software import Software
 
 
-@dataclass
+# @dataclass
+# class BasicRequest:
+#     header: Header
+#     user: User
+#     software: Software
+
 class BasicRequest:
-    header: Header
-    user: User
-    software: Software
+    def __init__(self, header: Header, user: User, software: Software):
+        self.header = header
+        self.user = user
+        self.software = software

@@ -2,9 +2,11 @@ import requests
 import xml.etree.ElementTree as ET
 
 from .constants import NAMESPACE
+from .dto.QueryInvoiceDigestRequest import QueryInvoiceDigestRequest
 from .dto.deserialization.deserialize_token_exchange_response import deserialize_token_exchange_response
 from .dto.serialization.build_request_signature import build_request_signature
 from .dto.serialization.hash_password import hash_password
+from .dto.serialization.serialize_query_invoice_digest_request import serialize_query_invoice_digest_request
 from .dto.serialization.serialize_token_exchange_request import serialize_token_exchange_request
 from .dto.TokenExchangeRequest import TokenExchangeRequest
 from .exceptions.GeneralError import GeneralError
@@ -24,6 +26,13 @@ class Client:
         response = self.call_operation('tokenExchange', par)
         result = deserialize_token_exchange_response(response)
         return result
+
+    def query_invoice_digest(self, data: QueryInvoiceDigestRequest, token: str):
+        par = serialize_query_invoice_digest_request(data)
+        response = self.call_operation('queryInvoiceDigest', par)
+        a = response
+        # result = deserialize_token_exchange_response(response)
+        # return result
 
     def call_operation(self, operation: str, parameter: ET.Element) -> str:
         data = ET.tostring(parameter, method='xml', encoding='utf-8', xml_declaration=True)
