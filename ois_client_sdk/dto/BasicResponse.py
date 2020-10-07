@@ -1,14 +1,15 @@
-from dataclasses import dataclass
-from typing import Union
+from .BasicHeader import BasicHeader
+from .BasicResult import BasicResult
 
 
-@dataclass
-class BasicResult:
-    func_code: str
-    error_code: Union[str, None]
-    message: Union[str, None]
-
-
-@dataclass
 class BasicResponse:
-    result: BasicResult
+    """Basic response data
+
+    :param result: Basic result data
+    """
+
+    def __init__(self,
+                 # header: BasicHeader,
+                 result: BasicResult):
+        # self.header = header
+        self.result = result

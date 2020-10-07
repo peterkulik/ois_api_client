@@ -13,7 +13,8 @@ def deserialize_basic_result(parent: ET.Element):
     result = BasicResult(
         func_code=XR.get_child_text(res_el, 'funcCode'),
         message=XR.get_child_text(res_el, 'message'),
-        error_code=XR.get_child_text(res_el, 'errorCode')
+        error_code=XR.get_child_text(res_el, 'errorCode'),
+        notifications=[]
     )
 
     return result
