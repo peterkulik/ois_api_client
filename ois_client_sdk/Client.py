@@ -3,6 +3,7 @@ import xml.etree.ElementTree as ET
 
 from .constants import NAMESPACE
 from .dto.QueryInvoiceDigestRequest import QueryInvoiceDigestRequest
+from .dto.deserialization.deserialize_query_invoice_digest_response import deserialize_query_invoice_digest_response
 from .dto.deserialization.deserialize_token_exchange_response import deserialize_token_exchange_response
 from .dto.serialization.build_request_signature import build_request_signature
 from .dto.serialization.hash_password import hash_password
@@ -31,9 +32,8 @@ class Client:
         rs = build_request_signature(data.header.request_id, data.header.timestamp, self._signature_key)
         par = serialize_query_invoice_digest_request(data, rs, self._password_hash)
         response = self.call_operation('queryInvoiceDigest', par)
-        a = response
-        # result = deserialize_token_exchange_response(response)
-        # return result
+        result = deserialize_query_invoice_digest_response(response)
+        return result
 
     def call_operation(self, operation: str, parameter: ET.Element) -> str:
         data = ET.tostring(parameter, method='xml', encoding='utf-8', xml_declaration=True)

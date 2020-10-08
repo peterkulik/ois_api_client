@@ -9,7 +9,7 @@ def get_local_timezone():
 service_url = 'https://api-test.onlineszamla.nav.gov.hu/invoiceService/v2'
 signature_key = 'bf-a7fe-4d5ccb8ec0c72VIKJ21AJZ02'
 replacement_key = '3de02VIKJ21BMJBB'
-request_id = '202010052172'
+request_id = '202010052181'
 password = 'Len123_Ovo'
 user = User(login='mr0tapeogrpmmkg',
             tax_number='68293008')
