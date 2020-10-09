@@ -10,13 +10,15 @@ def test_query_invoice_data_request():
         user=config.user,
         software=config.software,
         invoice_number_query=ois.InvoiceNumberQuery(
-            invoice_number='2020-01',
-            invoice_direction=ois.InvoiceDirection.OUTBOUND,
+            invoice_number='12345678/2020',
+            invoice_direction=ois.InvoiceDirection.INBOUND,
             batch_index=None,
-            supplier_tax_number=None
+            supplier_tax_number='######'
         )
     )
+
     response = client.query_invoice_data(data)
+
 
     assert response is not None
     assert response.result is not None
@@ -36,4 +38,4 @@ def test_query_invoice_data_request():
     assert response.invoice_data_result.audit_data.transaction_id is not None
 
     invoice_data = ois.decode_invoice_data(response.invoice_data_result.invoice_data)
-    a = 2
+    assert invoice_data is not None
