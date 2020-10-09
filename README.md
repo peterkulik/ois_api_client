@@ -40,7 +40,7 @@ client = ois.Client(
 )
 ```
 
-- Build up general parameters for each request:
+- Build up general parameters for each request
 ```python
 user = ois.User(
     login='your_login',
