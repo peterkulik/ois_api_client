@@ -1,6 +1,5 @@
 from datetime import date
-
-from .QueryOperator import QueryOperator
+from . import QueryOperator
 
 
 class RelationQueryDateType:

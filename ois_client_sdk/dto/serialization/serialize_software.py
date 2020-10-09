@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ET
 
-from ..Software import Software
+from .. import Software
 from .serialize_element import serialize_text_element
 
 

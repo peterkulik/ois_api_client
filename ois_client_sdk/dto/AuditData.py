@@ -1,7 +1,5 @@
 from datetime import datetime
-
-from .OriginalRequestVersion import OriginalRequestVersion
-from .Source import Source
+from . import OriginalRequestVersion, Source
 
 
 class AuditData:

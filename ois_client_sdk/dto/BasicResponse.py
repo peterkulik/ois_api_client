@@ -1,4 +1,3 @@
-from .BasicHeader import BasicHeader
 from .BasicResult import BasicResult
 
 

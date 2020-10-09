@@ -1,7 +1,5 @@
 from datetime import datetime
-
-from .BasicOnlineInvoiceResponse import BasicOnlineInvoiceResponse
-from .BasicResult import BasicResult
+from . import BasicOnlineInvoiceResponse, BasicResult
 
 
 class TokenExchangeResponse(BasicOnlineInvoiceResponse):

@@ -31,10 +31,11 @@ from .dto import RelationalQueryParams
 from .dto import RelationQueryDateType
 from .dto import Software
 from .dto import Source
+from .dto import TechnicalValidationResult
 from .dto import TokenExchangeRequest
 from .dto import TokenExchangeResponse
 from .dto import TransactionQueryParams
-from .dto import User
+from .dto import UserHeader
 
 from .exceptions.GeneralError import GeneralError
 from .dto.deserialization.decode_invoice_data import decode_invoice_data

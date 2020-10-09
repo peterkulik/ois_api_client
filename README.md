@@ -42,7 +42,7 @@ client = ois.Client(
 
 - Build up general parameters for each request
 ```python
-user = ois.User(
+user = ois.UserHeader(
     login='your_login',
     tax_number='your_taxnumbers_first_8_character')
 

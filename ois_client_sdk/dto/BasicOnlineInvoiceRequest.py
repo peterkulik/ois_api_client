@@ -1,7 +1,4 @@
-from .BasicRequest import BasicRequest
-from .BasicHeader import BasicHeader
-from .Software import Software
-from .User import User
+from . import BasicHeader, BasicRequest, Software, UserHeader
 
 
 class BasicOnlineInvoiceRequest(BasicRequest):
@@ -12,6 +9,6 @@ class BasicOnlineInvoiceRequest(BasicRequest):
     :param software: Billing software data
     """
 
-    def __init__(self, header: BasicHeader, user: User, software: Software):
+    def __init__(self, header: BasicHeader, user: UserHeader, software: Software):
         super().__init__(header, user)
         self.software = software

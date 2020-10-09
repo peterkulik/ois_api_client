@@ -1,6 +1,5 @@
 from typing import Union
-
-from ois_client_sdk.dto.InvoiceDirection import InvoiceDirection
+from . import InvoiceDirection
 
 
 class InvoiceNumberQuery:

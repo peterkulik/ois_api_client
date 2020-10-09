@@ -1,9 +1,4 @@
-from .BasicOnlineInvoiceRequest import BasicOnlineInvoiceRequest
-from .BasicHeader import BasicHeader
-from .InvoiceDirection import InvoiceDirection
-from .InvoiceQueryParams import InvoiceQueryParams
-from .Software import Software
-from .User import User
+from . import BasicHeader, BasicOnlineInvoiceRequest, InvoiceDirection, InvoiceQueryParams, Software, UserHeader
 
 
 class QueryInvoiceDigestRequest(BasicOnlineInvoiceRequest):
@@ -14,7 +9,7 @@ class QueryInvoiceDigestRequest(BasicOnlineInvoiceRequest):
     :param invoice_query_params: Invoice query parameters
     """
 
-    def __init__(self, header: BasicHeader, user: User, software: Software, page: int,
+    def __init__(self, header: BasicHeader, user: UserHeader, software: Software, page: int,
                  invoice_direction: InvoiceDirection, invoice_query_params: InvoiceQueryParams):
         super().__init__(header, user, software)
         self.page = page

@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ET
 
-from ..QueryInvoiceDigestRequest import QueryInvoiceDigestRequest
+from .. import QueryInvoiceDigestRequest
 from .serialize_basic_online_invoice_request import serialize_basic_online_invoice_request
 from .serialize_element import serialize_text_element, serialize_int_element
 from .serialize_mandatory_query_params import serialize_mandatory_query_params

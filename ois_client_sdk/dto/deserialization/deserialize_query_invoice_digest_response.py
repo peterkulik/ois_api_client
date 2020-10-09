@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 from .deserialize_basic_result import deserialize_basic_result
 from .deserialize_invoice_digest_result import deserialize_invoice_digest_result
-from ..QueryInvoiceDigestResponse import QueryInvoiceDigestResponse
+from .. import QueryInvoiceDigestResponse
 
 
 def deserialize_query_invoice_digest_response(query_invoice_digest_response: str) -> QueryInvoiceDigestResponse:

@@ -3,7 +3,7 @@ import xml.etree.ElementTree as ET
 from .serialize_header import serialize_header
 from .serialize_user import serialize_user
 from .serialize_software import serialize_software
-from ..BasicOnlineInvoiceRequest import BasicOnlineInvoiceRequest
+from .. import BasicOnlineInvoiceRequest
 from ...constants import NAMESPACE
 
 

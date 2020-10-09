@@ -31,10 +31,11 @@ from .RelationalQueryParams import RelationalQueryParams
 from .RelationQueryDateType import RelationQueryDateType
 from .Software import Software
 from .Source import Source
+from .TechnicalValidationResult import TechnicalValidationResult
 from .TokenExchangeRequest import TokenExchangeRequest
 from .TokenExchangeResponse import TokenExchangeResponse
 from .TransactionQueryParams import TransactionQueryParams
-from .User import User
+from .UserHeader import UserHeader
 
 from .deserialization.deserialize_query_invoice_data_response import deserialize_query_invoice_data_response
 from .deserialization.deserialize_query_invoice_digest_response import deserialize_query_invoice_digest_response

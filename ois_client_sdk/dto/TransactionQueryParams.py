@@ -1,4 +1,4 @@
-from .ManageInvoiceOperation import ManageInvoiceOperation
+from . import ManageInvoiceOperation
 
 
 class TransactionQueryParams:

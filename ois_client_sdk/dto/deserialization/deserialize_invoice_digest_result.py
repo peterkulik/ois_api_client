@@ -2,13 +2,8 @@ import xml.etree.ElementTree as ET
 from typing import Union
 
 from .XmlReader import XmlReader as XR
-from ..InvoiceAppearance import InvoiceAppearance
-from ..InvoiceCategory import InvoiceCategory
-from ..InvoiceDigest import InvoiceDigest
-from ..InvoiceDigestResult import InvoiceDigestResult
-from ..ManageInvoiceOperation import ManageInvoiceOperation
-from ..PaymentMethod import PaymentMethod
-from ..Source import Source
+from .. import InvoiceAppearance, InvoiceCategory, InvoiceDigest, InvoiceDigestResult, ManageInvoiceOperation, \
+    PaymentMethod, Source
 
 
 def _deserialize_invoice_digest(el: ET.Element) -> InvoiceDigest:

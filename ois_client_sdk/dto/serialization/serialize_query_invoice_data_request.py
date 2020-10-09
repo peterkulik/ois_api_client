@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ET
 
 from .serialize_basic_online_invoice_request import serialize_basic_online_invoice_request
 from .serialize_element import serialize_text_element, serialize_int_element
-from ..QueryInvoiceDataRequest import QueryInvoiceDataRequest
+from .. import QueryInvoiceDataRequest
 
 
 def serialize_query_invoice_data_request_type(parent: ET.Element, data: QueryInvoiceDataRequest) -> ET.Element:

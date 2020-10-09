@@ -1,11 +1,6 @@
 from decimal import Decimal
 from datetime import date, datetime
-
-from .InvoiceAppearance import InvoiceAppearance
-from .InvoiceCategory import InvoiceCategory
-from .ManageInvoiceOperation import ManageInvoiceOperation
-from .PaymentMethod import PaymentMethod
-from .Source import Source
+from . import InvoiceAppearance, InvoiceCategory, ManageInvoiceOperation, PaymentMethod, Source
 
 
 class InvoiceDigest:

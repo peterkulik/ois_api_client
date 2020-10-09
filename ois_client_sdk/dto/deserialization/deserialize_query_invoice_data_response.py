@@ -3,11 +3,7 @@ from typing import Union
 
 from .XmlReader import XmlReader as XR
 from .deserialize_basic_result import deserialize_basic_result
-from ..AuditData import AuditData
-from ..InvoiceDataResult import InvoiceDataResult
-from ..OriginalRequestVersion import OriginalRequestVersion
-from ..QueryInvoiceDataResponse import QueryInvoiceDataResponse
-from ..Source import Source
+from .. import AuditData, InvoiceDataResult, OriginalRequestVersion, QueryInvoiceDataResponse, Source
 
 
 def _deserialize_audit_data(parent: ET.Element) -> Union[AuditData, None]:

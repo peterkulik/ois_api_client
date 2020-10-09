@@ -1,6 +1,5 @@
 from typing import List
-
-from .InvoiceDigest import InvoiceDigest
+from . import InvoiceDigest
 
 
 class InvoiceDigestResult:

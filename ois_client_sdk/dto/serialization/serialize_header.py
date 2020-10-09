@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 from datetime import timezone
 
-from ..BasicHeader import BasicHeader
+from .. import BasicHeader
 from .serialize_element import serialize_text_element
 from ...constants import REQUEST_VERSION, HEADER_VERSION
 

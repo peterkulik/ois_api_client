@@ -1,7 +1,4 @@
-from .BasicHeader import BasicHeader
-from .BasicResponse import BasicResponse
-from .BasicResult import BasicResult
-from .Software import Software
+from .BasicResponse import BasicResponse, BasicResult
 
 
 class BasicOnlineInvoiceResponse(BasicResponse):

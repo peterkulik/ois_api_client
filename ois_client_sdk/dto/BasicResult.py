@@ -1,5 +1,4 @@
 from typing import Union, List
-
 from .Notification import Notification
 
 
