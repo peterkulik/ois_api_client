@@ -13,8 +13,8 @@ def deserialize_token_exchange_response(token_exchange_response: str) -> TokenEx
 
     result = TokenExchangeResponse(
         encoded_exchange_token=XR.find_child(root, 'encodedExchangeToken').text,
-        token_validity_from=XR.find_child_as_datetime(root, 'tokenValidityFrom'),
-        token_validity_to=XR.find_child_as_datetime(root, 'tokenValidityTo'),
+        token_validity_from=XR.get_child_datetime_tz_offset(root, 'tokenValidityFrom'),
+        token_validity_to=XR.get_child_datetime_tz_offset(root, 'tokenValidityTo'),
         result=deserialize_basic_result(root)
     )
     return result

@@ -1,23 +1,17 @@
-from ois_client_sdk.Client import Client
-from ois_client_sdk.dto.BasicHeader import BasicHeader
-from ois_client_sdk.dto.InvoiceDirection import InvoiceDirection
-from ois_client_sdk.dto.InvoiceNumberQuery import InvoiceNumberQuery
-from ois_client_sdk.dto.OriginalRequestVersion import OriginalRequestVersion
-from ois_client_sdk.dto.QueryInvoiceDataRequest import QueryInvoiceDataRequest
-from ois_client_sdk.dto.Source import Source
+import ois_client_sdk as ois
 from tests.common import config
 
 
 def test_query_invoice_data_request():
-    client = Client(config.service_url, config.signature_key, config.replacement_key, config.password)
+    client = ois.Client(config.service_url, config.signature_key, config.replacement_key, config.password)
 
-    data = QueryInvoiceDataRequest(
-        header=BasicHeader(request_id=config.request_id, timestamp=config.timestamp),
+    data = ois.QueryInvoiceDataRequest(
+        header=ois.BasicHeader(request_id=config.request_id, timestamp=config.timestamp),
         user=config.user,
         software=config.software,
-        invoice_number_query=InvoiceNumberQuery(
+        invoice_number_query=ois.InvoiceNumberQuery(
             invoice_number='2020-01',
-            invoice_direction=InvoiceDirection.OUTBOUND,
+            invoice_direction=ois.InvoiceDirection.OUTBOUND,
             batch_index=None,
             supplier_tax_number=None
         )
@@ -37,6 +31,9 @@ def test_query_invoice_data_request():
     assert response.invoice_data_result.audit_data.batch_index is None
     assert response.invoice_data_result.audit_data.index is not None
     assert response.invoice_data_result.audit_data.ins_cus_user is not None
-    assert response.invoice_data_result.audit_data.source == Source.XML
-    assert response.invoice_data_result.audit_data.original_request_version == OriginalRequestVersion.v_2_0
+    assert response.invoice_data_result.audit_data.source == ois.Source.XML
+    assert response.invoice_data_result.audit_data.original_request_version == ois.OriginalRequestVersion.v_2_0
     assert response.invoice_data_result.audit_data.transaction_id is not None
+
+    invoice_data = ois.decode_invoice_data(response.invoice_data_result.invoice_data)
+    a = 2

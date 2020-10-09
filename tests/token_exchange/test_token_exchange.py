@@ -1,14 +1,12 @@
-from ois_client_sdk import BasicHeader, deserialize_general_error_response
-from ois_client_sdk import TokenExchangeRequest
-from ois_client_sdk.Client import Client
+import ois_client_sdk as ois
 from tests.common import config
 
 
 def test_token_exchange():
-    client = Client(config.service_url, config.signature_key, config.replacement_key, config.password)
+    client = ois.Client(config.service_url, config.signature_key, config.replacement_key, config.password)
 
-    req: TokenExchangeRequest = TokenExchangeRequest(
-        header=BasicHeader(request_id=config.request_id, timestamp=config.timestamp),
+    req: ois.TokenExchangeRequest = ois.TokenExchangeRequest(
+        header=ois.BasicHeader(request_id=config.request_id, timestamp=config.timestamp),
         user=config.user,
         software=config.software
     )
