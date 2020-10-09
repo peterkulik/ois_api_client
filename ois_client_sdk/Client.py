@@ -2,11 +2,17 @@ import requests
 import xml.etree.ElementTree as ET
 
 from .constants import NAMESPACE
+from .dto.QueryInvoiceDataRequest import QueryInvoiceDataRequest
+from .dto.QueryInvoiceDataResponse import QueryInvoiceDataResponse
 from .dto.QueryInvoiceDigestRequest import QueryInvoiceDigestRequest
+from .dto.QueryInvoiceDigestResponse import QueryInvoiceDigestResponse
+from .dto.TokenExchangeResponse import TokenExchangeResponse
+from .dto.deserialization.deserialize_query_invoice_data_response import deserialize_query_invoice_data_response
 from .dto.deserialization.deserialize_query_invoice_digest_response import deserialize_query_invoice_digest_response
 from .dto.deserialization.deserialize_token_exchange_response import deserialize_token_exchange_response
 from .dto.serialization.build_request_signature import build_request_signature
 from .dto.serialization.hash_password import hash_password
+from .dto.serialization.serialize_query_invoice_data_request import serialize_query_invoice_data_request
 from .dto.serialization.serialize_query_invoice_digest_request import serialize_query_invoice_digest_request
 from .dto.serialization.serialize_token_exchange_request import serialize_token_exchange_request
 from .dto.TokenExchangeRequest import TokenExchangeRequest
@@ -21,18 +27,25 @@ class Client:
         self._password_hash = hash_password(password)
         ET.register_namespace('', NAMESPACE)
 
-    def token_exchange(self, data: TokenExchangeRequest):
+    def token_exchange(self, data: TokenExchangeRequest) -> TokenExchangeResponse:
         rs = build_request_signature(data.header.request_id, data.header.timestamp, self._signature_key)
         par = serialize_token_exchange_request(data, rs, self._password_hash)
         response = self.call_operation('tokenExchange', par)
         result = deserialize_token_exchange_response(response)
         return result
 
-    def query_invoice_digest(self, data: QueryInvoiceDigestRequest):
+    def query_invoice_digest(self, data: QueryInvoiceDigestRequest) -> QueryInvoiceDigestResponse:
         rs = build_request_signature(data.header.request_id, data.header.timestamp, self._signature_key)
         par = serialize_query_invoice_digest_request(data, rs, self._password_hash)
         response = self.call_operation('queryInvoiceDigest', par)
         result = deserialize_query_invoice_digest_response(response)
+        return result
+
+    def query_invoice_data(self, data: QueryInvoiceDataRequest) -> QueryInvoiceDataResponse:
+        rs = build_request_signature(data.header.request_id, data.header.timestamp, self._signature_key)
+        par = serialize_query_invoice_data_request(data, rs, self._password_hash)
+        response = self.call_operation('queryInvoiceData', par)
+        result = deserialize_query_invoice_data_response(response)
         return result
 
     def call_operation(self, operation: str, parameter: ET.Element) -> str:

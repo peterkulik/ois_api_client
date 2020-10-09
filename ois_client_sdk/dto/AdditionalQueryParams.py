@@ -1,4 +1,4 @@
-from .InvoiceAppearanceType import InvoiceAppearanceType
+from .InvoiceAppearance import InvoiceAppearance
 from .InvoiceCategory import InvoiceCategory
 from .PaymentMethod import PaymentMethod
 from .Source import Source
@@ -18,7 +18,7 @@ class AdditionalQueryParams:
     """
 
     def __init__(self, tax_number: str, group_member_tax_number: str, name: str, invoice_category: InvoiceCategory,
-                 payment_method: PaymentMethod, invoice_appearance: InvoiceAppearanceType, source: Source,
+                 payment_method: PaymentMethod, invoice_appearance: InvoiceAppearance, source: Source,
                  currency: str):
         self.tax_number = tax_number
         self.group_member_tax_number = group_member_tax_number

@@ -1,6 +1,6 @@
 from decimal import Decimal
 import xml.etree.ElementTree as ET
-from datetime import datetime, date
+from datetime import datetime, date, tzinfo, timezone
 from typing import List, Union
 
 from ...constants import NAMESPACE
@@ -18,6 +18,11 @@ class XmlReader:
         return None if text is None else int(text)
 
     @staticmethod
+    def get_child_bool(parent: ET.Element, tag_name: str) -> Union[bool, None]:
+        text = XmlReader.get_child_text(parent, tag_name)
+        return None if text is None else text.lower() == 'true'
+
+    @staticmethod
     def get_child_decimal(parent: ET.Element, tag_name: str) -> Union[Decimal, None]:
         text = XmlReader.get_child_text(parent, tag_name)
         return None if text is None else Decimal(text)
@@ -28,9 +33,9 @@ class XmlReader:
         return None if text is None else datetime.strptime(text, '%Y-%m-%d')
 
     @staticmethod
-    def get_child_datetime(parent: ET.Element, tag_name: str) -> Union[datetime, None]:
+    def get_child_utc_datetime(parent: ET.Element, tag_name: str) -> Union[datetime, None]:
         text = XmlReader.get_child_text(parent, tag_name)
-        return None if text is None else datetime.strptime(text, '%Y-%m-%dT%H:%M:%S.%fZ')
+        return None if text is None else datetime.strptime(text, '%Y-%m-%dT%H:%M:%S.%fZ').replace(tzinfo=timezone.utc)
 
     @staticmethod
     def find_child(parent: ET.Element, tag_name: str) -> ET.Element:

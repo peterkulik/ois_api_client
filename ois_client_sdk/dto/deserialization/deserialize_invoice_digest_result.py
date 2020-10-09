@@ -38,7 +38,7 @@ def _deserialize_invoice_digest(el: ET.Element) -> InvoiceDigest:
         index=XR.get_child_int(el, 'index'),
         original_invoice_number=XR.get_child_text(el, 'originalInvoiceNumber'),
         modification_index=XR.get_child_int(el, 'modificationIndex'),
-        ins_date=XR.get_child_datetime(el, 'insDate')
+        ins_date=XR.get_child_utc_datetime(el, 'insDate')
     )
 
 
