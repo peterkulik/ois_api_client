@@ -17,14 +17,20 @@ https://onlineszamla.nav.gov.hu/dokumentaciok
 - token_exchange
 
 ## Where to get it
+```sh
+# PyPI
+pip install ois_client_sdk
+```
 
+## License
+[MIT](LICENSE)
 
 ## Usage
 
-- Build up you client
+- Build up your client
 ```python
 import ois_client_sdk as ois
-from datetime import datetime
+from datetime import datetime, timezone
 
 client = ois.Client(
     uri='https://api-test.onlineszamla.nav.gov.hu/invoiceService/v2',    
@@ -56,7 +62,7 @@ software = ois.Software(
 digest_request = ois.QueryInvoiceDigestRequest(
     header=ois.BasicHeader(
         request_id='your_generated_unique_request_id',
-        timestamp=datetime.now()),
+        timestamp=datetime.now().astimezone(tz=timezone.utc)),
     user=user,
     software=software,
     page=1,
