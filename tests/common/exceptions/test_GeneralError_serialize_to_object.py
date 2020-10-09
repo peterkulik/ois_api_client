@@ -1,4 +1,5 @@
 from ois_client_sdk.dto.deserialization.XmlReader import XmlReader
+from ois_client_sdk.dto.deserialization.deserialize_general_error_response import deserialize_general_error_response
 from ois_client_sdk.exceptions.GeneralError import GeneralError
 from tests.common import config
 
@@ -8,7 +9,7 @@ def test_serialize_general_error_to_object():
         general_error_message = file.read()
 
     general_error = GeneralError(general_error_message)
-    serialized_error = general_error.deserialize(XmlReader(config.namespace))
+    serialized_error = deserialize_general_error_response(general_error.general_error_response)
 
     assert serialized_error is not None
     assert serialized_error.result is not None

@@ -1,14 +1,18 @@
 from typing import List
-from ois_client_sdk.dto.BasicResponse import BasicResponse
+from .BasicResponse import BasicResponse
+from .TechnicalValidationResult import TechnicalValidationResult
+from . import BasicResult
 
 
 class GeneralErrorResponse(BasicResponse):
-    class TechnicalValidationMessage:
-        validation_result_code: str
-        validation_error_code: str
-        message: str
+    """Generic fault type for every REST operation
 
-    technical_validation_messages: List[TechnicalValidationMessage]
+    :param result: Basic result data
+    :param technical_validation_messages: Technical validation messages
+    """
 
-    def __init__(self):
-        self.technical_validation_messages = []
+    def __init__(self, result: BasicResult, technical_validation_messages: List[TechnicalValidationResult] = None):
+        super().__init__(result=result)
+        if technical_validation_messages is None:
+            technical_validation_messages = []
+        self.technical_validation_messages = technical_validation_messages
