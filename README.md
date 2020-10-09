@@ -86,15 +86,15 @@ try:
         print(i.invoice_number)
         # ...
 except ois.GeneralError as err:
-    general_error_response = ois.deserialize_general_error_response(err.general_error_response)
-    print(general_error_response.result.message)
-    print(general_error_response.result.error_code)
-    print(general_error_response.result.func_code)
+    gen_err: ois.GeneralErrorResponse = ois.deserialize_general_error_response(err.general_error_response)
+    print(gen_err.result.message)
+    print(gen_err.result.error_code)
+    print(gen_err.result.func_code)
 
-    for i in general_error_response.technical_validation_messages:
-        print(i.message)
-        print(i.validation_error_code)
-        print(i.validation_result_code)
+    for tvm in gen_err.technical_validation_messages:
+        print(tvm.message)
+        print(tvm.validation_error_code)
+        print(tvm.validation_result_code)
 except Exception as err:
     print(err)
 ```
@@ -120,15 +120,15 @@ try:
     invoice_xml_as_string = ois.decode_invoice_data(data_response.invoice_data_result.invoice_data)
     print(invoice_xml_as_string)
 except ois.GeneralError as err:
-    general_error_response = ois.deserialize_general_error_response(err.general_error_response)
-    print(general_error_response.result.message)
-    print(general_error_response.result.error_code)
-    print(general_error_response.result.func_code)
+    gen_err: ois.GeneralErrorResponse = ois.deserialize_general_error_response(err.general_error_response)
+    print(gen_err.result.message)
+    print(gen_err.result.error_code)
+    print(gen_err.result.func_code)
 
-    for i in general_error_response.technical_validation_messages:
-        print(i.message)
-        print(i.validation_error_code)
-        print(i.validation_result_code)
+    for tvm in gen_err.technical_validation_messages:
+        print(tvm.message)
+        print(tvm.validation_error_code)
+        print(tvm.validation_result_code)
 except Exception as err:
     print(err)
 ```
