@@ -1,4 +1,4 @@
-import ois_client_sdk as ois
+import ois_api_client as ois
 from tests.common import config
 
 

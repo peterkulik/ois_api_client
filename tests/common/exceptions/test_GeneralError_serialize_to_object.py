@@ -1,4 +1,4 @@
-import ois_client_sdk as ois
+import ois_api_client as ois
 
 
 def test_serialize_general_error_to_object():
