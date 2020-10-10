@@ -1,12 +1,12 @@
-# ois_client_sdk 
-**Online Invoice System Client SDK**
+# ois_api_client 
+**Online Invoice System API Client**
 
 *API Version: 2.0*
 
 **The library is under active development!**
 
 ## What is it?
-**ois_client_sdk** is a python client sdk for the hungarian, offical Online Invoice System public API.
+**ois_api_client** is a python client for the hungarian, offical Online Invoice System public API.
 You can find the API documentation here:
 
 https://onlineszamla.nav.gov.hu/dokumentaciok
@@ -19,7 +19,7 @@ https://onlineszamla.nav.gov.hu/dokumentaciok
 ## Where to get it
 ```sh
 # PyPI
-pip install ois_client_sdk
+pip install ois_api_client
 ```
 
 ## License
@@ -29,7 +29,7 @@ pip install ois_client_sdk
 
 - Build up your client
 ```python
-import ois_client_sdk as ois
+import ois_api_client as ois
 from datetime import datetime, timezone
 
 client = ois.Client(
