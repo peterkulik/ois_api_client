@@ -1,4 +1,9 @@
-from . import BasicHeader, BasicOnlineInvoiceRequest, InvoiceDirection, InvoiceQueryParams, Software, UserHeader
+from .BasicHeader import BasicHeader
+from .BasicOnlineInvoiceRequest import BasicOnlineInvoiceRequest
+from .InvoiceDirection import InvoiceDirection
+from .InvoiceQueryParams import InvoiceQueryParams
+from .Software import Software
+from .UserHeader import UserHeader
 
 
 class QueryInvoiceDigestRequest(BasicOnlineInvoiceRequest):

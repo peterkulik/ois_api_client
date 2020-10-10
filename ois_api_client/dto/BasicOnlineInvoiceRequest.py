@@ -1,4 +1,7 @@
-from . import BasicHeader, BasicRequest, Software, UserHeader
+from .BasicHeader import BasicHeader
+from .BasicRequest import BasicRequest
+from .Software import Software
+from .UserHeader import UserHeader
 
 
 class BasicOnlineInvoiceRequest(BasicRequest):

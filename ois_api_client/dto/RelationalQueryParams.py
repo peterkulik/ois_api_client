@@ -1,4 +1,4 @@
-from . import RelationQueryDateType
+from .RelationQueryDateType import RelationQueryDateType
 
 
 class RelationalQueryParams:

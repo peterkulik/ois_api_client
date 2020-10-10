@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ET
 from .XmlReader import XmlReader as XR
-from .. import BasicResult
+from ..BasicResult import BasicResult
 
 
 def deserialize_basic_result(parent: ET.Element):

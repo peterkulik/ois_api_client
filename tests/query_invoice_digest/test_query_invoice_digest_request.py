@@ -11,7 +11,7 @@ def test_query_invoice_digest_request():
         user=config.user,
         software=config.software,
         page=1,
-        invoice_direction=ois.InvoiceDirection.INBOUND,
+        invoice_direction=ois.InvoiceDirection.OUTBOUND,
         invoice_query_params=ois.InvoiceQueryParams(
             ois.MandatoryQueryParams(
                 ois.MandatoryQueryParams.InsDate(

@@ -1,4 +1,5 @@
-from .BasicResponse import BasicResponse, BasicResult
+from .BasicResponse import BasicResponse
+from .BasicResult import BasicResult
 
 
 class BasicOnlineInvoiceResponse(BasicResponse):

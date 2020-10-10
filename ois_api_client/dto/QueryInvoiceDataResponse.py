@@ -1,5 +1,7 @@
 from typing import Union
-from . import BasicOnlineInvoiceResponse, BasicResult, InvoiceDataResult
+from .BasicOnlineInvoiceResponse import BasicOnlineInvoiceResponse
+from .BasicResult import BasicResult
+from .InvoiceDataResult import InvoiceDataResult
 
 
 class QueryInvoiceDataResponse(BasicOnlineInvoiceResponse):

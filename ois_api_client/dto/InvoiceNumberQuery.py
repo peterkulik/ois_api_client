@@ -1,5 +1,5 @@
 from typing import Union
-from . import InvoiceDirection
+from .InvoiceDirection import InvoiceDirection
 
 
 class InvoiceNumberQuery:

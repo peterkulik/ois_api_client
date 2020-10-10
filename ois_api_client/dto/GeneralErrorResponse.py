@@ -1,5 +1,8 @@
 from typing import List
-from . import BasicResponse, BasicResult, TechnicalValidationResult
+
+from .BasicResponse import BasicResponse
+from .BasicResult import BasicResult
+from .TechnicalValidationResult import TechnicalValidationResult
 
 
 class GeneralErrorResponse(BasicResponse):

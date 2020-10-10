@@ -14,12 +14,12 @@ from . import build_request_signature
 from . import hash_password
 from . import GeneralError
 
-from .dto import deserialize_query_invoice_data_response
-from .dto import deserialize_query_invoice_digest_response
-from .dto import deserialize_token_exchange_response
-from .dto import serialize_query_invoice_data_request
-from .dto import serialize_query_invoice_digest_request
-from .dto import serialize_token_exchange_request
+from .dto.deserialization.deserialize_query_invoice_data_response import deserialize_query_invoice_data_response
+from .dto.deserialization.deserialize_query_invoice_digest_response import deserialize_query_invoice_digest_response
+from .dto.deserialization.deserialize_token_exchange_response import deserialize_token_exchange_response
+from .dto.serialization.serialize_query_invoice_data_request import serialize_query_invoice_data_request
+from .dto.serialization.serialize_query_invoice_digest_request import serialize_query_invoice_digest_request
+from .dto.serialization.serialize_token_exchange_request import serialize_token_exchange_request
 
 
 class Client:

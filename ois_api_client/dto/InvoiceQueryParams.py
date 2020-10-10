@@ -1,4 +1,7 @@
-from . import AdditionalQueryParams, MandatoryQueryParams, RelationalQueryParams, TransactionQueryParams
+from .AdditionalQueryParams import AdditionalQueryParams
+from .MandatoryQueryParams import MandatoryQueryParams
+from .RelationalQueryParams import RelationalQueryParams
+from .TransactionQueryParams import TransactionQueryParams
 
 
 class InvoiceQueryParams:

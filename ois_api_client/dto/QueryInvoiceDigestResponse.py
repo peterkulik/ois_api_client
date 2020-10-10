@@ -1,4 +1,6 @@
-from . import BasicResponse, BasicResult, InvoiceDigestResult
+from .BasicResponse import BasicResponse
+from .BasicResult import BasicResult
+from .InvoiceDigestResult import InvoiceDigestResult
 
 
 class QueryInvoiceDigestResponse(BasicResponse):

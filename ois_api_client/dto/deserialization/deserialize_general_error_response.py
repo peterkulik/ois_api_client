@@ -2,8 +2,8 @@ import xml.etree.ElementTree as ET
 
 from .XmlReader import XmlReader as XR
 from .deserialize_basic_result import deserialize_basic_result
-from .. import GeneralErrorResponse
-from .. import TechnicalValidationResult
+from ..GeneralErrorResponse import GeneralErrorResponse
+from ..TechnicalValidationResult import TechnicalValidationResult
 
 
 def deserialize_general_error_response(general_error_response: str):

@@ -1,4 +1,7 @@
-from . import BasicHeader, BasicOnlineInvoiceRequest, Software, UserHeader
+from .BasicHeader import BasicHeader
+from .BasicOnlineInvoiceRequest import BasicOnlineInvoiceRequest
+from .Software import Software
+from .UserHeader import UserHeader
 
 
 class TokenExchangeRequest(BasicOnlineInvoiceRequest):

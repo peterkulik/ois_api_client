@@ -1,5 +1,6 @@
 from typing import Union
-from . import DateIntervalParam, DateTimeIntervalParam
+from .DateIntervalParam import DateIntervalParam
+from .DateTimeIntervalParam import DateTimeIntervalParam
 
 
 class MandatoryQueryParams:

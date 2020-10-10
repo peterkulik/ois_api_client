@@ -1,4 +1,8 @@
-from . import BasicHeader, BasicOnlineInvoiceRequest, InvoiceNumberQuery, Software, UserHeader
+from .BasicHeader import BasicHeader
+from .BasicOnlineInvoiceRequest import BasicOnlineInvoiceRequest
+from .InvoiceNumberQuery import InvoiceNumberQuery
+from .Software import Software
+from .UserHeader import UserHeader
 
 
 class QueryInvoiceDataRequest(BasicOnlineInvoiceRequest):

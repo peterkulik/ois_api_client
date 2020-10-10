@@ -1,4 +1,5 @@
-from . import BasicHeader, UserHeader
+from .BasicHeader import BasicHeader
+from .UserHeader import UserHeader
 
 
 class BasicRequest:

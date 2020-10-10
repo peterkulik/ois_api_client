@@ -1,4 +1,7 @@
-from . import InvoiceAppearance, InvoiceCategory, PaymentMethod, Source
+from .InvoiceCategory import InvoiceCategory
+from .PaymentMethod import PaymentMethod
+from .InvoiceAppearance import InvoiceAppearance
+from .Source import Source
 
 
 class AdditionalQueryParams:
