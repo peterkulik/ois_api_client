@@ -6,7 +6,7 @@ def test_query_invoice_data_request():
     client = ois.Client(config.service_url, config.signature_key, config.replacement_key, config.password)
 
     data = ois.QueryInvoiceDataRequest(
-        header=ois.BasicHeader(request_id=config.request_id, timestamp=config.timestamp),
+        header=ois.BasicHeader(request_id=config.get_request_id(), timestamp=config.get_timestamp()),
         user=config.user,
         software=config.software,
         invoice_number_query=ois.InvoiceNumberQuery(

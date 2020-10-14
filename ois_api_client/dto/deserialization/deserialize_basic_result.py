@@ -7,7 +7,9 @@ def deserialize_basic_result(parent: ET.Element):
     if parent is None:
         return None
 
-    if (res_el := XR.find_child(parent, 'result')) is None:
+    res_el = XR.find_child(parent, 'result')
+
+    if res_el is None:
         return None
 
     result = BasicResult(

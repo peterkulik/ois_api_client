@@ -6,7 +6,7 @@ def test_token_exchange():
     client = ois.Client(config.service_url, config.signature_key, config.replacement_key, config.password)
 
     req: ois.TokenExchangeRequest = ois.TokenExchangeRequest(
-        header=ois.BasicHeader(request_id=config.request_id, timestamp=config.timestamp),
+        header=ois.BasicHeader(request_id=config.get_request_id(), timestamp=config.get_timestamp()),
         user=config.user,
         software=config.software
     )

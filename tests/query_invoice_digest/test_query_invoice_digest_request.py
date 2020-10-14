@@ -7,11 +7,11 @@ def test_query_invoice_digest_request():
     client = ois.Client(config.service_url, config.signature_key, config.replacement_key, config.password)
 
     data = ois.QueryInvoiceDigestRequest(
-        header=ois.BasicHeader(request_id=config.request_id, timestamp=config.timestamp),
+        header=ois.BasicHeader(request_id=config.get_request_id(), timestamp=config.get_timestamp()),
         user=config.user,
         software=config.software,
         page=1,
-        invoice_direction=ois.InvoiceDirection.OUTBOUND,
+        invoice_direction=ois.InvoiceDirection.INBOUND,
         invoice_query_params=ois.InvoiceQueryParams(
             ois.MandatoryQueryParams(
                 ois.MandatoryQueryParams.InsDate(
