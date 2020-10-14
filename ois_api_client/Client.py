@@ -52,7 +52,7 @@ class Client:
         return result
 
     def call_operation(self, operation: str, parameter: ET.Element) -> str:
-        data = ET.tostring(parameter, method='xml', encoding='utf-8', xml_declaration=True)
+        data = ET.tostring(parameter, method='xml', encoding='utf-8')
 
         with requests.post(url=f'{self._uri}/{operation}',
                            data=data,
