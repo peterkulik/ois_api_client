@@ -33,10 +33,12 @@ def _deserialize_invoice_data_result(parent: ET.Element) -> Union[InvoiceDataRes
     if parent is None:
         return None
 
+    compressed_content_indicator = XR.get_child_bool(parent, 'compressedContentIndicator')
+
     result = InvoiceDataResult(
         invoice_data=XR.get_child_text(parent, 'invoiceData'),
         audit_data=_deserialize_audit_data(parent),
-        compressed_content_indicator=XR.get_child_bool(parent, 'compressedContentIndicator')
+        compressed_content_indicator=compressed_content_indicator if compressed_content_indicator is not None else False
     )
 
     return result

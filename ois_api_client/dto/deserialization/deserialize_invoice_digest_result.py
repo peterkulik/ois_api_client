@@ -12,6 +12,10 @@ from ..Source import Source
 
 
 def _deserialize_invoice_digest(el: ET.Element) -> InvoiceDigest:
+    payment_method = XR.get_child_text(el, 'paymentMethod')
+    invoice_appearance = XR.get_child_text(el, 'invoiceAppearance')
+    source = XR.get_child_text(el, 'source')
+
     return InvoiceDigest(
         invoice_number=XR.get_child_text(el, 'invoiceNumber'),
         batch_index=XR.get_child_int(el, 'batchIndex'),
@@ -24,10 +28,10 @@ def _deserialize_invoice_digest(el: ET.Element) -> InvoiceDigest:
         customer_tax_number=XR.get_child_text(el, 'customerTaxNumber'),
         customer_group_tax_number=XR.get_child_text(el, 'customerGroupTaxNumber'),
         customer_name=XR.get_child_text(el, 'customerName'),
-        payment_method=PaymentMethod(XR.get_child_text(el, 'paymentMethod')),
+        payment_method=PaymentMethod(payment_method) if payment_method is not None else None,
         payment_date=XR.get_child_date(el, 'paymentDate'),
-        invoice_appearance=InvoiceAppearance(XR.get_child_text(el, 'invoiceAppearance')),
-        source=Source(XR.get_child_text(el, 'source')),
+        invoice_appearance=InvoiceAppearance(invoice_appearance) if invoice_appearance is not None else None,
+        source=Source(source) if source is not None else None,
         invoice_delivery_date=XR.get_child_date(el, 'invoiceDeliveryDate'),
         currency=XR.get_child_text(el, 'currency'),
         invoice_net_amount=XR.get_child_decimal(el, 'invoiceNetAmount'),

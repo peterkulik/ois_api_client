@@ -1,5 +1,7 @@
 from decimal import Decimal
 from datetime import date, datetime
+from typing import Union
+
 from .InvoiceAppearance import InvoiceAppearance
 from .InvoiceCategory import InvoiceCategory
 from .ManageInvoiceOperation import ManageInvoiceOperation
@@ -38,14 +40,17 @@ class InvoiceDigest:
     :param ins_date: Insert date in UTC time
     """
 
-    def __init__(self, invoice_number: str, batch_index: int, invoice_operation: ManageInvoiceOperation,
+    def __init__(self, invoice_number: str, batch_index: Union[int, None], invoice_operation: ManageInvoiceOperation,
                  invoice_category: InvoiceCategory, invoice_issue_date: date, supplier_tax_number: str,
-                 supplier_group_tax_number: str, supplier_name: str, customer_tax_number: str,
-                 customer_group_tax_number: str, customer_name: str, payment_method: PaymentMethod, payment_date: date,
-                 invoice_appearance: InvoiceAppearance, source: Source, invoice_delivery_date: date, currency: str,
-                 invoice_net_amount: Decimal, invoice_net_amount_huf: Decimal, invoice_vat_amount: Decimal,
-                 invoice_vat_amount_huf: Decimal, transaction_id: str, index: int, original_invoice_number: str,
-                 modification_index: int, ins_date: datetime):
+                 supplier_group_tax_number: Union[str, None], supplier_name: str, customer_tax_number: Union[str, None],
+                 customer_group_tax_number: Union[str, None], customer_name: Union[str, None],
+                 payment_method: Union[PaymentMethod, None], payment_date: Union[date, None],
+                 invoice_appearance: Union[InvoiceAppearance, None], source: Union[Source, None],
+                 invoice_delivery_date: Union[date, None], currency: Union[str, None],
+                 invoice_net_amount: Union[Decimal, None], invoice_net_amount_huf: Union[Decimal, None],
+                 invoice_vat_amount: Union[Decimal, None], invoice_vat_amount_huf: Union[Decimal, None],
+                 transaction_id: Union[str, None], index: Union[int, None], original_invoice_number: Union[str, None],
+                 modification_index: Union[int, None], ins_date: datetime):
         self.invoice_number = invoice_number
         self.batch_index = batch_index
         self.invoice_operation = invoice_operation

@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Union
 
 from .Source import Source
 from .OriginalRequestVersion import OriginalRequestVersion
@@ -16,8 +17,9 @@ class AuditData:
     :param original_request_version: requestVersion value of the invoice exchange
     """
 
-    def __init__(self, ins_date: datetime, ins_cus_user: str, source: Source, transaction_id: str, index: int,
-                 batch_index: int, original_request_version: OriginalRequestVersion):
+    def __init__(self, ins_date: datetime, ins_cus_user: str, source: Source, transaction_id: Union[str, None],
+                 index: Union[int, None], batch_index: Union[int, None],
+                 original_request_version: OriginalRequestVersion):
         self.ins_date = ins_date
         self.ins_cus_user = ins_cus_user
         self.source = source
