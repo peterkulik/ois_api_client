@@ -10,10 +10,10 @@ def test_query_invoice_data_request():
         user=config.user,
         software=config.software,
         invoice_number_query=ois.InvoiceNumberQuery(
-            invoice_number='2020-01',
-            invoice_direction=ois.InvoiceDirection.OUTBOUND,
+            invoice_number='12345678/2020',
+            invoice_direction=ois.InvoiceDirection.INBOUND,
             batch_index=None,
-            supplier_tax_number=None
+            supplier_tax_number='68558132'
         )
     )
 
