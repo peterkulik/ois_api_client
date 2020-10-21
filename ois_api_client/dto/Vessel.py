@@ -1,6 +1,3 @@
-from decimal import Decimal
-
-
 class Vessel:
     """Data of vessel
 
@@ -9,7 +6,7 @@ class Vessel:
     :param sailed_hours: Number of sailed hours
     """
 
-    def __init__(self, length: Decimal, activity_referred: bool, sailed_hours: Decimal):
+    def __init__(self, length: float, activity_referred: bool, sailed_hours: float):
         self.length = length
         self.activity_referred = activity_referred
         self.sailed_hours = sailed_hours

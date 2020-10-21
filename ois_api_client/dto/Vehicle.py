@@ -1,6 +1,3 @@
-from decimal import Decimal
-
-
 class Vehicle:
     """Other data in relation to motorised land vehicle
 
@@ -9,7 +6,7 @@ class Vehicle:
     :param kms: Travelled distance in km
     """
 
-    def __init__(self, engine_capacity: Decimal, engine_power: Decimal, kms: Decimal):
+    def __init__(self, engine_capacity: float, engine_power: float, kms: float):
         self.engine_capacity = engine_capacity
         self.engine_power = engine_power
         self.kms = kms

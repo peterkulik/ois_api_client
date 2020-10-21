@@ -1,5 +1,3 @@
-from decimal import Decimal
-
 from .ProductStream import ProductStream
 
 
@@ -10,6 +8,6 @@ class CustomerDeclaration:
     :param product_fee_weight: Weight of product fee obliged product in kilogram
     """
 
-    def __init__(self, product_stream: ProductStream, product_fee_weight: Decimal):
+    def __init__(self, product_stream: ProductStream, product_fee_weight: float):
         self.product_stream = product_stream
         self.product_fee_weight = product_fee_weight

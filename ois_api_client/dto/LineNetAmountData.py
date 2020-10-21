@@ -1,6 +1,3 @@
-from decimal import Decimal
-
-
 class LineNetAmountData:
     """Line net data
 
@@ -12,6 +9,6 @@ class LineNetAmountData:
     consideration reduced with the amount of VAT, expressed in HUF.
     """
 
-    def __init__(self, line_net_amount: Decimal, line_net_amount_huf: Decimal):
+    def __init__(self, line_net_amount: float, line_net_amount_huf: float):
         self.line_net_amount = line_net_amount
         self.line_net_amount_huf = line_net_amount_huf

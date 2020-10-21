@@ -1,6 +1,3 @@
-from decimal import Decimal
-
-
 class VatRateVatData:
     """VAT data of given tax rate
 
@@ -8,6 +5,6 @@ class VatRateVatData:
     vat_rate_vat_amount_huf: VAT amount of sales or service delivery under a given tax rate expressed in HUF
     """
 
-    def __init__(self, vat_rate_vat_amount: Decimal, vat_rate_vat_amount_huf: Decimal):
+    def __init__(self, vat_rate_vat_amount: float, vat_rate_vat_amount_huf: float):
         self.vat_rate_vat_amount = vat_rate_vat_amount
         self.vat_rate_vat_amount_huf = vat_rate_vat_amount_huf

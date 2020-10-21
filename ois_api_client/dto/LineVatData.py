@@ -1,6 +1,3 @@
-from decimal import Decimal
-
-
 class LineVatData:
     """Line VAT data
 
@@ -8,6 +5,6 @@ class LineVatData:
     :param line_vat_amount_huf: VAT amount of the item expressed in HUF
     """
 
-    def __init__(self, line_vat_amount: Decimal, line_vat_amount_huf: Decimal):
+    def __init__(self, line_vat_amount: float, line_vat_amount_huf: float):
         self.line_vat_amount = line_vat_amount
         self.line_vat_amount_huf = line_vat_amount_huf

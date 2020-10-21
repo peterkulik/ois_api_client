@@ -1,4 +1,10 @@
-from .RelationQueryDateType import RelationQueryDateType
+from datetime import date
+from typing import List, Union
+
+from .RelationQueryDate import RelationQueryDate
+from .RelationQueryMonetary import RelationQueryMonetary
+from .custom.RangeDate import RangeDate
+from .custom.RangeMonetary import RangeMonetary
 
 
 class RelationalQueryParams:
@@ -12,12 +18,15 @@ class RelationalQueryParams:
     :param invoice_vat_amount_huf: Query parameter of the invoice VAT amount expressed in HUF
     """
 
-    def __init__(self, invoice_delivery: RelationQueryDateType, payment_date: RelationQueryDateType, invoice_net_amount,
-                 invoice_net_amount_huf, invoice_vat_amount,
-                 invoice_vat_amount_huf):
+    def __init__(self, invoice_delivery: Union[date, RangeDate, RelationQueryDate, None] = None,
+                 payment_date: Union[date, RangeDate, RelationQueryDate, None] = None,
+                 invoice_net_amount: Union[float, RangeMonetary, RelationQueryMonetary, None] = None,
+                 invoice_net_amount_huf: Union[float, RangeMonetary, RelationQueryMonetary, None] = None,
+                 invoice_vat_amount: Union[float, RangeMonetary, RelationQueryMonetary, None] = None,
+                 invoice_vat_amount_huf: Union[float, RangeMonetary, RelationQueryMonetary, None] = None):
         self.invoice_delivery = invoice_delivery
         self.payment_date = payment_date
         self.invoice_net_amount = invoice_net_amount
-        self.invoice_net_amount_HUF = invoice_net_amount_huf
+        self.invoice_net_amount_huf = invoice_net_amount_huf
         self.invoice_vat_amount = invoice_vat_amount
-        self.invoice_vat_amount_HUF = invoice_vat_amount_huf
+        self.invoice_vat_amount_huf = invoice_vat_amount_huf

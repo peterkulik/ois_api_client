@@ -1,4 +1,3 @@
-from decimal import Decimal
 from typing import Union, List
 
 from .AdditionalData import AdditionalData
@@ -55,12 +54,12 @@ class Line:
     def __init__(self, line_number: int, line_modification_reference: LineModificationReference,
                  references_to_other_lines: ReferencesToOtherLines, advance_indicator: bool,
                  product_codes: ProductCodes, line_expression_indicator: bool,
-                 line_nature_indicator: LineNatureIndicator, line_description: str, quantity: Decimal,
-                 unit_of_measure: UnitOfMeasure, unit_of_measure_own: str, unit_price: Decimal, unit_price_huf: Decimal,
+                 line_nature_indicator: LineNatureIndicator, line_description: str, quantity: float,
+                 unit_of_measure: UnitOfMeasure, unit_of_measure_own: str, unit_price: float, unit_price_huf: float,
                  line_discount_data: DiscountData, line_amounts: Union[LineAmountsNormal, LineAmountsSimplified],
                  intermediated_service: bool, aggregate_invoice_line_data: AggregateInvoiceLineData,
                  new_transport_mean: NewTransportMean, deposit_indicator: bool, margin_scheme_indicator: MarginScheme,
-                 ekaer_ids: EkaerIds, obligated_for_product_fee: bool, gpc_excise: Decimal,
+                 ekaer_ids: EkaerIds, obligated_for_product_fee: bool, gpc_excise: float,
                  diesel_oil_purchase: DieselOilPurchase, neta_declaration: bool, product_fee_clause: ProductFeeClause,
                  line_product_fee_content: List[ProductFeeData], additional_line_data: List[AdditionalData]):
         self.line_number = line_number

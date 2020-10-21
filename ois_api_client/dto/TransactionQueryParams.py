@@ -1,3 +1,5 @@
+from typing import Union
+
 from .ManageInvoiceOperation import ManageInvoiceOperation
 
 
@@ -9,7 +11,8 @@ class TransactionQueryParams:
     :param invoice_operation: Invoice operation type
     """
 
-    def __init__(self, transaction_id: str, index: int, invoice_operation: ManageInvoiceOperation):
+    def __init__(self, transaction_id: str, index: Union[int, None] = None,
+                 invoice_operation: Union[ManageInvoiceOperation, None] = None):
         self.transaction_id = transaction_id
         self.index = index
         self.invoice_operation = invoice_operation

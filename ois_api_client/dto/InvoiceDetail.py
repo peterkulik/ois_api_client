@@ -1,5 +1,4 @@
 from datetime import date
-from decimal import Decimal
 from typing import List
 
 from .AdditionalData import AdditionalData
@@ -32,7 +31,7 @@ class InvoiceDetail:
     def __init__(self, invoice_category: InvoiceCategory, invoice_delivery_date: date,
                  invoice_delivery_period_start: date, invoice_delivery_period_end: date,
                  invoice_accounting_delivery_date: date, periodical_settlement: bool, small_business_indicator: bool,
-                 currency_code: str, exchange_rate: Decimal, self_billing_indicator: bool,
+                 currency_code: str, exchange_rate: float, self_billing_indicator: bool,
                  payment_method: PaymentMethod, payment_date: date, cash_accounting_indicator: bool,
                  invoice_appearance: InvoiceAppearance, electronic_invoice_hash: str,
                  additional_invoice_data: List[AdditionalData]):

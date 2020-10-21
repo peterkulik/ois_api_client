@@ -2,7 +2,7 @@ from datetime import date
 from .QueryOperator import QueryOperator
 
 
-class RelationQueryDateType:
+class RelationQueryDate:
     """Query parameter for date values
 
     :param query_operator: Query operator

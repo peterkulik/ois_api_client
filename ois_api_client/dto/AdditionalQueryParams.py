@@ -1,3 +1,5 @@
+from typing import Union
+
 from .InvoiceCategory import InvoiceCategory
 from .PaymentMethod import PaymentMethod
 from .InvoiceAppearance import InvoiceAppearance
@@ -17,9 +19,11 @@ class AdditionalQueryParams:
     :param currency: Currency of the invoice
     """
 
-    def __init__(self, tax_number: str, group_member_tax_number: str, name: str, invoice_category: InvoiceCategory,
-                 payment_method: PaymentMethod, invoice_appearance: InvoiceAppearance, source: Source,
-                 currency: str):
+    def __init__(self, tax_number: Union[str, None] = None, group_member_tax_number: Union[str, None] = None,
+                 name: Union[str, None] = None, invoice_category: Union[InvoiceCategory, None] = None,
+                 payment_method: Union[PaymentMethod, None] = None,
+                 invoice_appearance: Union[InvoiceAppearance, None] = None, source: Union[Source, None] = None,
+                 currency: Union[str, None] = None):
         self.tax_number = tax_number
         self.group_member_tax_number = group_member_tax_number
         self.name = name

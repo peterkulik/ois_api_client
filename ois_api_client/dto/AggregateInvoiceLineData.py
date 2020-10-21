@@ -1,5 +1,4 @@
 from datetime import date
-from decimal import Decimal
 
 
 class AggregateInvoiceLineData:
@@ -9,6 +8,6 @@ class AggregateInvoiceLineData:
     :param line_delivery_date: Delivery date of the given item in the case of an aggregate invoice
     """
 
-    def __init__(self, line_exchange_rate: Decimal, line_delivery_date: date):
+    def __init__(self, line_exchange_rate: float, line_delivery_date: date):
         self.line_exchange_rate = line_exchange_rate
         self.line_delivery_date = line_delivery_date

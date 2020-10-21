@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GeneralErrorResponse xmlns="http://schemas.nav.gov.hu/OSA/2.0/api" xmlns:ns2="http://schemas.nav.gov.hu/OSA/2.0/data">
+    <result>
+        <funcCode>ERROR</funcCode>
+        <errorCode>INVALID_REQUEST</errorCode>
+        <message>Helytelen kérés!</message>
+    </result>
+    <technicalValidationMessages>
+        <validationResultCode>ERROR</validationResultCode>
+        <validationErrorCode>SCHEMA_VIOLATION</validationErrorCode>
+        <message>Request body contains on line: [1] and column: [2,210] error: [cvc-minInclusive-valid: Value '0' is not
+            facet-valid with respect to minInclusive '1' for type 'IndexType'.]
+        </message>
+    </technicalValidationMessages>
+    <technicalValidationMessages>
+        <validationResultCode>ERROR</validationResultCode>
+        <validationErrorCode>SCHEMA_VIOLATION</validationErrorCode>
+        <message>Request body contains on line: [1] and column: [2,210] error: [cvc-type.3.1.3: The value '0' of element
+            'index' is not valid.]
+        </message>
+    </technicalValidationMessages>
+</GeneralErrorResponse>

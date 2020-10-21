@@ -1,6 +1,3 @@
-from decimal import Decimal
-
-
 class Aircraft:
     """Aircraft
 
@@ -9,7 +6,7 @@ class Aircraft:
     :param operation_hours: Number of aviated hours
     """
 
-    def __init__(self, take_off_weight: Decimal, air_cargo: bool, operation_hours: Decimal):
+    def __init__(self, take_off_weight: float, air_cargo: bool, operation_hours: float):
         self.take_off_weight = take_off_weight
         self.air_cargo = air_cargo
         self.operation_hours = operation_hours

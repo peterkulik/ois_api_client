@@ -1,5 +1,4 @@
 from datetime import date
-from decimal import Decimal
 
 from .SimpleAddress import SimpleAddress
 
@@ -14,7 +13,7 @@ class DieselOilPurchase:
     """
 
     def __init__(self, purchase_location: SimpleAddress, purchase_date: date, vehicle_registration_number: str,
-                 diesel_oil_quantity: Decimal):
+                 diesel_oil_quantity: float):
         self.purchase_location = purchase_location
         self.purchase_date = purchase_date
         self.vehicle_registration_number = vehicle_registration_number

@@ -1,4 +1,3 @@
-from decimal import Decimal
 from datetime import date, datetime
 from typing import Union
 
@@ -47,8 +46,8 @@ class InvoiceDigest:
                  payment_method: Union[PaymentMethod, None], payment_date: Union[date, None],
                  invoice_appearance: Union[InvoiceAppearance, None], source: Union[Source, None],
                  invoice_delivery_date: Union[date, None], currency: Union[str, None],
-                 invoice_net_amount: Union[Decimal, None], invoice_net_amount_huf: Union[Decimal, None],
-                 invoice_vat_amount: Union[Decimal, None], invoice_vat_amount_huf: Union[Decimal, None],
+                 invoice_net_amount: Union[float, None], invoice_net_amount_huf: Union[float, None],
+                 invoice_vat_amount: Union[float, None], invoice_vat_amount_huf: Union[float, None],
                  transaction_id: Union[str, None], index: Union[int, None], original_invoice_number: Union[str, None],
                  modification_index: Union[int, None], ins_date: datetime):
         self.invoice_number = invoice_number

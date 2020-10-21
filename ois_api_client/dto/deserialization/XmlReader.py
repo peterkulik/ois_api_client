@@ -23,9 +23,9 @@ class XmlReader:
         return None if text is None else text.lower() == 'true'
 
     @staticmethod
-    def get_child_decimal(parent: ET.Element, tag_name: str) -> Union[Decimal, None]:
+    def get_child_float(parent: ET.Element, tag_name: str) -> Union[float, None]:
         text = XmlReader.get_child_text(parent, tag_name)
-        return None if text is None else Decimal(text)
+        return None if text is None else float(text)
 
     @staticmethod
     def get_child_date(parent: ET.Element, tag_name: str) -> Union[date, None]:

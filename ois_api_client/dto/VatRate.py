@@ -1,6 +1,3 @@
-from decimal import Decimal
-
-
 class VatRate:
     """Marking tax rate or tax exempt supply
 
@@ -12,7 +9,7 @@ class VatRate:
     :param margin_scheme_no_vat: Margin scheme not including input tax
     """
 
-    def __init__(self, vat_percentage: Decimal, vat_exemption: str, vat_out_of_scope: bool,
+    def __init__(self, vat_percentage: float, vat_exemption: str, vat_out_of_scope: bool,
                  vat_domestic_reverse_charge: bool, margin_scheme_vat: bool, margin_scheme_no_vat: bool):
         self.vat_percentage = vat_percentage
         self.vat_exemption = vat_exemption

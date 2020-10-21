@@ -28,7 +28,8 @@ from .dto.QueryInvoiceDigestRequest import QueryInvoiceDigestRequest
 from .dto.QueryInvoiceDigestResponse import QueryInvoiceDigestResponse
 from .dto.QueryOperator import QueryOperator
 from .dto.RelationalQueryParams import RelationalQueryParams
-from .dto.RelationQueryDateType import RelationQueryDateType
+from .dto.RelationQueryDate import RelationQueryDate
+from .dto.RelationQueryMonetary import RelationQueryMonetary
 from .dto.Software import Software
 from .dto.Source import Source
 from .dto.TechnicalValidationResult import TechnicalValidationResult

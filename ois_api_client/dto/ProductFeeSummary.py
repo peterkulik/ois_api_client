@@ -1,4 +1,3 @@
-from decimal import Decimal
 from typing import List
 
 from .PaymentEvidenceDocumentData import PaymentEvidenceDocumentData
@@ -16,7 +15,7 @@ class ProductFeeSummary:
     """
 
     def __init__(self, product_fee_operation: ProductFeeOperation, product_fee_data: List[ProductFeeData],
-                 product_charge_sum: Decimal, payment_evidence_document_data: PaymentEvidenceDocumentData):
+                 product_charge_sum: float, payment_evidence_document_data: PaymentEvidenceDocumentData):
         self.product_fee_operation = product_fee_operation
         self.product_fee_data = product_fee_data
         self.product_charge_sum = product_charge_sum
