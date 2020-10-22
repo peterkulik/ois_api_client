@@ -1,6 +1,11 @@
 # ois_api_client 
 **Online Invoice System API Client**
 
+[![PyPI Latest Release](https://img.shields.io/pypi/v/ois_api_client.svg)](https://pypi.org/project/ois_api_client/)
+[![Package Status](https://img.shields.io/pypi/status/ois_api_client.svg)](https://pypi.org/project/ois_api_client/)
+[![License](https://img.shields.io/pypi/l/ois_api_client.svg)](https://github.com/peterkulik/ois_api_client/blob/master/LICENSE)
+
+
 *API Version: 2.0*
 
 **The library is under active development!**
@@ -94,9 +99,10 @@ try:
     print(digest_response.invoice_digest_result.available_page)
     print(digest_response.invoice_digest_result.current_page)
 
-    for i in digest_response.invoice_digest_result.invoice_digest:
-        print(i.invoice_number)
-        # ...
+    if digest_response.invoice_digest_result.invoice_digest is not None:
+        for i in digest_response.invoice_digest_result.invoice_digest:
+            print(i.invoice_number)
+            # ...
 except ois.GeneralError as err:
     gen_err: ois.GeneralErrorResponse = ois.deserialize_general_error_response(err.general_error_response)
     print(gen_err.result.message)
@@ -254,9 +260,10 @@ try:
     print(digest_response.invoice_digest_result.available_page)
     print(digest_response.invoice_digest_result.current_page)
 
-    for i in digest_response.invoice_digest_result.invoice_digest:
-        print(i.invoice_number)
-        # ...
+    if digest_response.invoice_digest_result.invoice_digest is not None:
+        for i in digest_response.invoice_digest_result.invoice_digest:
+            print(i.invoice_number)
+            # ...
 except ois.GeneralError as err:
     gen_err: ois.GeneralErrorResponse = ois.deserialize_general_error_response(err.general_error_response)
     print(gen_err.result.message)
