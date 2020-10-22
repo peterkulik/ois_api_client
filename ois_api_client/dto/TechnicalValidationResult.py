@@ -1,3 +1,6 @@
+from typing import Union
+
+
 class TechnicalValidationResult:
     """Technical validation response type
 
@@ -6,7 +9,10 @@ class TechnicalValidationResult:
     :param message: Processing message
     """
 
-    def __init__(self, validation_result_code: str, validation_error_code: str, message: str):
+    def __init__(self,
+                 validation_result_code: str,
+                 validation_error_code: Union[str, None] = None,
+                 message: Union[str, None] = None):
         self.validation_result_code = validation_result_code
         self.validation_error_code = validation_error_code
         self.message = message

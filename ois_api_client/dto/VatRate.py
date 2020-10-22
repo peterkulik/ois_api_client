@@ -9,8 +9,13 @@ class VatRate:
     :param margin_scheme_no_vat: Margin scheme not including input tax
     """
 
-    def __init__(self, vat_percentage: float, vat_exemption: str, vat_out_of_scope: bool,
-                 vat_domestic_reverse_charge: bool, margin_scheme_vat: bool, margin_scheme_no_vat: bool):
+    def __init__(self,
+                 vat_percentage: float,
+                 vat_exemption: str,
+                 vat_out_of_scope: bool = False,
+                 vat_domestic_reverse_charge: bool = False,
+                 margin_scheme_vat: bool = False,
+                 margin_scheme_no_vat: bool = False):
         self.vat_percentage = vat_percentage
         self.vat_exemption = vat_exemption
         self.vat_out_of_scope = vat_out_of_scope
