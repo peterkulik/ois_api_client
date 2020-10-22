@@ -154,78 +154,78 @@ digest_request = ois.QueryInvoiceDigestRequest(
         additional_query_params=ois.AdditionalQueryParams(
             tax_number='12345678',
             name='SUPPLIER NAME',
-            invoice_category=InvoiceCategory.NORMAL,
-            payment_method=PaymentMethod.TRANSFER,
-            invoice_appearance=InvoiceAppearance.PAPER,
-            source=Source.XML,
+            invoice_category=ois.InvoiceCategory.NORMAL,
+            payment_method=ois.PaymentMethod.TRANSFER,
+            invoice_appearance=ois.InvoiceAppearance.PAPER,
+            source=ois.Source.XML,
             currency="HUF"
         ),
         relational_query_params=ois.RelationalQueryParams(
-            # invoice_delivery=RangeDate(
-            #     from_operator=RangeDate.FromOperator.GT,
+            # invoice_delivery=ois.RangeDate(
+            #     from_operator=ois.RangeDate.FromOperator.GT,
             #     from_value=date(2020, 10, 1),
-            #     to_operator=RangeDate.ToOperator.LT,
+            #     to_operator=ois.RangeDate.ToOperator.LT,
             #     to_value=date(2020, 11, 1)
-            # )
+            # ),
             # invoice_delivery=ois.RelationQueryDate(
             #     query_operator=ois.QueryOperator.LT,
             #     query_value=date(2020, 10, 21)
-            # )
+            # ),
             invoice_delivery=date(2020, 10, 9),
-            # payment_date=RangeDate(
-            #     from_operator=RangeDate.FromOperator.GT,
+            # payment_date=ois.RangeDate(
+            #     from_operator=ois.RangeDate.FromOperator.GT,
             #     from_value=date(2020, 10, 1),
-            #     to_operator=RangeDate.ToOperator.LT,
+            #     to_operator=ois.RangeDate.ToOperator.LT,
             #     to_value=date(2020, 11, 1)
-            # )
+            # ),
             # payment_date=ois.RelationQueryDate(
             #     query_operator=ois.QueryOperator.LT,
             #     query_value=date(2020, 10, 21)
-            # )
+            # ),
             # payment_date=date(2020, 10, 20),
-            # invoice_net_amount=RangeMonetary(
-            #     from_operator=RangeMonetary.FromOperator.GT,
+            # invoice_net_amount=ois.RangeMonetary(
+            #     from_operator=ois.RangeMonetary.FromOperator.GT,
             #     from_value=1,
-            #     to_operator=RangeMonetary.ToOperator.LT,
+            #     to_operator=ois.RangeMonetary.ToOperator.LT,
             #     to_value=2000000.15
-            # )
+            # ),
             # invoice_net_amount=ois.RelationQueryMonetary(
             #     query_operator=ois.QueryOperator.GTE,
             #     query_value=40
-            # )
+            # ),
             invoice_net_amount=40,
-            # invoice_net_amount_huf=RangeMonetary(
-            #     from_operator=RangeMonetary.FromOperator.GTE,
+            # invoice_net_amount_huf=ois.RangeMonetary(
+            #     from_operator=ois.RangeMonetary.FromOperator.GTE,
             #     from_value=40,
-            #     to_operator=RangeMonetary.ToOperator.LT,
+            #     to_operator=ois.RangeMonetary.ToOperator.LT,
             #     to_value=2000000.15
-            # )
-            # invoice_net_amount=ois.RelationQueryMonetary(
+            # ),
+            # invoice_net_amount_huf=ois.RelationQueryMonetary(
             #     query_operator=ois.QueryOperator.GTE,
             #     query_value=40
-            # )
+            # ),
             invoice_net_amount_huf=40,
-            # invoice_vat_amount=RangeMonetary(
-            #     from_operator=RangeMonetary.FromOperator.GTE,
+            # invoice_vat_amount=ois.RangeMonetary(
+            #     from_operator=ois.RangeMonetary.FromOperator.GTE,
             #     from_value=4.2,
-            #     to_operator=RangeMonetary.ToOperator.LT,
+            #     to_operator=ois.RangeMonetary.ToOperator.LT,
             #     to_value=2000000.15
-            # )
+            # ),
             # invoice_vat_amount=ois.RelationQueryMonetary(
             #     query_operator=ois.QueryOperator.GTE,
             #     query_value=4.1
-            # )
+            # ),
             invoice_vat_amount=4.2,
-            # invoice_vat_amount_huf=RangeMonetary(
-            #     from_operator=RangeMonetary.FromOperator.GTE,
+            # invoice_vat_amount_huf=ois.RangeMonetary(
+            #     from_operator=ois.RangeMonetary.FromOperator.GTE,
             #     from_value=4.2,
-            #     to_operator=RangeMonetary.ToOperator.LTE,
+            #     to_operator=ois.RangeMonetary.ToOperator.LTE,
             #     to_value=4.3
-            # )
+            # ),
             # invoice_vat_amount_huf=ois.RelationQueryMonetary(
             #     query_operator=ois.QueryOperator.GTE,
             #     query_value=4.1
-            # )
+            # ),
             invoice_vat_amount_huf=4.2
         ),
         transaction_query_params=ois.TransactionQueryParams(

@@ -44,4 +44,7 @@ from .dto.deserialization.deserialize_general_error_response import deserialize_
 from .dto.serialization.build_request_signature import build_request_signature
 from .dto.serialization.hash_password import hash_password
 
+from .dto.custom.RangeDate import RangeDate
+from .dto.custom.RangeMonetary import RangeMonetary
+
 from .Client import Client
