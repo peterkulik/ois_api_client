@@ -68,12 +68,24 @@ digest_request = ois.QueryInvoiceDigestRequest(
     page=1,
     invoice_direction=ois.InvoiceDirection.INBOUND,
     invoice_query_params=ois.InvoiceQueryParams(
-        ois.MandatoryQueryParams(
-            ois.MandatoryQueryParams.InsDate(
-                ois.DateTimeIntervalParam(
+        # mandatory_query_params=ois.MandatoryQueryParams(
+        #     parameter=ois.MandatoryQueryParams.OriginalInvoiceNumber(
+        #         original_invoice_number='12345678/2020'
+        #     )),
+        # mandatory_query_params=ois.MandatoryQueryParams(
+        #     parameter=ois.MandatoryQueryParams.InvoiceIssueDate(
+        #         invoice_issue_date=ois.DateIntervalParam(
+        #             date_from=date(2020, 10, 1),
+        #             date_to=date(2020, 11, 1)
+        #         ))),
+        mandatory_query_params=ois.MandatoryQueryParams(
+            parameter=ois.MandatoryQueryParams.InsDate(
+                ins_date=ois.DateTimeIntervalParam(
                     date_time_from=datetime(2020, 10, 1),
                     date_time_to=datetime(2020, 10, 30)
-                ))))
+                ))
+        ),
+    )
 )
 
 try:
