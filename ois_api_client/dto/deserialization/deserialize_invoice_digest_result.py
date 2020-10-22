@@ -57,7 +57,7 @@ def deserialize_invoice_digest_result(parent: ET.Element) -> Union[InvoiceDigest
     result = InvoiceDigestResult(
         current_page=XR.get_child_int(idr_el, 'currentPage'),
         available_page=XR.get_child_int(idr_el, 'availablePage'),
-        invoice_digest=[_deserialize_invoice_digest(id_el) for id_el in id_els]
+        invoice_digest=[_deserialize_invoice_digest(id_el) for id_el in id_els] if id_els is not None else None
     )
 
     return result

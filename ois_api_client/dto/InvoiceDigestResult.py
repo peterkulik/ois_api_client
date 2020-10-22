@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Union
 from .InvoiceDigest import InvoiceDigest
 
 
@@ -10,7 +10,10 @@ class InvoiceDigestResult:
     :param invoice_digest: Invoice digest query result
     """
 
-    def __init__(self, current_page: int, available_page: int, invoice_digest: List[InvoiceDigest]):
+    def __init__(self,
+                 current_page: int,
+                 available_page: int,
+                 invoice_digest: Union[List[InvoiceDigest], None] = None):
         self.current_page = current_page
         self.available_page = available_page
         self.invoice_digest = invoice_digest

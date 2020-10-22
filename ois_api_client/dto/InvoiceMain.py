@@ -1,3 +1,5 @@
+from typing import List
+
 from .BatchInvoice import BatchInvoice
 from .Invoice import Invoice
 
@@ -9,6 +11,8 @@ class InvoiceMain:
     :param batch_invoice: Data of a batch of modification documents
     """
 
-    def __init__(self, invoice: Invoice, batch_invoice: BatchInvoice):
+    def __init__(self,
+                 invoice: Invoice,
+                 batch_invoice: List[BatchInvoice]):
         self.invoice = invoice
         self.batch_invoice = batch_invoice

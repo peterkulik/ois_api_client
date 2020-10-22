@@ -1,4 +1,5 @@
 from datetime import date
+from typing import Union
 
 from .SimpleAddress import SimpleAddress
 
@@ -12,8 +13,11 @@ class DieselOilPurchase:
     :param diesel_oil_quantity: Quantity of diesel oil used for contract work and machinery hire service in liter – Act LXVIII of 2016 on Excise Tax section 117 (2)
     """
 
-    def __init__(self, purchase_location: SimpleAddress, purchase_date: date, vehicle_registration_number: str,
-                 diesel_oil_quantity: float):
+    def __init__(self,
+                 purchase_location: SimpleAddress,
+                 purchase_date: date,
+                 vehicle_registration_number: str,
+                 diesel_oil_quantity: Union[float, None] = None):
         self.purchase_location = purchase_location
         self.purchase_date = purchase_date
         self.vehicle_registration_number = vehicle_registration_number

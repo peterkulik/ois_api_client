@@ -17,8 +17,12 @@ class PaymentEvidenceDocumentData:
     :param obligated_tax_number: Tax number of obligated
     """
 
-    def __init__(self, evidence_document_no: str, evidence_document_date: date, obligated_name: str,
-                 obligated_address: Union[SimpleAddress, DetailedAddress], obligated_tax_number: TaxNumber):
+    def __init__(self,
+                 evidence_document_no: str,
+                 evidence_document_date: date,
+                 obligated_name: str,
+                 obligated_address: Union[SimpleAddress, DetailedAddress],
+                 obligated_tax_number: TaxNumber):
         self.evidence_document_no = evidence_document_no
         self.evidence_document_date = evidence_document_date
         self.obligated_name = obligated_name

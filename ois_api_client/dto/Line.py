@@ -51,17 +51,35 @@ class Line:
     :param additional_line_data: Other data in relation to the product / service item
     """
 
-    def __init__(self, line_number: int, line_modification_reference: LineModificationReference,
-                 references_to_other_lines: ReferencesToOtherLines, advance_indicator: bool,
-                 product_codes: ProductCodes, line_expression_indicator: bool,
-                 line_nature_indicator: LineNatureIndicator, line_description: str, quantity: float,
-                 unit_of_measure: UnitOfMeasure, unit_of_measure_own: str, unit_price: float, unit_price_huf: float,
-                 line_discount_data: DiscountData, line_amounts: Union[LineAmountsNormal, LineAmountsSimplified],
-                 intermediated_service: bool, aggregate_invoice_line_data: AggregateInvoiceLineData,
-                 new_transport_mean: NewTransportMean, deposit_indicator: bool, margin_scheme_indicator: MarginScheme,
-                 ekaer_ids: EkaerIds, obligated_for_product_fee: bool, gpc_excise: float,
-                 diesel_oil_purchase: DieselOilPurchase, neta_declaration: bool, product_fee_clause: ProductFeeClause,
-                 line_product_fee_content: List[ProductFeeData], additional_line_data: List[AdditionalData]):
+    def __init__(self,
+                 line_number: int,
+                 line_modification_reference: Union[LineModificationReference, None] = None,
+                 references_to_other_lines: Union[ReferencesToOtherLines, None] = None,
+                 advance_indicator: bool = False,
+                 product_codes: Union[ProductCodes, None] = None,
+                 line_expression_indicator: bool = False,
+                 line_nature_indicator: Union[LineNatureIndicator, None] = None,
+                 line_description: Union[str, None] = None,
+                 quantity: Union[float, None] = None,
+                 unit_of_measure: Union[UnitOfMeasure, None] = None,
+                 unit_of_measure_own: Union[str, None] = None,
+                 unit_price: Union[float, None] = None,
+                 unit_price_huf: Union[float, None] = None,
+                 line_discount_data: Union[DiscountData, None] = None,
+                 line_amounts: Union[LineAmountsNormal, LineAmountsSimplified, None] = None,
+                 intermediated_service: bool = False,
+                 aggregate_invoice_line_data: Union[AggregateInvoiceLineData, None] = None,
+                 new_transport_mean: Union[NewTransportMean, None] = None,
+                 deposit_indicator: bool = False,
+                 margin_scheme_indicator: Union[MarginScheme, None] = None,
+                 ekaer_ids: Union[EkaerIds, None] = None,
+                 obligated_for_product_fee: bool = False,
+                 gpc_excise: Union[float, None] = None,
+                 diesel_oil_purchase: Union[DieselOilPurchase, None] = None,
+                 neta_declaration: bool = False,
+                 product_fee_clause: Union[ProductFeeClause, None] = None,
+                 line_product_fee_content: Union[List[ProductFeeData], None] = None,
+                 additional_line_data: Union[List[AdditionalData], None] = None):
         self.line_number = line_number
         self.line_modification_reference = line_modification_reference
         self.references_to_other_lines = references_to_other_lines

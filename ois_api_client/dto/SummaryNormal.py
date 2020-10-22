@@ -13,8 +13,12 @@ class SummaryNormal:
     :param invoice_vat_amount_huf: VAT amount of the invoice expressed in HUF
     """
 
-    def __init__(self, summary_by_vat_rate: List[SummaryByVatRate], invoice_net_amount: float,
-                 invoice_net_amount_huf: float, invoice_vat_amount: float, invoice_vat_amount_huf: float):
+    def __init__(self,
+                 summary_by_vat_rate: List[SummaryByVatRate],
+                 invoice_net_amount: float,
+                 invoice_net_amount_huf: float,
+                 invoice_vat_amount: float,
+                 invoice_vat_amount_huf: float):
         self.summary_by_vat_rate = summary_by_vat_rate
         self.invoice_net_amount = invoice_net_amount
         self.invoice_net_amount_huf = invoice_net_amount_huf

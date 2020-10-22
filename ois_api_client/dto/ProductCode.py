@@ -9,7 +9,9 @@ class ProductCode:
     :param product_code_own_value: Own product code value
     """
 
-    def __init__(self, product_code_category: ProductCodeCategory, product_code_value: str,
+    def __init__(self,
+                 product_code_category: ProductCodeCategory,
+                 product_code_value: str,
                  product_code_own_value: str):
         self.product_code_category = product_code_category
         self.product_code_value = product_code_value

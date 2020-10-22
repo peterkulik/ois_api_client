@@ -1,3 +1,6 @@
+from typing import Union
+
+
 class Software:
     """Billing software data
     :param id: Billing software ID
@@ -10,8 +13,15 @@ class Software:
     :param dev_tax_number: Tax number of the billing software's developer
     """
 
-    def __init__(self, id: str, name: str, operation: str, main_version: str, dev_name: str, dev_contact: str,
-                 dev_country_code: str, dev_tax_number: str):
+    def __init__(self,
+                 id: str,
+                 name: str,
+                 operation: str,
+                 main_version: str,
+                 dev_name: str,
+                 dev_contact: str,
+                 dev_country_code: Union[str, None] = None,
+                 dev_tax_number: Union[str, None] = None):
         self.id = id
         self.name = name
         self.operation = operation

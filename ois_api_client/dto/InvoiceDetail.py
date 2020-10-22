@@ -1,5 +1,5 @@
 from datetime import date
-from typing import List
+from typing import List, Union
 
 from .AdditionalData import AdditionalData
 from .InvoiceCategory import InvoiceCategory
@@ -12,29 +12,39 @@ class InvoiceDetail:
 
     :param invoice_category:
     :param invoice_delivery_date:
+    :param currency_code:
+    :param exchange_rate:
+    :param invoice_appearance:
     :param invoice_delivery_period_start:
     :param invoice_delivery_period_end:
     :param invoice_accounting_delivery_date:
     :param periodical_settlement:
     :param small_business_indicator:
-    :param currency_code:
-    :param exchange_rate:
     :param self_billing_indicator:
     :param payment_method:
     :param payment_date:
     :param cash_accounting_indicator:
-    :param invoice_appearance:
     :param electronic_invoice_hash:
     :param additional_invoice_data:
     """
 
-    def __init__(self, invoice_category: InvoiceCategory, invoice_delivery_date: date,
-                 invoice_delivery_period_start: date, invoice_delivery_period_end: date,
-                 invoice_accounting_delivery_date: date, periodical_settlement: bool, small_business_indicator: bool,
-                 currency_code: str, exchange_rate: float, self_billing_indicator: bool,
-                 payment_method: PaymentMethod, payment_date: date, cash_accounting_indicator: bool,
-                 invoice_appearance: InvoiceAppearance, electronic_invoice_hash: str,
-                 additional_invoice_data: List[AdditionalData]):
+    def __init__(self,
+                 invoice_category: InvoiceCategory,
+                 invoice_delivery_date: date,
+                 currency_code: str,
+                 exchange_rate: float,
+                 invoice_appearance: InvoiceAppearance,
+                 invoice_delivery_period_start: Union[date, None] = None,
+                 invoice_delivery_period_end: Union[date, None] = None,
+                 invoice_accounting_delivery_date: Union[date, None] = None,
+                 periodical_settlement: bool = False,
+                 small_business_indicator: bool = False,
+                 self_billing_indicator: bool = False,
+                 payment_method: Union[PaymentMethod, None] = None,
+                 payment_date: Union[date, None] = None,
+                 cash_accounting_indicator: bool = False,
+                 electronic_invoice_hash: Union[str, None] = None,
+                 additional_invoice_data: Union[List[AdditionalData], None] = None):
         self.invoice_category = invoice_category
         self.invoice_delivery_date = invoice_delivery_date
         self.invoice_delivery_period_start = invoice_delivery_period_start

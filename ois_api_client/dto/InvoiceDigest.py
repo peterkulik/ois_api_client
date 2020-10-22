@@ -12,13 +12,14 @@ class InvoiceDigest:
     """Digest query result
 
     :param invoice_number: Sequential number of the original invoice or modifiation document - section 169 (b) or section 170 (1) b) of the VAT law
-    :param batch_index: Sequence number of the modification document within the batch
     :param invoice_operation: Invoice operation type
     :param invoice_category: Type of invoice
     :param invoice_issue_date: Invoice or modification document issue date
     :param supplier_tax_number: The supplier's tax number
-    :param supplier_group_tax_number: The supplier's group tax number
     :param supplier_name: Name of the seller (supplier)
+    :param ins_date: Insert date in UTC time
+    :param batch_index: Sequence number of the modification document within the batch
+    :param supplier_group_tax_number: The supplier's group tax number
     :param customer_tax_number: The buyer's tax number
     :param customer_group_tax_number: The buyer's group tax number
     :param customer_name: Name of the customer
@@ -36,20 +37,35 @@ class InvoiceDigest:
     :param index: Sequence number of the invoice within the request
     :param original_invoice_number: Sequence number of the original invoice, on which the modification occurs
     :param modification_index: The unique sequence number referring to the original invoice
-    :param ins_date: Insert date in UTC time
     """
 
-    def __init__(self, invoice_number: str, batch_index: Union[int, None], invoice_operation: ManageInvoiceOperation,
-                 invoice_category: InvoiceCategory, invoice_issue_date: date, supplier_tax_number: str,
-                 supplier_group_tax_number: Union[str, None], supplier_name: str, customer_tax_number: Union[str, None],
-                 customer_group_tax_number: Union[str, None], customer_name: Union[str, None],
-                 payment_method: Union[PaymentMethod, None], payment_date: Union[date, None],
-                 invoice_appearance: Union[InvoiceAppearance, None], source: Union[Source, None],
-                 invoice_delivery_date: Union[date, None], currency: Union[str, None],
-                 invoice_net_amount: Union[float, None], invoice_net_amount_huf: Union[float, None],
-                 invoice_vat_amount: Union[float, None], invoice_vat_amount_huf: Union[float, None],
-                 transaction_id: Union[str, None], index: Union[int, None], original_invoice_number: Union[str, None],
-                 modification_index: Union[int, None], ins_date: datetime):
+    def __init__(self,
+                 invoice_number: str,
+                 invoice_operation: ManageInvoiceOperation,
+                 invoice_category: InvoiceCategory,
+                 invoice_issue_date: date,
+                 supplier_tax_number: str,
+                 supplier_name: str,
+                 ins_date: datetime,
+                 batch_index: Union[int, None] = None,
+                 supplier_group_tax_number: Union[str, None] = None,
+                 customer_tax_number: Union[str, None] = None,
+                 customer_group_tax_number: Union[str, None] = None,
+                 customer_name: Union[str, None] = None,
+                 payment_method: Union[PaymentMethod, None] = None,
+                 payment_date: Union[date, None] = None,
+                 invoice_appearance: Union[InvoiceAppearance, None] = None,
+                 source: Union[Source, None] = None,
+                 invoice_delivery_date: Union[date, None] = None,
+                 currency: Union[str, None] = None,
+                 invoice_net_amount: Union[float, None] = None,
+                 invoice_net_amount_huf: Union[float, None] = None,
+                 invoice_vat_amount: Union[float, None] = None,
+                 invoice_vat_amount_huf: Union[float, None] = None,
+                 transaction_id: Union[str, None] = None,
+                 index: Union[int, None] = None,
+                 original_invoice_number: Union[str, None] = None,
+                 modification_index: Union[int, None] = None):
         self.invoice_number = invoice_number
         self.batch_index = batch_index
         self.invoice_operation = invoice_operation

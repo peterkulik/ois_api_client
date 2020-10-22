@@ -1,3 +1,6 @@
+from typing import Union
+
+
 class TaxNumber:
     """Tax number type
 
@@ -7,7 +10,10 @@ class TaxNumber:
     :param county_code: County code, two digits
     """
 
-    def __init__(self, taxpayer_id: str, vat_code: str, county_code: str):
+    def __init__(self,
+                 taxpayer_id: str,
+                 vat_code: Union[str, None] = None,
+                 county_code: Union[str, None] = None):
         self.taxpayer_id = taxpayer_id
         self.vat_code = vat_code
         self.county_code = county_code

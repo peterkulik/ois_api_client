@@ -8,9 +8,16 @@ from .UserHeader import UserHeader
 class QueryInvoiceDataRequest(BasicOnlineInvoiceRequest):
     """Request type of the POST /queryInvoiceData REST operation
 
+    :param header: Transactional data of the request
+    :param user: Authentication data of the request
+    :param software: Billing software data
     :param invoice_number_query: Invoice number param of the Invoice query
     """
 
-    def __init__(self, header: BasicHeader, user: UserHeader, software: Software, invoice_number_query: InvoiceNumberQuery):
+    def __init__(self,
+                 header: BasicHeader,
+                 user: UserHeader,
+                 software: Software,
+                 invoice_number_query: InvoiceNumberQuery):
         super().__init__(header, user, software)
         self.invoice_number_query = invoice_number_query

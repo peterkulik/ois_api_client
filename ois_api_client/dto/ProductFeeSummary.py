@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Union
 
 from .PaymentEvidenceDocumentData import PaymentEvidenceDocumentData
 from .ProductFeeData import ProductFeeData
@@ -14,8 +14,11 @@ class ProductFeeSummary:
     according to the Paragraph (3), Section 13 and the Paragraph (3) Section 25 of the Act LXXXV of 2011
     """
 
-    def __init__(self, product_fee_operation: ProductFeeOperation, product_fee_data: List[ProductFeeData],
-                 product_charge_sum: float, payment_evidence_document_data: PaymentEvidenceDocumentData):
+    def __init__(self,
+                 product_fee_operation: ProductFeeOperation,
+                 product_fee_data: List[ProductFeeData],
+                 product_charge_sum: float,
+                 payment_evidence_document_data: Union[PaymentEvidenceDocumentData, None] = None):
         self.product_fee_operation = product_fee_operation
         self.product_fee_data = product_fee_data
         self.product_charge_sum = product_charge_sum

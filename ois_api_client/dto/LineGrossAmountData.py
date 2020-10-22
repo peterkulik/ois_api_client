@@ -6,6 +6,8 @@ class LineGrossAmountData:
     :param line_gross_amount_normal_huf: Gross amount of the item expressed in HUF
     """
 
-    def __init__(self, line_gross_amount_normal: float, line_gross_amount_normal_huf: float):
+    def __init__(self,
+                 line_gross_amount_normal: float,
+                 line_gross_amount_normal_huf: float):
         self.line_gross_amount_normal = line_gross_amount_normal
         self.line_gross_amount_normal_huf = line_gross_amount_normal_huf
