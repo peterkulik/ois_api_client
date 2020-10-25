@@ -137,6 +137,53 @@ try:
     data_response = client.query_invoice_data(data_request)
     invoice_xml_as_string = ois.decode_invoice_data(data_response.invoice_data_result.invoice_data)
     print(invoice_xml_as_string)
+
+    invoice_data = deserialize_invoice_data(invoice_xml_as_string)
+    print(invoice_data.invoiceNumber)
+    print(invoice_data.invoiceIssueDate)
+
+    invoice = invoice_data.invoiceMain.invoice
+
+    supplier_info = invoice.invoice_head.supplier_info
+    print(supplier_info.supplier_tax_number)
+    print(supplier_info.supplier_name)
+
+    if hasattr(supplier_info.supplier_address, 'simple_address'):
+        simple_address = supplier_info.supplier_address.simple_address
+        print(simple_address.country_code)
+        print(simple_address.city)
+    elif hasattr(supplier_info.supplier_address, 'detailed_address'):
+        detailed_address = supplier_info.supplier_address.detailed_address
+        print(detailed_address.country_code)
+        print(detailed_address.city)
+
+    lines = invoice.invoice_lines
+    for line in lines.items:
+        print(line.line_number)
+        print(line.unit_price)
+        print(line.unit_price_huf)
+        print(line.line_amounts)
+
+        if isinstance(line.line_amounts, LineAmountsNormal):
+            line_gross_amount_data = line.line_amounts.line_gross_amount_data
+            line_net_amount_data = line.line_amounts.line_net_amount_data
+            line_vat_data = line.line_amounts.line_vat_data
+            line_vat_rate = line.line_amounts.line_vat_rate
+
+            print(line_gross_amount_data.line_gross_amount_normal)
+            print(line_gross_amount_data.line_gross_amount_normal_huf)
+            print(line_net_amount_data.line_net_amount)
+            print(line_net_amount_data.line_net_amount_huf)
+            print(line_vat_data.line_vat_amount)
+            print(line_vat_data.line_vat_amount_huf)
+            print(line_vat_rate.vat_exemption)
+            print(line_vat_rate.vat_percentage)
+            print(line_vat_rate.margin_scheme_no_vat)
+            print(line_vat_rate.margin_scheme_vat)
+            print(line_vat_rate.vat_domestic_reverse_charge)
+            print(line_vat_rate.vat_out_of_scope)
+
+    # ...
 except ois.GeneralError as err:
     gen_err: ois.GeneralErrorResponse = ois.deserialize_general_error_response(err.general_error_response)
     print(gen_err.result.message)

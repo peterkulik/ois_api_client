@@ -1,4 +1,6 @@
 import ois_api_client as ois
+from ois_api_client import deserialize_invoice_data
+from ois_api_client.dto.LineAmountsNormal import LineAmountsNormal
 from tests.common import config
 
 
@@ -18,6 +20,9 @@ def test_query_invoice_data_request():
     )
 
     response = client.query_invoice_data(data)
+
+    invoice_data_xml = ois.decode_invoice_data(response.invoice_data_result.invoice_data)
+    invoice_data = deserialize_invoice_data(invoice_data_xml)
 
     assert response is not None
     assert response.result is not None
