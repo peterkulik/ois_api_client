@@ -17,7 +17,7 @@ class NewTransportMean:
     """
 
     def __init__(self,
-                 vehicle_or_vessel_or_aircraft: Union[Vehicle, Vessel, Aircraft],
+                 data: Union[Vehicle, Vessel, Aircraft],
                  brand: Union[str, None] = None,
                  serial_num: Union[str, None] = None,
                  engine_num: Union[str, None] = None,
@@ -26,4 +26,10 @@ class NewTransportMean:
         self.serial_num = serial_num
         self.engine_num = engine_num
         self.first_entry_into_service = first_entry_into_service
-        self.vehicle_or_vessel_or_aircraft = vehicle_or_vessel_or_aircraft
+
+        if isinstance(data, Vehicle):
+            self.vehicle = data
+        elif isinstance(data, Vessel):
+            self.vessel = data
+        elif isinstance(data, Aircraft):
+            self.aircraft = data

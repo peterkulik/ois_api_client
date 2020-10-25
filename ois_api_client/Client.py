@@ -1,7 +1,7 @@
 import requests
 import xml.etree.ElementTree as ET
 
-from .constants import NAMESPACE
+from .constants import NAMESPACE_API
 
 from . import QueryInvoiceDataRequest
 from . import QueryInvoiceDataResponse
@@ -28,7 +28,7 @@ class Client:
         self._signature_key = signature_key
         self._replacement_key = replacement_key
         self._password_hash = hash_password(password)
-        ET.register_namespace('', NAMESPACE)
+        ET.register_namespace('', NAMESPACE_API)
 
     def token_exchange(self, data: TokenExchangeRequest) -> TokenExchangeResponse:
         rs = build_request_signature(data.header.request_id, data.header.timestamp, self._signature_key)

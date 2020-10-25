@@ -1,7 +1,6 @@
 from typing import Union
 
-from .DetailedAddress import DetailedAddress
-from .SimpleAddress import SimpleAddress
+from .Address import Address
 from .TaxNumber import TaxNumber
 
 
@@ -19,7 +18,7 @@ class CustomerInfo:
 
     def __init__(self,
                  customer_name: str,
-                 customer_address: Union[SimpleAddress, DetailedAddress],
+                 customer_address: Address,
                  customer_tax_number: Union[TaxNumber, None] = None,
                  group_member_tax_number: Union[TaxNumber, None] = None,
                  community_vat_number: Union[str, None] = None,

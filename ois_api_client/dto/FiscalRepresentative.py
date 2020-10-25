@@ -1,7 +1,6 @@
 from typing import Union
 
-from .DetailedAddress import DetailedAddress
-from .SimpleAddress import SimpleAddress
+from .Address import Address
 from .TaxNumber import TaxNumber
 
 
@@ -17,7 +16,7 @@ class FiscalRepresentative:
     def __init__(self,
                  fiscal_representative_tax_number: TaxNumber,
                  fiscal_representative_name: str,
-                 fiscal_representative_address: Union[SimpleAddress, DetailedAddress],
+                 fiscal_representative_address: Address,
                  fiscal_representative_bank_account_number: Union[str, None] = None):
         self.fiscal_representative_tax_number = fiscal_representative_tax_number
         self.fiscal_representative_name = fiscal_representative_name

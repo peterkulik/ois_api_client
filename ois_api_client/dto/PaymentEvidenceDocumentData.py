@@ -1,8 +1,6 @@
 from datetime import date
-from typing import Union
 
-from .DetailedAddress import DetailedAddress
-from .SimpleAddress import SimpleAddress
+from .Address import Address
 from .TaxNumber import TaxNumber
 
 
@@ -21,7 +19,7 @@ class PaymentEvidenceDocumentData:
                  evidence_document_no: str,
                  evidence_document_date: date,
                  obligated_name: str,
-                 obligated_address: Union[SimpleAddress, DetailedAddress],
+                 obligated_address: Address,
                  obligated_tax_number: TaxNumber):
         self.evidence_document_no = evidence_document_no
         self.evidence_document_date = evidence_document_date

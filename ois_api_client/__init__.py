@@ -41,6 +41,7 @@ from .dto.UserHeader import UserHeader
 from .exceptions.GeneralError import GeneralError
 from .dto.deserialization.decode_invoice_data import decode_invoice_data
 from .dto.deserialization.deserialize_general_error_response import deserialize_general_error_response
+from .dto.deserialization.deserialize_invoice_data import deserialize_invoice_data
 from .dto.serialization.build_request_signature import build_request_signature
 from .dto.serialization.hash_password import hash_password
 

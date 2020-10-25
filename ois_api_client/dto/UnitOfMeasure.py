@@ -1,4 +1,7 @@
-class UnitOfMeasure:
+from enum import Enum
+
+
+class UnitOfMeasure(Enum):
     """Unit of measure type"""
     PIECE = 'PIECE'
     """Piece"""

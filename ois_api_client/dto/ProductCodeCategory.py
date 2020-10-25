@@ -1,3 +1,6 @@
+from enum import Enum
+
+
 class ProductCodeCategory(Enum):
     """The type used to mark the kind of product code"""
     VTSZ = 'VTSZ'

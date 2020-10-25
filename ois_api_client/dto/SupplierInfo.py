@@ -1,7 +1,6 @@
 from typing import Union
 
-from .DetailedAddress import DetailedAddress
-from .SimpleAddress import SimpleAddress
+from .Address import Address
 from .TaxNumber import TaxNumber
 
 
@@ -21,7 +20,7 @@ class SupplierInfo:
     def __init__(self,
                  supplier_tax_number: TaxNumber,
                  supplier_name: str,
-                 supplier_address: Union[SimpleAddress, DetailedAddress],
+                 supplier_address: Address,
                  group_member_tax_number: Union[TaxNumber, None] = None,
                  community_vat_number: Union[str, None] = None,
                  supplier_bank_account_number: Union[str, None] = None,
