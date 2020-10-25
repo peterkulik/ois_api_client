@@ -138,7 +138,7 @@ try:
     invoice_xml_as_string = ois.decode_invoice_data(data_response.invoice_data_result.invoice_data)
     print(invoice_xml_as_string)
 
-    invoice_data = deserialize_invoice_data(invoice_xml_as_string)
+    invoice_data = ois.deserialize_invoice_data(invoice_xml_as_string)
     print(invoice_data.invoiceNumber)
     print(invoice_data.invoiceIssueDate)
 

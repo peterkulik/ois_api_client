@@ -41,5 +41,4 @@ def test_query_invoice_data_request():
     assert response.invoice_data_result.audit_data.original_request_version == ois.OriginalRequestVersion.v_2_0
     assert response.invoice_data_result.audit_data.transaction_id is not None
 
-    invoice_data = ois.decode_invoice_data(response.invoice_data_result.invoice_data)
     assert invoice_data is not None
