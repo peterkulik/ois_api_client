@@ -3,14 +3,12 @@ from typing import Union
 from .ProductCodeCategory import ProductCodeCategory
 
 
-class ProductCodeValue:
-    def __init__(self, value: str):
-        self.value = value
+class ProductCodeValue(str):
+    pass
 
 
-class ProductCodeOwnValue:
-    def __init__(self, value: str):
-        self.value = value
+class ProductCodeOwnValue(str):
+    pass
 
 
 class ProductCode:
@@ -26,6 +24,6 @@ class ProductCode:
         self.product_code_category = product_code_category
 
         if isinstance(product_code_value, ProductCodeValue):
-            self.product_code_value = product_code_value.value
+            self.product_code_value = str(product_code_value)
         elif isinstance(product_code_value, ProductCodeOwnValue):
-            self.product_code_own_value = product_code_value.value
+            self.product_code_own_value = str(product_code_value)
