@@ -94,7 +94,13 @@ class Line:
         self.unit_price = unit_price
         self.unit_price_huf = unit_price_huf
         self.line_discount_data = line_discount_data
-        self.line_amounts = line_amounts
+
+        if line_amounts is not None:
+            if isinstance(line_amounts, LineAmountsNormal):
+                self.line_amounts_normal = line_amounts
+            elif isinstance(line_amounts, LineAmountsSimplified):
+                self.line_amounts_simplified = line_amounts
+
         self.intermediated_service = intermediated_service
         self.aggregate_invoice_line_data = aggregate_invoice_line_data
         self.new_transport_mean = new_transport_mean

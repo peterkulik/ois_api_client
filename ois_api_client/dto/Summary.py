@@ -17,5 +17,9 @@ class Summary:
     def __init__(self,
                  data: Union[SummaryNormal, List[SummarySimplified]],
                  summary_gross_data: Union[SummaryGrossData, None] = None):
-        self.data = data
+        if isinstance(data, SummaryNormal):
+            self.summary_normal = data
+        else:
+            self.summary_simplified = data
+
         self.summary_gross_data = summary_gross_data

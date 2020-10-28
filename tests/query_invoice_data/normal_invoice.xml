@@ -1,4 +1,6 @@
-<InvoiceData xmlns="http://schemas.nav.gov.hu/OSA/2.0/data">
+<InvoiceData xmlns="http://schemas.nav.gov.hu/OSA/2.0/data"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://schemas.nav.gov.hu/OSA/2.0/data invoiceData.xsd">
     <invoiceNumber>12345678/2020</invoiceNumber>
     <invoiceIssueDate>2020-10-09</invoiceIssueDate>
     <invoiceMain>
@@ -57,6 +59,16 @@
             <invoiceLines>
                 <line>
                     <lineNumber>1</lineNumber>
+                    <productCodes>
+                        <productCode>
+                            <productCodeCategory>AHK</productCodeCategory>
+                            <productCodeValue>HELLO123</productCodeValue>
+                        </productCode>
+                        <productCode>
+                            <productCodeCategory>CSK</productCodeCategory>
+                            <productCodeOwnValue>ITSMYOWNCODE</productCodeOwnValue>
+                        </productCode>
+                    </productCodes>
                     <lineExpressionIndicator>true</lineExpressionIndicator>
                     <lineNatureIndicator>PRODUCT</lineNatureIndicator>
                     <lineDescription>BAB</lineDescription>
