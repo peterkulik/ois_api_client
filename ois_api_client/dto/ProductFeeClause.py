@@ -14,6 +14,6 @@ class ProductFeeClause:
 
     def __init__(self, data: Union[ProductFeeTakeoverData, CustomerDeclaration]):
         if isinstance(data, ProductFeeTakeoverData):
-            self.product_fee_takeover_data: data
+            self.product_fee_takeover_data = data
         elif isinstance(data, CustomerDeclaration):
-            self.customer_declaration: data
+            self.customer_declaration = data
