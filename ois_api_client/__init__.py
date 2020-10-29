@@ -53,7 +53,7 @@ from .dto.Notification import Notification
 from .dto.OriginalRequestVersion import OriginalRequestVersion
 from .dto.PaymentEvidenceDocumentData import PaymentEvidenceDocumentData
 from .dto.PaymentMethod import PaymentMethod
-from .dto.ProductCode import ProductCode
+from .dto.ProductCode import ProductCode, ProductCodeValue, ProductCodeOwnValue
 from .dto.ProductCodeCategory import ProductCodeCategory
 from .dto.ProductCodes import ProductCodes
 from .dto.ProductFeeClause import ProductFeeClause
@@ -89,7 +89,8 @@ from .dto.TokenExchangeResponse import TokenExchangeResponse
 from .dto.TransactionQueryParams import TransactionQueryParams
 from .dto.UnitOfMeasure import UnitOfMeasure
 from .dto.UserHeader import UserHeader
-from .dto.VatRate import VatRate
+from .dto.VatRate import MarginSchemeNoVat, MarginSchemeVat, VatDomesticReverseCharge, VatExemption, VatPercentage, \
+    VatRate, VatOutOfScope
 from .dto.VatRateGrossData import VatRateGrossData
 from .dto.VatRateNetData import VatRateNetData
 from .dto.VatRateVatData import VatRateVatData
