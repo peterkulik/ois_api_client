@@ -18,7 +18,7 @@ def deserialize_invoice(element: ET.Element) -> Union[Invoice, None]:
     invoice_reference_el = XR.find_child(element, 'invoiceReference', NAMESPACE_DATA)
     invoice_head_el = XR.find_child(element, 'invoiceHead', NAMESPACE_DATA)
     invoice_lines_el = XR.find_child(element, 'invoiceLines', NAMESPACE_DATA)
-    product_fee_summary_el = XR.find_child(element, 'productFeeSummary', NAMESPACE_DATA)
+    product_fee_summary_el = XR.find_all_child(element, 'productFeeSummary', NAMESPACE_DATA)
     invoice_summary_el = XR.find_child(element, 'invoiceSummary', NAMESPACE_DATA)
 
     result = Invoice(
@@ -26,7 +26,7 @@ def deserialize_invoice(element: ET.Element) -> Union[Invoice, None]:
         invoice_summary=deserialize_invoice_summary(invoice_summary_el),
         invoice_reference=deserialize_invoice_reference(invoice_reference_el),
         invoice_lines=deserialize_invoice_lines(invoice_lines_el),
-        product_fee_summary=deserialize_product_fee_summary(product_fee_summary_el)
+        product_fee_summary=[deserialize_product_fee_summary(el) for el in product_fee_summary_el]
     )
 
     return result

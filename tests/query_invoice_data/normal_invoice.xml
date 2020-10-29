@@ -404,6 +404,48 @@
                     </obligatedTaxNumber>
                 </paymentEvidenceDocumentData>
             </productFeeSummary>
+            <productFeeSummary>
+                <productFeeOperation>REFUND</productFeeOperation>
+                <productFeeData>
+                    <productFeeCode>
+                        <productCodeCategory>CSK</productCodeCategory>
+                        <productCodeOwnValue>SAját, apukám</productCodeOwnValue>
+                    </productFeeCode>
+                    <productFeeQuantity>77124.12</productFeeQuantity>
+                    <productFeeMeasuringUnit>DARAB</productFeeMeasuringUnit>
+                    <productFeeRate>4353</productFeeRate>
+                    <productFeeAmount>2222.22</productFeeAmount>
+                </productFeeData>
+                <productFeeData>
+                    <productFeeCode>
+                        <productCodeCategory>VTSZ</productCodeCategory>
+                        <productCodeValue>JUHHUU44</productCodeValue>
+                    </productFeeCode>
+                    <productFeeQuantity>99124.12</productFeeQuantity>
+                    <productFeeMeasuringUnit>DARAB</productFeeMeasuringUnit>
+                    <productFeeRate>99234.23</productFeeRate>
+                    <productFeeAmount>9923.22</productFeeAmount>
+                </productFeeData>
+                <productChargeSum>655656.34</productChargeSum>
+                <paymentEvidenceDocumentData>
+                    <evidenceDocumentNo>2321323</evidenceDocumentNo>
+                    <evidenceDocumentDate>2020-03-04</evidenceDocumentDate>
+                    <obligatedName>as asdw34</obligatedName>
+                    <obligatedAddress>
+                        <simpleAddress>
+                            <countryCode>HU</countryCode>
+                            <postalCode>2323</postalCode>
+                            <city>Mór</city>
+                            <additionalAddressDetail>Juhhu utca 34</additionalAddressDetail>
+                        </simpleAddress>
+                    </obligatedAddress>
+                    <obligatedTaxNumber>
+                        <taxpayerId>68558132</taxpayerId>
+                        <vatCode>3</vatCode>
+                        <countyCode>06</countyCode>
+                    </obligatedTaxNumber>
+                </paymentEvidenceDocumentData>
+            </productFeeSummary>
             <invoiceSummary>
                 <summarySimplified>
                     <vatContent>0.25</vatContent>
