@@ -19,7 +19,7 @@ def deserialize_supplier_info(element: ET.Element) -> Union[SupplierInfo, None]:
         group_member_tax_number=deserialize_tax_number(XR.find_child(element, 'groupMemberTaxNumber', NAMESPACE_DATA)),
         community_vat_number=XR.get_child_text(element, 'communityVatNumber', NAMESPACE_DATA),
         supplier_bank_account_number=XR.get_child_text(element, 'supplierBankAccountNumber', NAMESPACE_DATA),
-        individual_exemption=XR.get_child_bool(element, 'individualExemption', NAMESPACE_DATA),
+        individual_exemption=XR.get_child_bool(element, 'individualExemption', NAMESPACE_DATA, False),
         excise_licence_num=XR.get_child_text(element, 'exciseLicenceNum', NAMESPACE_DATA)
     )
 

@@ -12,13 +12,12 @@ def deserialize_product_fee_data(element: ET.Element) -> Union[ProductFeeData, N
     if element is None:
         return None
 
-    product_fee_measuring_unit = XR.find_child(element, 'productFeeMeasuringUnit', NAMESPACE_DATA)
+    product_fee_measuring_unit = XR.get_child_text(element, 'productFeeMeasuringUnit', NAMESPACE_DATA)
 
     result = ProductFeeData(
         product_fee_code=deserialize_product_code(XR.find_child(element, 'productFeeCode', NAMESPACE_DATA)),
         product_fee_quantity=XR.get_child_float(element, 'productFeeQuantity', NAMESPACE_DATA),
-        product_fee_measuring_unit=ProductFeeMeasuringUnit(
-            product_fee_measuring_unit) if product_fee_measuring_unit is not None else None,
+        product_fee_measuring_unit=product_fee_measuring_unit and ProductFeeMeasuringUnit(product_fee_measuring_unit),
         product_fee_rate=XR.get_child_float(element, 'productFeeRate', NAMESPACE_DATA),
         product_fee_amount=XR.get_child_float(element, 'productFeeAmount', NAMESPACE_DATA)
     )

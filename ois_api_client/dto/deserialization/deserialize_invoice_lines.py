@@ -74,7 +74,7 @@ def _deserialize_invoice_line(element: ET.Element) -> Union[Line, None]:
         aggregate_invoice_line_data=deserialize_aggregate_invoice_line_data(
             XR.find_child(element, 'aggregateInvoiceLineData', NAMESPACE_DATA)),
         new_transport_mean=deserialize_new_transport_mean(XR.find_child(element, 'newTransportMean', NAMESPACE_DATA)),
-        deposit_indicator=XR.get_child_bool(element, 'depositIndicator', NAMESPACE_DATA),
+        deposit_indicator=XR.get_child_bool(element, 'depositIndicator', NAMESPACE_DATA, False),
         margin_scheme_indicator=MarginScheme(margin_scheme) if margin_scheme is not None else None,
         ekaer_ids=deserialize_ekaer_ids(XR.find_child(element, 'ekaerIds', NAMESPACE_DATA)),
         obligated_for_product_fee=XR.get_child_bool(element, 'obligatedForProductFee', NAMESPACE_DATA, False),

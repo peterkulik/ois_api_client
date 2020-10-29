@@ -12,7 +12,7 @@ def deserialize_diesel_oil_purchase(element: ET.Element) -> Union[DieselOilPurch
         return None
 
     result = DieselOilPurchase(
-        purchase_location=deserialize_simple_address(XR.find_child('purchaseLocation')),
+        purchase_location=deserialize_simple_address(XR.find_child(element, 'purchaseLocation', NAMESPACE_DATA)),
         purchase_date=XR.get_child_date(element, 'purchaseDate', NAMESPACE_DATA),
         vehicle_registration_number=XR.get_child_text(element, 'vehicleRegistrationNumber', NAMESPACE_DATA),
         diesel_oil_quantity=XR.get_child_float(element, 'dieselOilQuantity', NAMESPACE_DATA)

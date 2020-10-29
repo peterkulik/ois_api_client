@@ -9,56 +9,123 @@
                 <supplierInfo>
                     <supplierTaxNumber>
                         <taxpayerId>68558132</taxpayerId>
+                        <vatCode>3</vatCode>
+                        <countyCode>06</countyCode>
                     </supplierTaxNumber>
+                    <groupMemberTaxNumber>
+                        <taxpayerId>68558132</taxpayerId>
+                        <vatCode>4</vatCode>
+                        <countyCode>07</countyCode>
+                    </groupMemberTaxNumber>
+                    <communityVatNumber>AZASDFQWER</communityVatNumber>
                     <supplierName>FEHÉR GÁBOR TAMÁS</supplierName>
                     <supplierAddress>
                         <detailedAddress>
                             <countryCode>HU</countryCode>
+                            <region>Békés</region>
                             <postalCode>2131</postalCode>
                             <city>GÖD</city>
                             <streetName>KÖZTÁRSASÁG ÚT 32</streetName>
                             <publicPlaceCategory>ÚT</publicPlaceCategory>
                             <number>32</number>
+                            <building>123/A</building>
+                            <staircase>2.lépcső</staircase>
+                            <floor>3.emelet</floor>
+                            <door>123ZT</door>
+                            <lotNumber>ASASD 345</lotNumber>
                         </detailedAddress>
                     </supplierAddress>
+                    <supplierBankAccountNumber>88887777-66665555-44443333</supplierBankAccountNumber>
+                    <exciseLicenceNum>23</exciseLicenceNum>
                 </supplierInfo>
                 <customerInfo>
                     <customerTaxNumber>
                         <taxpayerId>68293008</taxpayerId>
+                        <vatCode>1</vatCode>
+                        <countyCode>01</countyCode>
                     </customerTaxNumber>
+                    <groupMemberTaxNumber>
+                        <taxpayerId>58293008</taxpayerId>
+                        <vatCode>2</vatCode>
+                        <countyCode>02</countyCode>
+                    </groupMemberTaxNumber>
+                    <communityVatNumber>ATASDASD</communityVatNumber>
+                    <thirdStateTaxId>ADASD ASDASD 23232</thirdStateTaxId>
                     <customerName>KULIK PÉTER</customerName>
                     <customerAddress>
-                        <detailedAddress>
+                        <simpleAddress>
                             <countryCode>HU</countryCode>
+                            <region>Fejér</region>
                             <postalCode>8060</postalCode>
                             <city>MÓR</city>
-                            <streetName>FELLNER JAKAB</streetName>
-                            <publicPlaceCategory>UTCA</publicPlaceCategory>
-                            <number>8</number>
-                        </detailedAddress>
+                            <additionalAddressDetail>Fellner Jakab u. 8</additionalAddressDetail>
+                        </simpleAddress>
                     </customerAddress>
+                    <customerBankAccountNumber>12345678-98765432-12345678</customerBankAccountNumber>
                 </customerInfo>
+                <fiscalRepresentativeInfo>
+                    <fiscalRepresentativeTaxNumber>
+                        <taxpayerId>68293008</taxpayerId>
+                        <vatCode>1</vatCode>
+                        <countyCode>01</countyCode>
+                    </fiscalRepresentativeTaxNumber>
+                    <fiscalRepresentativeName>Kiss Elek</fiscalRepresentativeName>
+                    <fiscalRepresentativeAddress>
+                        <simpleAddress>
+                            <countryCode>US</countryCode>
+                            <region>What?</region>
+                            <postalCode>2323</postalCode>
+                            <city>New York</city>
+                            <additionalAddressDetail>New kids on the block</additionalAddressDetail>
+                        </simpleAddress>
+                    </fiscalRepresentativeAddress>
+                    <fiscalRepresentativeBankAccountNumber>12345678-12345678-12345678</fiscalRepresentativeBankAccountNumber>
+                </fiscalRepresentativeInfo>
                 <invoiceDetail>
                     <invoiceCategory>NORMAL</invoiceCategory>
                     <invoiceDeliveryDate>2020-10-09</invoiceDeliveryDate>
+                    <invoiceDeliveryPeriodStart>2020-01-01</invoiceDeliveryPeriodStart>
+                    <invoiceDeliveryPeriodEnd>2020-12-31</invoiceDeliveryPeriodEnd>
+                    <invoiceAccountingDeliveryDate>2020-11-03</invoiceAccountingDeliveryDate>
                     <periodicalSettlement>false</periodicalSettlement>
                     <smallBusinessIndicator>false</smallBusinessIndicator>
                     <currencyCode>HUF</currencyCode>
                     <exchangeRate>1</exchangeRate>
                     <selfBillingIndicator>false</selfBillingIndicator>
                     <paymentMethod>TRANSFER</paymentMethod>
+                    <paymentDate>2020-09-13</paymentDate>
                     <cashAccountingIndicator>false</cashAccountingIndicator>
                     <invoiceAppearance>PAPER</invoiceAppearance>
                     <additionalInvoiceData>
                         <dataName>A12345_A</dataName>
                         <dataDescription>Tesztelünk Petivel, nem ám megadóztatni minket!</dataDescription>
-                        <dataValue>1000</dataValue>
+                        <dataValue>1001</dataValue>
+                    </additionalInvoiceData>
+                    <additionalInvoiceData>
+                        <dataName>A22222_A</dataName>
+                        <dataDescription>Tesztelünk Petivel, nem ám megadóztatni minket!</dataDescription>
+                        <dataValue>1002</dataValue>
+                    </additionalInvoiceData>
+                    <additionalInvoiceData>
+                        <dataName>A33333_A</dataName>
+                        <dataDescription>Tesztelünk Petivel, nem ám megadóztatni minket!</dataDescription>
+                        <dataValue>1003</dataValue>
                     </additionalInvoiceData>
                 </invoiceDetail>
             </invoiceHead>
             <invoiceLines>
                 <line>
                     <lineNumber>1</lineNumber>
+                    <lineModificationReference>
+                        <lineNumberReference>1</lineNumberReference>
+                        <lineOperation>CREATE</lineOperation>
+                    </lineModificationReference>
+                    <referencesToOtherLines>
+                        <referenceToOtherLine>1</referenceToOtherLine>
+                        <referenceToOtherLine>2</referenceToOtherLine>
+                        <referenceToOtherLine>3</referenceToOtherLine>
+                    </referencesToOtherLines>
+                    <advanceIndicator>true</advanceIndicator>
                     <productCodes>
                         <productCode>
                             <productCodeCategory>AHK</productCodeCategory>
@@ -72,19 +139,20 @@
                     <lineExpressionIndicator>true</lineExpressionIndicator>
                     <lineNatureIndicator>PRODUCT</lineNatureIndicator>
                     <lineDescription>BAB</lineDescription>
-                    <quantity>2</quantity>
+                    <quantity>123456789012.0123456789</quantity>
                     <unitOfMeasure>PIECE</unitOfMeasure>
-                    <unitPrice>5</unitPrice>
-                    <unitPriceHUF>5</unitPriceHUF>
+                    <unitOfMeasureOwn>MY_OWN_MEASURE</unitOfMeasureOwn>
+                    <unitPrice>987654321098.0123459876</unitPrice>
+                    <unitPriceHUF>999998888812.7777766666</unitPriceHUF>
                     <lineDiscountData>
                         <discountDescription>AZÉ ME JÓFEJ!</discountDescription>
-                        <discountValue>2</discountValue>
-                        <discountRate>0.2</discountRate>
+                        <discountValue>1234567890123456.12</discountValue>
+                        <discountRate>0.9876</discountRate>
                     </lineDiscountData>
                     <lineAmountsNormal>
                         <lineNetAmountData>
-                            <lineNetAmount>10</lineNetAmount>
-                            <lineNetAmountHUF>10</lineNetAmountHUF>
+                            <lineNetAmount>10.34</lineNetAmount>
+                            <lineNetAmountHUF>10.21</lineNetAmountHUF>
                         </lineNetAmountData>
                         <lineVatRate>
                             <vatPercentage>0.27</vatPercentage>
@@ -98,76 +166,255 @@
                             <lineGrossAmountNormalHUF>12.7</lineGrossAmountNormalHUF>
                         </lineGrossAmountData>
                     </lineAmountsNormal>
+                    <intermediatedService>true</intermediatedService>
+                    <aggregateInvoiceLineData>
+                        <lineExchangeRate>12345678.987654</lineExchangeRate>
+                        <lineDeliveryDate>2020-10-28</lineDeliveryDate>
+                    </aggregateInvoiceLineData>
+                    <newTransportMean>
+                        <brand>Brandecske</brand>
+                        <serialNum>Super Serial</serialNum>
+                        <engineNum>ENG1234214123</engineNum>
+                        <firstEntryIntoService>2021-12-31</firstEntryIntoService>
+                        <vehicle>
+                            <engineCapacity>3423.2323</engineCapacity>
+                            <enginePower>98765534343434.34344</enginePower>
+                            <kms>123123124124.23</kms>
+                        </vehicle>
+                    </newTransportMean>
+                    <depositIndicator>true</depositIndicator>
+                    <ekaerIds>
+                        <ekaerId>E123456ABCDEFAB</ekaerId>
+                        <ekaerId>E123457ABCDEFAC</ekaerId>
+                        <ekaerId>E123458ABCDEFAD</ekaerId>
+                    </ekaerIds>
+                    <obligatedForProductFee>true</obligatedForProductFee>
+                    <GPCExcise>1232323443.23</GPCExcise>
+                    <dieselOilPurchase>
+                        <purchaseLocation>
+                            <countryCode>EN</countryCode>
+                            <region>New Region</region>
+                            <postalCode>1234</postalCode>
+                            <city>London</city>
+                            <additionalAddressDetail>No name street 123</additionalAddressDetail>
+                        </purchaseLocation>
+                        <purchaseDate>2018-12-12</purchaseDate>
+                        <vehicleRegistrationNumber>EN1234567890123456789012345678</vehicleRegistrationNumber>
+                        <dieselOilQuantity>9988.233</dieselOilQuantity>
+                    </dieselOilPurchase>
+                    <netaDeclaration>true</netaDeclaration>
+                    <productFeeClause>
+                        <productFeeTakeoverData>
+                            <takeoverReason>02_b</takeoverReason>
+                            <takeoverAmount>2132.23</takeoverAmount>
+                        </productFeeTakeoverData>
+                    </productFeeClause>
+                    <lineProductFeeContent>
+                        <productFeeCode>
+                            <productCodeCategory>TESZOR</productCodeCategory>
+                            <productCodeValue>CODE1234</productCodeValue>
+                        </productFeeCode>
+                        <productFeeQuantity>133322444.2344</productFeeQuantity>
+                        <productFeeMeasuringUnit>DARAB</productFeeMeasuringUnit>
+                        <productFeeRate>12355.2</productFeeRate>
+                        <productFeeAmount>4444.33</productFeeAmount>
+                    </lineProductFeeContent>
+                    <lineProductFeeContent>
+                        <productFeeCode>
+                            <productCodeCategory>SZJ</productCodeCategory>
+                            <productCodeValue>CODE5234</productCodeValue>
+                        </productFeeCode>
+                        <productFeeQuantity>533322444.2344</productFeeQuantity>
+                        <productFeeMeasuringUnit>KG</productFeeMeasuringUnit>
+                        <productFeeRate>52355.2</productFeeRate>
+                        <productFeeAmount>54444.33</productFeeAmount>
+                    </lineProductFeeContent>
+                    <lineProductFeeContent>
+                        <productFeeCode>
+                            <productCodeCategory>KN</productCodeCategory>
+                            <productCodeValue>CODE6234</productCodeValue>
+                        </productFeeCode>
+                        <productFeeQuantity>633322444.2344</productFeeQuantity>
+                        <productFeeMeasuringUnit>DARAB</productFeeMeasuringUnit>
+                        <productFeeRate>612355.2</productFeeRate>
+                        <productFeeAmount>64444.33</productFeeAmount>
+                    </lineProductFeeContent>
+                    <additionalLineData>
+                        <dataName>A12345_1234</dataName>
+                        <dataDescription>Super additional data!</dataDescription>
+                        <dataValue>Super value!</dataValue>
+                    </additionalLineData>
+                    <additionalLineData>
+                        <dataName>B12345_1234</dataName>
+                        <dataDescription>BSuper additional data!</dataDescription>
+                        <dataValue>BSuper value!</dataValue>
+                    </additionalLineData>
+                    <additionalLineData>
+                        <dataName>C12345_1234</dataName>
+                        <dataDescription>CSuper additional data!</dataDescription>
+                        <dataValue>CSuper value!</dataValue>
+                    </additionalLineData>
                 </line>
                 <line>
                     <lineNumber>2</lineNumber>
-                    <lineExpressionIndicator>true</lineExpressionIndicator>
+                    <lineModificationReference>
+                        <lineNumberReference>2</lineNumberReference>
+                        <lineOperation>MODIFY</lineOperation>
+                    </lineModificationReference>
+                    <referencesToOtherLines>
+                        <referenceToOtherLine>4</referenceToOtherLine>
+                        <referenceToOtherLine>5</referenceToOtherLine>
+                        <referenceToOtherLine>6</referenceToOtherLine>
+                    </referencesToOtherLines>
+                    <advanceIndicator/>
+                    <productCodes>
+                        <productCode>
+                            <productCodeCategory>VTSZ</productCodeCategory>
+                            <productCodeValue>HELLO1234</productCodeValue>
+                        </productCode>
+                        <productCode>
+                            <productCodeCategory>EJ</productCodeCategory>
+                            <productCodeOwnValue>ITSMYOWNCODE4</productCodeOwnValue>
+                        </productCode>
+                    </productCodes>
+                    <lineExpressionIndicator/>
                     <lineNatureIndicator>PRODUCT</lineNatureIndicator>
                     <lineDescription>MÁK</lineDescription>
                     <quantity>3</quantity>
                     <unitOfMeasure>PIECE</unitOfMeasure>
                     <unitPrice>10</unitPrice>
                     <unitPriceHUF>10</unitPriceHUF>
-                    <lineAmountsNormal>
-                        <lineNetAmountData>
-                            <lineNetAmount>30</lineNetAmount>
-                            <lineNetAmountHUF>30</lineNetAmountHUF>
-                        </lineNetAmountData>
-                        <lineVatRate>
-                            <vatPercentage>0.05</vatPercentage>
-                        </lineVatRate>
-                        <lineVatData>
-                            <lineVatAmount>1.5</lineVatAmount>
-                            <lineVatAmountHUF>1.5</lineVatAmountHUF>
-                        </lineVatData>
-                        <lineGrossAmountData>
-                            <lineGrossAmountNormal>31.5</lineGrossAmountNormal>
-                            <lineGrossAmountNormalHUF>31.5</lineGrossAmountNormalHUF>
-                        </lineGrossAmountData>
-                    </lineAmountsNormal>
+                    <lineAmountsSimplified>
+                        <lineVatContent>0.6523</lineVatContent>
+                        <lineGrossAmountSimplified>12345.06</lineGrossAmountSimplified>
+                        <lineGrossAmountSimplifiedHUF>98765.43</lineGrossAmountSimplifiedHUF>
+                    </lineAmountsSimplified>
+                    <intermediatedService/>
+                    <newTransportMean>
+                        <brand>Brandecske33</brand>
+                        <serialNum>OOOSuper Serial</serialNum>
+                        <engineNum>OOOENG1234214123</engineNum>
+                        <firstEntryIntoService>2022-12-31</firstEntryIntoService>
+                        <vessel>
+                            <length>2345.2345</length>
+                            <activityReferred>true</activityReferred>
+                            <sailedHours>232323.2323</sailedHours>
+                        </vessel>
+                    </newTransportMean>
+                    <depositIndicator/>
+                    <ekaerIds>
+                        <ekaerId>E623456ABCDEFAF</ekaerId>
+                        <ekaerId>E623457ABCDEFAE</ekaerId>
+                        <ekaerId>E623458ABCDEFAD</ekaerId>
+                    </ekaerIds>
+                    <obligatedForProductFee/>
+                    <netaDeclaration/>
+                    <productFeeClause>
+                        <customerDeclaration>
+                            <productStream>COMMERCIAL</productStream>
+                            <productFeeWeight>2312312.23</productFeeWeight>
+                        </customerDeclaration>
+                    </productFeeClause>
+                    <lineProductFeeContent>
+                        <productFeeCode>
+                            <productCodeCategory>TESZOR</productCodeCategory>
+                            <productCodeValue>CODE1234</productCodeValue>
+                        </productFeeCode>
+                        <productFeeQuantity>9133322444.2344</productFeeQuantity>
+                        <productFeeMeasuringUnit>DARAB</productFeeMeasuringUnit>
+                        <productFeeRate>912355.2</productFeeRate>
+                        <productFeeAmount>94444.33</productFeeAmount>
+                    </lineProductFeeContent>
+                    <lineProductFeeContent>
+                        <productFeeCode>
+                            <productCodeCategory>SZJ</productCodeCategory>
+                            <productCodeValue>CODE5234</productCodeValue>
+                        </productFeeCode>
+                        <productFeeQuantity>8533322444.2344</productFeeQuantity>
+                        <productFeeMeasuringUnit>KG</productFeeMeasuringUnit>
+                        <productFeeRate>852355.2</productFeeRate>
+                        <productFeeAmount>854444.33</productFeeAmount>
+                    </lineProductFeeContent>
+                    <lineProductFeeContent>
+                        <productFeeCode>
+                            <productCodeCategory>KN</productCodeCategory>
+                            <productCodeValue>CODE6234</productCodeValue>
+                        </productFeeCode>
+                        <productFeeQuantity>98633322444.2344</productFeeQuantity>
+                        <productFeeMeasuringUnit>DARAB</productFeeMeasuringUnit>
+                        <productFeeRate>98612355.2</productFeeRate>
+                        <productFeeAmount>9864444.33</productFeeAmount>
+                    </lineProductFeeContent>
+                    <additionalLineData>
+                        <dataName>T12345_1234</dataName>
+                        <dataDescription>Super additional data!</dataDescription>
+                        <dataValue>Super value!</dataValue>
+                    </additionalLineData>
+                    <additionalLineData>
+                        <dataName>R12345_1234</dataName>
+                        <dataDescription>RSuper additional data!</dataDescription>
+                        <dataValue>RSuper value!</dataValue>
+                    </additionalLineData>
+                    <additionalLineData>
+                        <dataName>Z12345_1234</dataName>
+                        <dataDescription>ZSuper additional data!</dataDescription>
+                        <dataValue>ZSuper value!</dataValue>
+                    </additionalLineData>
                 </line>
             </invoiceLines>
+            <productFeeSummary>
+                <productFeeOperation>DEPOSIT</productFeeOperation>
+                <productFeeData>
+                    <productFeeCode>
+                        <productCodeCategory>KN</productCodeCategory>
+                        <productCodeValue>JUHHUU</productCodeValue>
+                    </productFeeCode>
+                    <productFeeQuantity>124.12</productFeeQuantity>
+                    <productFeeMeasuringUnit>KG</productFeeMeasuringUnit>
+                    <productFeeRate>234.23</productFeeRate>
+                    <productFeeAmount>23.22</productFeeAmount>
+                </productFeeData>
+                <productFeeData>
+                    <productFeeCode>
+                        <productCodeCategory>VTSZ</productCodeCategory>
+                        <productCodeValue>JUHHUU44</productCodeValue>
+                    </productFeeCode>
+                    <productFeeQuantity>99124.12</productFeeQuantity>
+                    <productFeeMeasuringUnit>DARAB</productFeeMeasuringUnit>
+                    <productFeeRate>99234.23</productFeeRate>
+                    <productFeeAmount>9923.22</productFeeAmount>
+                </productFeeData>
+                <productChargeSum>655656.34</productChargeSum>
+                <paymentEvidenceDocumentData>
+                    <evidenceDocumentNo>2321323</evidenceDocumentNo>
+                    <evidenceDocumentDate>2020-03-04</evidenceDocumentDate>
+                    <obligatedName>as asdw34</obligatedName>
+                    <obligatedAddress>
+                        <simpleAddress>
+                            <countryCode>HU</countryCode>
+                            <postalCode>2323</postalCode>
+                            <city>Mór</city>
+                            <additionalAddressDetail>Juhhu utca 34</additionalAddressDetail>
+                        </simpleAddress>
+                    </obligatedAddress>
+                    <obligatedTaxNumber>
+                        <taxpayerId>68558132</taxpayerId>
+                        <vatCode>3</vatCode>
+                        <countyCode>06</countyCode>
+                    </obligatedTaxNumber>
+                </paymentEvidenceDocumentData>
+            </productFeeSummary>
             <invoiceSummary>
-                <summaryNormal>
-                    <summaryByVatRate>
-                        <vatRate>
-                            <vatPercentage>0.27</vatPercentage>
-                        </vatRate>
-                        <vatRateNetData>
-                            <vatRateNetAmount>10</vatRateNetAmount>
-                            <vatRateNetAmountHUF>10</vatRateNetAmountHUF>
-                        </vatRateNetData>
-                        <vatRateVatData>
-                            <vatRateVatAmount>2.7</vatRateVatAmount>
-                            <vatRateVatAmountHUF>2.7</vatRateVatAmountHUF>
-                        </vatRateVatData>
-                        <vatRateGrossData>
-                            <vatRateGrossAmount>12.7</vatRateGrossAmount>
-                            <vatRateGrossAmountHUF>12.7</vatRateGrossAmountHUF>
-                        </vatRateGrossData>
-                    </summaryByVatRate>
-                    <summaryByVatRate>
-                        <vatRate>
-                            <vatPercentage>0.05</vatPercentage>
-                        </vatRate>
-                        <vatRateNetData>
-                            <vatRateNetAmount>30</vatRateNetAmount>
-                            <vatRateNetAmountHUF>30</vatRateNetAmountHUF>
-                        </vatRateNetData>
-                        <vatRateVatData>
-                            <vatRateVatAmount>1.5</vatRateVatAmount>
-                            <vatRateVatAmountHUF>1.5</vatRateVatAmountHUF>
-                        </vatRateVatData>
-                        <vatRateGrossData>
-                            <vatRateGrossAmount>31.5</vatRateGrossAmount>
-                            <vatRateGrossAmountHUF>31.5</vatRateGrossAmountHUF>
-                        </vatRateGrossData>
-                    </summaryByVatRate>
-                    <invoiceNetAmount>40</invoiceNetAmount>
-                    <invoiceNetAmountHUF>40</invoiceNetAmountHUF>
-                    <invoiceVatAmount>4.2</invoiceVatAmount>
-                    <invoiceVatAmountHUF>4.2</invoiceVatAmountHUF>
-                </summaryNormal>
+                <summarySimplified>
+                    <vatContent>0.25</vatContent>
+                    <vatContentGrossAmount>3232.23</vatContentGrossAmount>
+                    <vatContentGrossAmountHUF>444.45</vatContentGrossAmountHUF>
+                </summarySimplified>
+                <summarySimplified>
+                    <vatContent>0.43</vatContent>
+                    <vatContentGrossAmount>12323.34</vatContentGrossAmount>
+                    <vatContentGrossAmountHUF>54545.26</vatContentGrossAmountHUF>
+                </summarySimplified>
                 <summaryGrossData>
                     <invoiceGrossAmount>44.2</invoiceGrossAmount>
                     <invoiceGrossAmountHUF>44.2</invoiceGrossAmountHUF>
