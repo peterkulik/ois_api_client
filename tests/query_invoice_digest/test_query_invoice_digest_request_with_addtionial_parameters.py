@@ -1,12 +1,12 @@
 from datetime import datetime, date
+import pytest
 
 import ois_api_client as ois
 from ois_api_client import InvoiceCategory, PaymentMethod, InvoiceAppearance, Source
-from ois_api_client.dto.custom.RangeDate import RangeDate
-from ois_api_client.dto.custom.RangeMonetary import RangeMonetary
 from tests.common import config
 
 
+@pytest.mark.skip()
 def test_query_invoice_digest_request_with_additional_parameters():
     client = ois.Client(config.service_url, config.signature_key, config.replacement_key, config.password)
 
