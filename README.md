@@ -2,6 +2,7 @@
 **Online Invoice System API Client**
 
 [![PyPI Latest Release](https://img.shields.io/pypi/v/ois_api_client.svg)](https://pypi.org/project/ois_api_client/)
+[![pyversions](https://img.shields.io/pypi/pyversions/ois_api_client)](https://pypi.org/project/ois_api_client/)
 [![Package Status](https://img.shields.io/pypi/status/ois_api_client.svg)](https://pypi.org/project/ois_api_client/)
 [![License](https://img.shields.io/pypi/l/ois_api_client.svg)](https://github.com/peterkulik/ois_api_client/blob/master/LICENSE)
 
