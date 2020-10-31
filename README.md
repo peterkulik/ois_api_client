@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/pypi/l/ois_api_client.svg)](https://github.com/peterkulik/ois_api_client/blob/master/LICENSE)
 
 [![build](https://img.shields.io/github/workflow/status/peterkulik/ois_api_client/Python%20package/api-3.0)](https://github.com/peterkulik/ois_api_client/actions?query=workflow:"Python+package")
-[![codecov](https://codecov.io/gh/peterkulik/ois_api_client/branch/api-3.0/graph/badge.svg)](https://codecov.io/gh/peterkulik/ois_api_client)
+[![codecov](https://codecov.io/gh/peterkulik/ois_api_client/branch/api-3.0/graph/badge.svg)](https://codecov.io/gh/peterkulik/ois_api_client/branch/api-3.0/commits)
 
 *API Version: 3.0*
 
