@@ -2,12 +2,15 @@ import xml.etree.ElementTree as ET
 from datetime import date, datetime
 from typing import Union
 
+from ois_api_client.constants import NAMESPACE_DATA
 
-def serialize_text_element(parent: ET.Element, tag: str, text: Union[str, None]) -> Union[ET.Element, None]:
+
+def serialize_text_element(parent: ET.Element, tag: str, text: Union[str, None],
+                           namespace: str = NAMESPACE_DATA) -> Union[ET.Element, None]:
     if text is None:
         return None
 
-    result = ET.SubElement(parent, tag)
+    result = ET.SubElement(parent, f'{{{namespace}}}{tag}')
     result.text = text
     return result
 

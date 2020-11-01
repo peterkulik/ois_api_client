@@ -107,4 +107,6 @@ from .dto.serialization.hash_password import hash_password
 from .dto.custom.RangeDate import RangeDate
 from .dto.custom.RangeMonetary import RangeMonetary
 
+from .constants import NAMESPACE_BASE, NAMESPACE_COMMON, NAMESPACE_DATA, NAMESPACE_API, REQUEST_VERSION, HEADER_VERSION
+
 from .Client import Client

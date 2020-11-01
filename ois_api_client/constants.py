@@ -1,4 +1,6 @@
 NAMESPACE_API = 'http://schemas.nav.gov.hu/OSA/2.0/api'
 NAMESPACE_DATA = 'http://schemas.nav.gov.hu/OSA/2.0/data'
-REQUEST_VERSION = '2.0'
+NAMESPACE_COMMON = 'http://schemas.nav.gov.hu/NTCA/1.0/common'
+NAMESPACE_BASE = 'http://schemas.nav.gov.hu/OSA/3.0/base'
+REQUEST_VERSION = '3.0'
 HEADER_VERSION = '1.0'

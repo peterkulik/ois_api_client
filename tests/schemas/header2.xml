@@ -1,0 +1,6 @@
+<common:header xmlns:common="http://schemas.nav.gov.hu/NTCA/1.0/common">
+    <common:requestId>test_request_id</common:requestId>
+    <common:timestamp>2020-10-31T18:57:14.987Z</common:timestamp>
+    <common:requestVersion>3.0</common:requestVersion>
+    <common:headerVersion>1.0</common:headerVersion>
+</common:header>

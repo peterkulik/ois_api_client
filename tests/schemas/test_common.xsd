@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns="https://github.com/peterkulik/ois_api_client"
+        xmlns:data="http://schemas.nav.gov.hu/OSA/3.0/data"
+        xmlns:common="http://schemas.nav.gov.hu/NTCA/1.0/common"
+        xmlns:base="http://schemas.nav.gov.hu/OSA/3.0/base"
+        targetNamespace="https://github.com/peterkulik/ois_api_client"
+        elementFormDefault="qualified"
+        attributeFormDefault="unqualified">
+    <xs:complexType name="test">
+        <xs:sequence>
+            <xs:element name="header" type="common:BasicHeaderType" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="header_test" type="test" />
+</xs:schema>
