@@ -1,7 +1,9 @@
 import ois_api_client as ois
 from tests.common import config
+import pytest
 
 
+@pytest.mark.skip(reason='3.0 api migration')
 def test_token_exchange():
     client = ois.Client(config.service_url, config.signature_key, config.replacement_key, config.password)
 
