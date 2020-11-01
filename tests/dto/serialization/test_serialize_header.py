@@ -1,5 +1,7 @@
-from datetime import datetime, timezone
+from datetime import datetime, timezone, tzinfo, timedelta
 import xml.etree.ElementTree as ET
+from typing import Optional
+
 import ois_api_client as ois
 from ois_api_client.dto.serialization.serialize_header import serialize_header
 from tests.xml import get_full_tag
@@ -11,9 +13,14 @@ def _validate_element(element: ET.Element, namespace: str, tag_name: str, expect
     assert expected_value == element.text
 
 
+class HUN(tzinfo):
+    def utcoffset(self, dt: Optional[datetime]) -> Optional[timedelta]:
+        return timedelta(hours=1)
+
+
 @pytest.mark.parametrize('request_id, timestamp, expected_timestamp', [
-    ('123456789', datetime(2020, 10, 31, 19, 57, 14, 987654).astimezone(tz=timezone.utc), '2020-10-31T18:57:14.987Z'),
-    ('987654321', datetime(2020, 10, 31, 19, 57, 14, 987654), '2020-10-31T18:57:14.987Z'),
+    ('123456789', datetime(2020, 10, 31, 19, 57, 14, 987654, tzinfo=HUN()).astimezone(tz=timezone.utc), '2020-10-31T18:57:14.987Z'),
+    ('987654321', datetime(2020, 10, 31, 19, 57, 14, 987654, tzinfo=HUN()), '2020-10-31T18:57:14.987Z'),
     ('123498765', datetime(2020, 10, 31, 19, 57, 14, 987654, tzinfo=timezone.utc), '2020-10-31T19:57:14.987Z')
 ])
 def test_serialize_header(request_id: str, timestamp: datetime, expected_timestamp: str):
