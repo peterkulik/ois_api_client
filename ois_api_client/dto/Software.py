@@ -1,9 +1,11 @@
-from typing import Union
+from typing import Union, Optional
+
+from .SoftwareOperation import SoftwareOperation
 
 
 class Software:
     """Billing software data
-    :param id: Billing software ID
+    :param id_: Billing software ID
     :param name: Billing software name
     :param operation: Billing software operation type (local program or online billing service)
     :param main_version: Billing software main version
@@ -16,15 +18,19 @@ class Software:
     def __init__(self,
                  id: str,
                  name: str,
-                 operation: str,
+                 operation: Union[SoftwareOperation, str],
                  main_version: str,
                  dev_name: str,
                  dev_contact: str,
-                 dev_country_code: Union[str, None] = None,
-                 dev_tax_number: Union[str, None] = None):
+                 dev_country_code: Optional[str] = None,
+                 dev_tax_number: Optional[str] = None):
         self.id = id
         self.name = name
-        self.operation = operation
+
+        if isinstance(operation, str):
+            self.operation = SoftwareOperation(operation.upper())
+        else:
+            self.operation = operation
         self.main_version = main_version
         self.dev_name = dev_name
         self.dev_contact = dev_contact

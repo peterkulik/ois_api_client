@@ -2,14 +2,16 @@ import xml.etree.ElementTree as ET
 
 from ..UserHeader import UserHeader
 from .serialize_element import serialize_text_element
+from ..xml.get_full_tag import get_full_tag
+from ...constants import NAMESPACE_COMMON
 
 
 def serialize_user(data: UserHeader, password_hash: str, request_signature: str) -> ET.Element:
-    result = ET.Element('user')
+    result = ET.Element(get_full_tag(NAMESPACE_COMMON, 'user'))
 
-    serialize_text_element(result, 'login', data.login)
-    serialize_text_element(result, 'passwordHash', password_hash)
-    serialize_text_element(result, 'taxNumber', data.tax_number)
-    serialize_text_element(result, 'requestSignature', request_signature)
+    serialize_text_element(result, 'login', data.login, NAMESPACE_COMMON)
+    serialize_text_element(result, 'passwordHash', password_hash, NAMESPACE_COMMON)
+    serialize_text_element(result, 'taxNumber', data.tax_number, NAMESPACE_COMMON)
+    serialize_text_element(result, 'requestSignature', request_signature, NAMESPACE_COMMON)
 
     return result

@@ -74,6 +74,7 @@ from .dto.RelationQueryDate import RelationQueryDate
 from .dto.RelationQueryMonetary import RelationQueryMonetary
 from .dto.SimpleAddress import SimpleAddress
 from .dto.Software import Software
+from .dto.SoftwareOperation import SoftwareOperation
 from .dto.Source import Source
 from .dto.Summary import Summary
 from .dto.SummaryByVatRate import SummaryByVatRate

@@ -3,6 +3,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, date, timezone
 from typing import List, Union
 
+from ..xml.get_full_tag import get_full_tag
 from ...constants import NAMESPACE_API
 
 
@@ -10,7 +11,7 @@ class XmlReader:
     @staticmethod
     def get_child_text(parent: ET.Element, tag_name: str, namespace: str = NAMESPACE_API,
                        default: str = None) -> Union[str, None]:
-        child = parent.find(f'{{{namespace}}}{tag_name}')
+        child = parent.find(get_full_tag(namespace, tag_name))
         return default if child is None else child.text
 
     @staticmethod
@@ -41,14 +42,14 @@ class XmlReader:
 
     @staticmethod
     def find_child(parent: ET.Element, tag_name: str, namespace: str = NAMESPACE_API) -> ET.Element:
-        return parent.find(f'{{{namespace}}}{tag_name}')
+        return parent.find(get_full_tag(namespace, tag_name))
 
     @staticmethod
     def find_all_child(parent: ET.Element, tag_name: str, namespace: str = NAMESPACE_API) -> List[ET.Element]:
-        return parent.findall(f'{{{namespace}}}{tag_name}')
+        return parent.findall(get_full_tag(namespace, tag_name))
 
     @staticmethod
     def get_child_datetime_tz_offset(parent: ET.Element, tag_name: str) -> datetime:
         text = XmlReader.get_child_text(parent, tag_name)
-        element = parent.find(f'{{{NAMESPACE_API}}}{tag_name}')
+        element = parent.find(get_full_tag(NAMESPACE_API, tag_name))
         return None if text is None else datetime.strptime(element.text, '%Y-%m-%dT%H:%M:%S.%f%z')

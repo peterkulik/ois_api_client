@@ -3,11 +3,12 @@ from datetime import timezone
 
 from .. import BasicHeader
 from .serialize_element import serialize_text_element
+from ..xml.get_full_tag import get_full_tag
 from ...constants import REQUEST_VERSION, HEADER_VERSION, NAMESPACE_COMMON
 
 
 def serialize_header(data: BasicHeader) -> ET.Element:
-    result = ET.Element(f'{{{NAMESPACE_COMMON}}}header')
+    result = ET.Element(get_full_tag(NAMESPACE_COMMON, 'header'))
 
     serialize_text_element(result, 'requestId', data.request_id, NAMESPACE_COMMON)
     serialize_text_element(result, 'timestamp',

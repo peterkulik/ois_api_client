@@ -1,21 +1,20 @@
+import logging
 import xml.etree.ElementTree as ET
 from datetime import date, datetime
-from typing import Union
+from typing import Optional
+from ois_api_client.dto.xml.get_full_tag import get_full_tag
 
-from ois_api_client.constants import NAMESPACE_DATA
 
-
-def serialize_text_element(parent: ET.Element, tag: str, text: Union[str, None],
-                           namespace: str = NAMESPACE_DATA) -> Union[ET.Element, None]:
+def serialize_text_element(parent: ET.Element, tag: str, text: str, namespace: str) -> Optional[ET.Element]:
     if text is None:
         return None
 
-    result = ET.SubElement(parent, f'{{{namespace}}}{tag}')
+    result = ET.SubElement(parent, get_full_tag(namespace, tag))
     result.text = text
     return result
 
 
-def serialize_int_element(parent: ET.Element, tag: str, value: Union[int, None]) -> Union[ET.Element, None]:
+def serialize_int_element(parent: ET.Element, tag: str, value: Optional[int]) -> Optional[ET.Element]:
     if value is None:
         return None
 
