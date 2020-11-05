@@ -46,7 +46,7 @@ def test_serialize_token_exchange_request(request_id: str, timestamp: datetime, 
 
     children = [i for i in result]
 
-    assert 3 == len(children)
+    assert len(children) == 3
 
     validate_tag_name(children[0], ois.NAMESPACE_COMMON, 'header')
     validate_tag_name(children[1], ois.NAMESPACE_COMMON, 'user')

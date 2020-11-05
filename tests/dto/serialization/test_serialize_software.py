@@ -50,7 +50,7 @@ def test_serialize_software(id_: str, name: str, operation: ois.SoftwareOperatio
     if dev_tax_number is None:
         count_of_none_params += 1
 
-    assert 8 - count_of_none_params == len(children)
+    assert len(children) == 8 - count_of_none_params
 
     validate_element(children[0], ois.NAMESPACE_API, 'softwareId', id_)
     validate_element(children[1], ois.NAMESPACE_API, 'softwareName', name)

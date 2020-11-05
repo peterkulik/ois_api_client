@@ -10,8 +10,8 @@ def serialize_user(data: UserHeader, password_hash: str, request_signature: str)
     result = ET.Element(get_full_tag(NAMESPACE_COMMON, 'user'))
 
     serialize_text_element(result, 'login', data.login, NAMESPACE_COMMON)
-    serialize_text_element(result, 'passwordHash', password_hash, NAMESPACE_COMMON)
+    serialize_text_element(result, 'passwordHash', password_hash, NAMESPACE_COMMON, {'cryptoType': 'SHA2-512'})
     serialize_text_element(result, 'taxNumber', data.tax_number, NAMESPACE_COMMON)
-    serialize_text_element(result, 'requestSignature', request_signature, NAMESPACE_COMMON)
+    serialize_text_element(result, 'requestSignature', request_signature, NAMESPACE_COMMON, {'cryptoType': 'SHA3-512'})
 
     return result

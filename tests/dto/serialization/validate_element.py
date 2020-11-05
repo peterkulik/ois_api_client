@@ -9,4 +9,4 @@ def validate_tag_name(element: ET.Element, namespace: str, tag_name: str):
 
 def validate_element(element: ET.Element, namespace: str, tag_name: str, expected_value: str):
     validate_tag_name(element, namespace, tag_name)
-    assert expected_value == element.text
+    assert element.text == expected_value

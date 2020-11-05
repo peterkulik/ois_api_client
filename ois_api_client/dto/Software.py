@@ -28,7 +28,7 @@ class Software:
         self.name = name
 
         if isinstance(operation, str):
-            self.operation = SoftwareOperation((operation.upper(),))
+            self.operation = SoftwareOperation(operation.upper())
         else:
             self.operation = operation
         self.main_version = main_version

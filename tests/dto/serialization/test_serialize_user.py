@@ -23,7 +23,7 @@ def test_serialize_user(login: str, tax_number: str, password_hash: str, request
 
     children = [i for i in result]
 
-    assert 4 == len(children)
+    assert len(children) == 4
 
     validate_element(children[0], ois.NAMESPACE_COMMON, 'login', login)
     validate_element(children[1], ois.NAMESPACE_COMMON, 'passwordHash', password_hash)

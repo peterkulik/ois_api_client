@@ -1,8 +1,8 @@
 class Notification:
     """Notification
 
-    :param notification_code:
-    :param notification_text:
+    :param notification_code: Notification code
+    :param notification_text: Notification text
     """
 
     def __init__(self, notification_code: str, notification_text: str):

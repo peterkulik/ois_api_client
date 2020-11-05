@@ -1,9 +1,7 @@
 import ois_api_client as ois
 from tests.common import config
-import pytest
 
 
-@pytest.mark.skip(reason='3.0 api migration')
 def test_token_exchange():
     client = ois.Client(config.service_url, config.signature_key, config.replacement_key, config.password)
 
@@ -23,4 +21,3 @@ def test_token_exchange():
     assert response.result.error_code is None
     assert response.result.message is None
     assert response.result.func_code == 'OK'
-    # err_ser = deserialize_general_error_response(err.general_error_response)
