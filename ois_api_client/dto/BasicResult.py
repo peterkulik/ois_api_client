@@ -1,4 +1,4 @@
-from typing import Union, List
+from typing import List, Optional
 from .Notification import Notification
 
 
@@ -11,7 +11,7 @@ class BasicResult:
     :param notifications: Miscellaneous notifications
     """
 
-    def __init__(self, func_code: str, error_code: Union[str, None], message: Union[str, None],
+    def __init__(self, func_code: str, error_code: Optional[str], message: Optional[str],
                  notifications: List[Notification]):
         self.func_code = func_code
         self.error_code = error_code
