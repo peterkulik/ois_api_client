@@ -2,7 +2,9 @@ import xml.etree.ElementTree as ET
 from typing import Union
 
 from .XmlReader import XmlReader as XR
+from .deserialize_basic_header import deserialize_basic_header
 from .deserialize_basic_result import deserialize_basic_result
+from .deserialize_software import deserialize_software
 from ..AuditData import AuditData
 from ..InvoiceDataResult import InvoiceDataResult
 from ..OriginalRequestVersion import OriginalRequestVersion
@@ -53,7 +55,9 @@ def deserialize_query_invoice_data_response(query_invoice_data_response: str) ->
     idr_el = XR.find_child(root, 'invoiceDataResult')
 
     result = QueryInvoiceDataResponse(
+        header=deserialize_basic_header(root),
         result=deserialize_basic_result(root),
+        software=deserialize_software(root),
         invoice_data_result=_deserialize_invoice_data_result(idr_el)
     )
     return result
