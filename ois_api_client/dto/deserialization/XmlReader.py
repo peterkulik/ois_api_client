@@ -36,8 +36,8 @@ class XmlReader:
         return None if text is None else datetime.strptime(text, '%Y-%m-%d')
 
     @staticmethod
-    def get_child_utc_datetime(parent: ET.Element, tag_name: str) -> Union[datetime, None]:
-        text = XmlReader.get_child_text(parent, tag_name)
+    def get_child_utc_datetime(parent: ET.Element, tag_name: str, namespace: str = NAMESPACE_API) -> Union[datetime, None]:
+        text = XmlReader.get_child_text(parent, tag_name, namespace)
         return None if text is None else datetime.strptime(text, '%Y-%m-%dT%H:%M:%S.%fZ').replace(tzinfo=timezone.utc)
 
     @staticmethod

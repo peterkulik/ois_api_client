@@ -14,11 +14,27 @@ xml = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
                       xmlns:ns2="http://schemas.nav.gov.hu/NTCA/1.0/common"
                       xmlns:ns3="http://schemas.nav.gov.hu/OSA/3.0/base"
                       xmlns:ns4="http://schemas.nav.gov.hu/OSA/3.0/data">
+    <ns2:header>
+        <ns2:requestId>UniqueId</ns2:requestId>
+        <ns2:timestamp>2020-11-08T14:23:12.123Z</ns2:timestamp>
+        <ns2:requestVersion>3.0</ns2:requestVersion>
+        <ns2:headerVersion>1.0</ns2:headerVersion>
+    </ns2:header>
     <ns2:result>
         <ns2:funcCode>ERROR</ns2:funcCode>
         <ns2:errorCode>INVALID_REQUEST</ns2:errorCode>
         <ns2:message>Helytelen kérés!</ns2:message>
     </ns2:result>
+    <software>
+        <softwareId>123456789012345678</softwareId>
+        <softwareName>Super softwer</softwareName>
+        <softwareOperation>LOCAL_SOFTWARE</softwareOperation>
+        <softwareMainVersion>1.0</softwareMainVersion>
+        <softwareDevName>Super Developer</softwareDevName>
+        <softwareDevContact>super@developer.com</softwareDevContact>
+        <softwareDevCountryCode>HU</softwareDevCountryCode>
+        <softwareDevTaxNumber>12345678</softwareDevTaxNumber>
+    </software>
     <technicalValidationMessages>
         <ns2:validationResultCode>ERROR</ns2:validationResultCode>
         <ns2:validationErrorCode>SCHEMA_VIOLATION</ns2:validationErrorCode>
@@ -50,6 +66,19 @@ def test_deserialize_general_error_response():
     assert res.func_code == 'ERROR'
     assert res.error_code == 'INVALID_REQUEST'
     assert res.message == 'Helytelen kérés!'
+
+    assert serialized_error.software is not None
+
+    software = serialized_error.software
+
+    assert software.id == '123456789012345678'
+    assert software.name == 'Super softwer'
+    assert software.operation == ois.SoftwareOperation.LOCAL_SOFTWARE
+    assert software.main_version == '1.0'
+    assert software.dev_name == 'Super Developer'
+    assert software.dev_contact == 'super@developer.com'
+    assert software.dev_country_code == 'HU'
+    assert software.dev_tax_number == '12345678'
 
     assert serialized_error.technical_validation_messages is not None
 
