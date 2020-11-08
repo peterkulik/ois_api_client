@@ -15,6 +15,6 @@ class BasicHeader:
     def __init__(self, request_id: str, timestamp: datetime, request_version: str = REQUEST_VERSION,
                  header_version: str = HEADER_VERSION):
         self.request_id = request_id
-        self.timestamp = timestamp,
+        self.timestamp = timestamp
         self.request_version = request_version
         self.header_version = header_version
