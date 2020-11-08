@@ -591,7 +591,7 @@
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="GeneralErrorHeaderResponseType">
+<xs:complexType name="GeneralErrorHeaderResponseType">
 		<xs:annotation>
 			<xs:documentation xml:lang="hu">Általános hibatípus minden REST operációra</xs:documentation>
 			<xs:documentation xml:lang="en">Generic fault type for every REST operation</xs:documentation>
