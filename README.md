@@ -24,9 +24,12 @@ https://onlineszamla.nav.gov.hu/dokumentaciok
 - query_invoice_data
 - token_exchange
 
+## License
+[MIT](LICENSE)
 
-***
+
+## User guide
 [Getting started](https://github.com/peterkulik/ois_api_client/wiki/Getting-started)
 
 [Error handling](https://github.com/peterkulik/ois_api_client/wiki/Error-handling)
-***
+
