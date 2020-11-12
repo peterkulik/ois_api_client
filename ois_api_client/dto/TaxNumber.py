@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Optional
 
 
 class TaxNumber:
@@ -12,8 +12,8 @@ class TaxNumber:
 
     def __init__(self,
                  taxpayer_id: str,
-                 vat_code: Union[str, None] = None,
-                 county_code: Union[str, None] = None):
+                 vat_code: Optional[str] = None,
+                 county_code: Optional[str] = None):
         self.taxpayer_id = taxpayer_id
         self.vat_code = vat_code
         self.county_code = county_code

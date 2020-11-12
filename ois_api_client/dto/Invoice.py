@@ -1,4 +1,4 @@
-from typing import Union, List
+from typing import List, Optional
 
 from .InvoiceHead import InvoiceHead
 from .InvoiceReference import InvoiceReference
@@ -20,9 +20,9 @@ class Invoice:
     def __init__(self,
                  invoice_head: InvoiceHead,
                  invoice_summary: Summary,
-                 invoice_reference: Union[InvoiceReference, None] = None,
-                 invoice_lines: Union[Lines, None] = None,
-                 product_fee_summary: Union[List[ProductFeeSummary], None] = None):
+                 invoice_reference: Optional[InvoiceReference] = None,
+                 invoice_lines: Optional[Lines] = None,
+                 product_fee_summary: Optional[List[ProductFeeSummary]] = None):
         self.invoice_reference = invoice_reference
         self.invoice_head = invoice_head
         self.invoice_lines = invoice_lines

@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Optional
 
 from .Address import Address
 from .TaxNumber import TaxNumber
@@ -21,11 +21,11 @@ class SupplierInfo:
                  supplier_tax_number: TaxNumber,
                  supplier_name: str,
                  supplier_address: Address,
-                 group_member_tax_number: Union[TaxNumber, None] = None,
-                 community_vat_number: Union[str, None] = None,
-                 supplier_bank_account_number: Union[str, None] = None,
-                 individual_exemption: bool = False,
-                 excise_licence_num: Union[str, None] = None):
+                 group_member_tax_number: Optional[TaxNumber] = None,
+                 community_vat_number: Optional[str] = None,
+                 supplier_bank_account_number: Optional[str] = None,
+                 individual_exemption: Optional[bool] = None,
+                 excise_licence_num: Optional[str] = None):
         self.supplier_tax_number = supplier_tax_number
         self.group_member_tax_number = group_member_tax_number
         self.community_vat_number = community_vat_number

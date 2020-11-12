@@ -9,7 +9,7 @@ class InvoiceReference:
     def __init__(self,
                  original_invoice_number: str,
                  modification_index: int,
-                 modify_without_master: bool = False):
+                 modify_without_master: bool):
         self.original_invoice_number = original_invoice_number
         self.modify_without_master = modify_without_master
         self.modification_index = modification_index

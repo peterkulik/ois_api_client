@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Optional
 
 from .CustomerInfo import CustomerInfo
 from .FiscalRepresentative import FiscalRepresentative
@@ -18,8 +18,8 @@ class InvoiceHead:
     def __init__(self,
                  supplier_info: SupplierInfo,
                  invoice_detail: InvoiceDetail,
-                 customer_info: Union[CustomerInfo, None] = None,
-                 fiscal_representative_info: Union[FiscalRepresentative, None] = None):
+                 customer_info: Optional[CustomerInfo] = None,
+                 fiscal_representative_info: Optional[FiscalRepresentative] = None):
         self.supplier_info = supplier_info
         self.customer_info = customer_info
         self.fiscal_representative_info = fiscal_representative_info

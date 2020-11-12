@@ -1,0 +1,97 @@
+@startuml
+class Invoice {
++ invoice_head: InvoiceHead
++ invoice_summary: Summary
++ invoice_reference: Optional[InvoiceReference] = None
++ invoice_lines: Optional[Lines] = None
++ product_fee_summary: Optional[List[ProductFeeSummary]] = None
+}
+
+class InvoiceHead {
++ supplier_info: SupplierInfo
++ invoice_detail: InvoiceDetail
++ customer_info: Optional[CustomerInfo] = None
++ fiscal_representative_info: Optional[FiscalRepresentative] = None
+}
+
+class InvoiceReference {
++ original_invoice_number: str
++ modification_index: int
++ modify_without_master: bool
+}
+
+class SupplierInfo {
++ supplier_tax_number: TaxNumber
++ supplier_name: str
++ supplier_address: Address
++ group_member_tax_number: Optional[TaxNumber] = None
++ community_vat_number: Optional[str] = None
++ supplier_bank_account_number: Optional[str] = None
++ individual_exemption: Optional[bool] = None
++ excise_licence_num: Optional[str] = None
+}
+
+class CustomerInfo {
++ private_person_indicator: bool
++ customer_vat_data: Optional[CustomerVatData] = None
++ customer_name: Optional[str] = None
++ customer_address: Optional[Address] = None
++ customer_bank_account_number: Optional[str] = None
+}
+
+class FiscalRepresentative {
++ fiscal_representative_tax_number: TaxNumber
++ fiscal_representative_name: str
++ fiscal_representative_address: Address
++ fiscal_representative_bank_account_number: Optional[str] = None
+}
+
+class InvoiceDetail {
++ invoice_category: InvoiceCategory
++ invoice_delivery_date: date
++ currency_code: str
++ exchange_rate: float
++ invoice_appearance: InvoiceAppearance
++ invoice_delivery_period_start: Optional[date] = None
++ invoice_delivery_period_end: Optional[date] = None
++ invoice_accounting_delivery_date: Optional[date] = None
++ periodical_settlement: Optional[bool] = None
++ small_business_indicator: Optional[bool] = None
++ utility_settlement_indicator: Optional[bool] = None
++ self_billing_indicator: Optional[bool] = None
++ payment_method: Optional[PaymentMethod] = None
++ payment_date: Optional[date] = None
++ cash_accounting_indicator: Optional[bool] = None
++ conventional_invoice_info: Optional[ConventionalInvoiceInfo] = None
++ additional_invoice_data: Optional[List[AdditionalData]] = None
+}
+
+class CustomerVatData {
++ customer_tax_number: CustomerTaxNumber
++ community_vat_number: str
++ third_state_tax_id: str
+}
+
+class CustomerTaxNumber extends TaxNumber {
++ taxpayer_id: str
++ vat_code: Optional[str]
++ county_code: Optional[str]
++ group_member_tax_number: Optional[TaxNumber]
+}
+
+class TaxNumber {
++ taxpayer_id: str
++ vat_code: Optional[str]
++ county_code: Optional[str]
+}
+
+Invoice "1" --* "0..1" InvoiceReference
+Invoice "1" --* "1" InvoiceHead
+InvoiceHead "1" --* "1" SupplierInfo
+InvoiceHead "1" --* "0..1" CustomerInfo
+InvoiceHead "1" --* "0..1" FiscalRepresentative
+InvoiceHead "1" --* "1" InvoiceDetail
+CustomerInfo "1" --* "0..1" CustomerVatData
+CustomerVatData "1" --* "1" CustomerTaxNumber
+CustomerTaxNumber "1" --* "1" TaxNumber
+@enduml
