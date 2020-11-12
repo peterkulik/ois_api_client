@@ -2,6 +2,7 @@ from datetime import date
 from typing import List, Optional
 
 from .AdditionalData import AdditionalData
+from .ConventionalInvoiceInfo import ConventionalInvoiceInfo
 from .InvoiceCategory import InvoiceCategory
 from .PaymentMethod import PaymentMethod
 from .InvoiceAppearance import InvoiceAppearance
