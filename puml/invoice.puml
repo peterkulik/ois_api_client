@@ -93,5 +93,5 @@ InvoiceHead "1" --* "0..1" FiscalRepresentative
 InvoiceHead "1" --* "1" InvoiceDetail
 CustomerInfo "1" --* "0..1" CustomerVatData
 CustomerVatData "1" --* "1" CustomerTaxNumber
-CustomerTaxNumber "1" --* "1" TaxNumber
+CustomerTaxNumber "1" --* "0..1" TaxNumber
 @enduml
