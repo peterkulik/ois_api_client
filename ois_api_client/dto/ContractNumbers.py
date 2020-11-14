@@ -1,10 +1,10 @@
 from typing import List
 
 
-class EkaerIds:
-    """EKAER ID-s
+class ContractNumbers:
+    """ContractNumbers
 
-    :param items: EKAER ID-s
+    :param items: Contract numbers
     """
 
     def __init__(self, items: List[str]):

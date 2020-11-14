@@ -85,13 +85,167 @@ class TaxNumber {
 + county_code: Optional[str]
 }
 
+class Address {
++ simple_address: SimpleAddress
++ detailed_address: DetailedAddress
+}
+
+class SimpleAddress {
++ country_code: str
++ postal_code: str
++ city: str
++ additional_address_detail: str
++ region: Optional[str] = None
+}
+
+class DetailedAddress {
++ country_code: str
++ postal_code: str
++ city: str
++ street_name: str
++ public_place_category: str
++ region: Optional[str] = None
++ number: Optional[str] = None
++ building: Optional[str] = None
++ staircase: Optional[str] = None
++ floor: Optional[str] = None
++ door: Optional[str] = None
++ lot_number: Optional[str] = None
+}
+
+enum InvoiceCategory {
+NORMAL
+SIMPLIFIED
+AGGREGATE
+}
+
+enum InvoiceAppearance {
+PAPER
+ELECTRONIC
+EDI
+UNKNOWN
+}
+
+enum PaymentMethod {
+TRANSFER
+CASH
+CARD
+VOUCHER
+OTHER
+}
+
+class AdditionalData {
++ data_name: str
++ data_description: str
++ data_value: str
+}
+
+class ConventionalInvoiceInfo {
++ order_numbers: Optional[OrderNumbers] = None
++ delivery_notes: Optional[DeliveryNotes] = None
++ shipping_dates: Optional[ShippingDates] = None
++ contract_numbers: Optional[ContractNumbers] = None
++ supplier_company_codes: Optional[SupplierCompanyCodes] = None
++ customer_company_codes: Optional[CustomerCompanyCodes] = None
++ dealer_codes: Optional[DealerCodes] = None
++ cost_centers: Optional[CostCenters] = None
++ project_numbers: Optional[ProjectNumbers] = None
++ general_ledger_account_numbers: Optional[GeneralLedgerAccountNumbers] = None
++ gln_numbers: Optional[GlnNumbers] = None
++ material_numbers: Optional[MaterialNumbers] = None
++ item_numbers: Optional[ItemNumbers] = None
++ ekaer_ids: Optional[EkaerIds] = None
+}
+
+class OrderNumbers {
++items: List[str]
+}
+
+class DeliveryNotes {
++items: List[str]
+}
+
+class ShippingDates {
++items: List[str]
+}
+
+class ContractNumbers {
++items: List[str]
+}
+
+class SupplierCompanyCodes {
++items: List[str]
+}
+
+class CustomerCompanyCodes {
++items: List[str]
+}
+
+class DealerCodes {
++items: List[str]
+}
+
+class CostCenters {
++items: List[str]
+}
+
+class ProjectNumbers {
++items: List[str]
+}
+
+class GeneralLedgerAccountNumbers {
++items: List[str]
+}
+
+class GlnNumbers {
++items: List[str]
+}
+
+class MaterialNumbers {
++items: List[str]
+}
+
+class ItemNumbers {
++items: List[str]
+}
+
+class EkaerIds {
++items: List[str]
+}
+
 Invoice "1" --* "0..1" InvoiceReference
 Invoice "1" --* "1" InvoiceHead
 InvoiceHead "1" --* "1" SupplierInfo
 InvoiceHead "1" --* "0..1" CustomerInfo
 InvoiceHead "1" --* "0..1" FiscalRepresentative
 InvoiceHead "1" --* "1" InvoiceDetail
-CustomerInfo "1" --* "0..1" CustomerVatData
+CustomerInfo "1" ----* "0..1" CustomerVatData
 CustomerVatData "1" --* "1" CustomerTaxNumber
-CustomerTaxNumber "1" --* "0..1" TaxNumber
+CustomerTaxNumber "1" ---* "0..1" TaxNumber
+SupplierInfo "1" ---* "1" TaxNumber
+SupplierInfo "1" ---* "0..1" TaxNumber
+SupplierInfo "1" --* "1" Address
+CustomerInfo "1" --* "0..1" Address
+FiscalRepresentative "1" --* "1" Address
+Address "1" --* "0..1" SimpleAddress
+Address "1" --* "0..1" DetailedAddress
+InvoiceDetail -- InvoiceCategory
+InvoiceDetail -- InvoiceAppearance
+InvoiceDetail -- PaymentMethod
+InvoiceDetail "1" -- "0..*" AdditionalData
+InvoiceDetail "1" -- "0..1" ConventionalInvoiceInfo
+ConventionalInvoiceInfo "1" -- "0..1" OrderNumbers
+ConventionalInvoiceInfo "1" -- "0..1" DeliveryNotes
+ConventionalInvoiceInfo "1" -- "0..1" ShippingDates
+ConventionalInvoiceInfo "1" -- "0..1" ContractNumbers
+ConventionalInvoiceInfo "1" -- "0..1" SupplierCompanyCodes
+ConventionalInvoiceInfo "1" -- "0..1" CustomerCompanyCodes
+ConventionalInvoiceInfo "1" -- "0..1" DealerCodes
+ConventionalInvoiceInfo "1" -- "0..1" CostCenters
+ConventionalInvoiceInfo "1" -- "0..1" ProjectNumbers
+ConventionalInvoiceInfo "1" -- "0..1" GeneralLedgerAccountNumbers
+ConventionalInvoiceInfo "1" -- "0..1" GlnNumbers
+ConventionalInvoiceInfo "1" -- "0..1" MaterialNumbers
+ConventionalInvoiceInfo "1" -- "0..1" ItemNumbers
+ConventionalInvoiceInfo "1" -- "0..1" EkaerIds
 @enduml

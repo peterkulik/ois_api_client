@@ -6,7 +6,10 @@ class AdditionalData:
     :param data_value: Value of the data
     """
 
-    def __init__(self, data_name: str, data_description: str, data_value: str):
+    def __init__(self,
+                 data_name: str,
+                 data_description: str,
+                 data_value: str):
         self.data_name = data_name
         self.data_description = data_description
         self.data_value = data_value
