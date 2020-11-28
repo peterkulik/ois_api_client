@@ -7,7 +7,8 @@ class ReferencesToOtherLines:
     :param items: References to connected items if it is necessary according to VAT law
     """
 
-    def __init__(self, items: List[int] = None):
+    def __init__(self,
+                 items: List[int] = None):
         super().__init__()
 
         if items is None:

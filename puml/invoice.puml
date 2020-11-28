@@ -213,8 +213,70 @@ class EkaerIds {
 +items: List[str]
 }
 
+class Lines {
++ merged_item_indicator: bool
++ items: List[Line]
+}
+
+class Line {
++ line_number: int
++ line_expression_indicator: bool
++ line_modification_reference: Optional[LineModificationReference] = None
++ references_to_other_lines: Optional[ReferencesToOtherLines] = None
++ advance_data: Optional[AdvanceData] = None
++ product_codes: Optional[ProductCodes] = None
++ line_nature_indicator: Optional[LineNatureIndicator] = None
++ line_description: Optional[str] = None
++ quantity: Optional[float] = None
++ unit_of_measure: Optional[UnitOfMeasure] = None
++ unit_of_measure_own: Optional[str] = None
++ unit_price: Optional[float] = None
++ unit_price_huf: Optional[float] = None
++ line_discount_data: Optional[DiscountData] = None
++ line_amounts: Union[Optional[LineAmountsNormal], Optional[LineAmountsSimplified]] = None
++ intermediated_service: Optional[bool] = None
++ aggregate_invoice_line_data: Optional[AggregateInvoiceLineData] = None
++ new_transport_mean: Optional[NewTransportMean] = None
++ deposit_indicator: Optional[bool] = None
++ margin_scheme_indicator: Optional[MarginScheme] = None
++ obligated_for_product_fee: Optional[bool] = None
++ gpc_excise: Optional[float] = None
++ diesel_oil_purchase: Optional[DieselOilPurchase] = None
++ neta_declaration: Optional[bool] = None
++ product_fee_clause: Optional[ProductFeeClause] = None
++ line_product_fee_content: Optional[List[ProductFeeData]] = None
++ conventional_line_info: Optional[ConventionalInvoiceInfo] = None
++ additional_line_data: Optional[List[AdditionalData]] = None
+}
+
+class LineModificationReference {
++ line_number_reference: int
++ line_operation: LineOperation
+}
+
+enum LineOperation{
++ CREATE
++ MODIFY
+}
+
+class ReferencesToOtherLines {
++ items: List[int] = None
+}
+
+class AdvanceData {
++ advance_indicator: bool
++ advance_payment_data: AdvancePaymentData
+}
+
+class AdvancePaymentData {
++ advance_original_invoice: str
++ advance_payment_date: date
++ advance_exchange_rate: float
+}
+
 Invoice "1" --* "0..1" InvoiceReference
 Invoice "1" --* "1" InvoiceHead
+Invoice "1" --* "1" Lines
 InvoiceHead "1" --* "1" SupplierInfo
 InvoiceHead "1" --* "0..1" CustomerInfo
 InvoiceHead "1" --* "0..1" FiscalRepresentative
@@ -235,17 +297,23 @@ InvoiceDetail -- PaymentMethod
 InvoiceDetail "1" -- "0..*" AdditionalData
 InvoiceDetail "1" -- "0..1" ConventionalInvoiceInfo
 ConventionalInvoiceInfo "1" -- "0..1" OrderNumbers
-ConventionalInvoiceInfo "1" -- "0..1" DeliveryNotes
+ConventionalInvoiceInfo "1" --- "0..1" DeliveryNotes
 ConventionalInvoiceInfo "1" -- "0..1" ShippingDates
-ConventionalInvoiceInfo "1" -- "0..1" ContractNumbers
+ConventionalInvoiceInfo "1" --- "0..1" ContractNumbers
 ConventionalInvoiceInfo "1" -- "0..1" SupplierCompanyCodes
-ConventionalInvoiceInfo "1" -- "0..1" CustomerCompanyCodes
+ConventionalInvoiceInfo "1" --- "0..1" CustomerCompanyCodes
 ConventionalInvoiceInfo "1" -- "0..1" DealerCodes
-ConventionalInvoiceInfo "1" -- "0..1" CostCenters
+ConventionalInvoiceInfo "1" --- "0..1" CostCenters
 ConventionalInvoiceInfo "1" -- "0..1" ProjectNumbers
-ConventionalInvoiceInfo "1" -- "0..1" GeneralLedgerAccountNumbers
+ConventionalInvoiceInfo "1" --- "0..1" GeneralLedgerAccountNumbers
 ConventionalInvoiceInfo "1" -- "0..1" GlnNumbers
-ConventionalInvoiceInfo "1" -- "0..1" MaterialNumbers
+ConventionalInvoiceInfo "1" --- "0..1" MaterialNumbers
 ConventionalInvoiceInfo "1" -- "0..1" ItemNumbers
-ConventionalInvoiceInfo "1" -- "0..1" EkaerIds
+ConventionalInvoiceInfo "1" --- "0..1" EkaerIds
+Lines "1" --- "0..*" Line
+Line "1" --- "0..1" LineModificationReference
+LineModificationReference "1" --- "1" LineOperation
+Line "1" --- "0..1" ReferencesToOtherLines
+Line "1" --- "0..1" AdvanceData
+AdvanceData "1" --- "1" AdvancePaymentData
 @enduml
