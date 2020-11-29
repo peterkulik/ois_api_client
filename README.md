@@ -29,5 +29,7 @@ https://onlineszamla.nav.gov.hu/dokumentaciok
 
 [Error handling](https://github.com/peterkulik/ois_api_client/wiki/Error-handling)
 
+[Invoice structure](https://raw.githubusercontent.com/peterkulik/ois_api_client/api-3.0/puml/svg/invoice.svg)
+
 ## License
 [MIT](LICENSE)
