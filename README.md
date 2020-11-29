@@ -14,7 +14,7 @@
 **The library is under active development!**
 
 ## What is it?
-**ois_api_client** is a python client for the hungarian, offical Online Invoice System public API.
+**ois_api_client** is a python client library for the hungarian, offical Online Invoice System public API.
 You can find the API documentation here:
 
 https://onlineszamla.nav.gov.hu/dokumentaciok
