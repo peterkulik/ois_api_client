@@ -8,7 +8,10 @@ from ..xml.get_full_tag import get_full_tag
 from ...constants import NAMESPACE_API
 
 
-def serialize_basic_online_invoice_request(data: BasicOnlineInvoiceRequest, root_element: str, request_signature: str, password_hash: str) -> ET.Element:
+def serialize_basic_online_invoice_request(data: BasicOnlineInvoiceRequest,
+                                           root_element: str,
+                                           request_signature: str,
+                                           password_hash: str) -> ET.Element:
     root = ET.Element(get_full_tag(NAMESPACE_API, root_element))
     root.append(serialize_header(data.header))
     root.append(serialize_user(data.user, password_hash, request_signature))
