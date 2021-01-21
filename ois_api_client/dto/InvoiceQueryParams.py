@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Optional
 
 from .AdditionalQueryParams import AdditionalQueryParams
 from .MandatoryQueryParams import MandatoryQueryParams
@@ -16,9 +16,9 @@ class InvoiceQueryParams:
     """
 
     def __init__(self, mandatory_query_params: MandatoryQueryParams,
-                 additional_query_params: Union[AdditionalQueryParams, None] = None,
-                 relational_query_params: Union[RelationalQueryParams, None] = None,
-                 transaction_query_params: Union[TransactionQueryParams, None] = None):
+                 additional_query_params: Optional[AdditionalQueryParams] = None,
+                 relational_query_params: Optional[RelationalQueryParams] = None,
+                 transaction_query_params: Optional[TransactionQueryParams] = None):
         self.mandatory_query_params = mandatory_query_params
         self.additional_query_params = additional_query_params
         self.relational_query_params = relational_query_params

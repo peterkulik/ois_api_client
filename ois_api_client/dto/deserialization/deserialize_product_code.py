@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional, Union
 
 from .XmlReader import XmlReader as XR
 from ..ProductCode import ProductCode, ProductCodeValue, ProductCodeOwnValue
@@ -19,7 +19,7 @@ def _get_product_code_value(element: ET.Element) -> Union[ProductCodeValue, Prod
         return ProductCodeOwnValue(XR.get_child_text(element, 'productCodeOwnValue', NAMESPACE_DATA))
 
 
-def deserialize_product_code(element: ET.Element) -> Union[ProductCode, None]:
+def deserialize_product_code(element: ET.Element) -> Optional[ProductCode]:
     if element is None:
         return None
 

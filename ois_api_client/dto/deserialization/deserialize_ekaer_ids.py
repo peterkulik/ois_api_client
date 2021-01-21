@@ -1,12 +1,12 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional
 
 from .XmlReader import XmlReader as XR
 from ..EkaerIds import EkaerIds
 from ...constants import NAMESPACE_DATA
 
 
-def deserialize_ekaer_ids(element: ET.Element) -> Union[EkaerIds, None]:
+def deserialize_ekaer_ids(element: ET.Element) -> Optional[EkaerIds]:
     if element is None:
         return None
 

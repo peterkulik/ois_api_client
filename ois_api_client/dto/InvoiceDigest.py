@@ -1,5 +1,5 @@
 from datetime import date, datetime
-from typing import Union
+from typing import Optional
 
 from .InvoiceAppearance import InvoiceAppearance
 from .InvoiceCategory import InvoiceCategory
@@ -47,25 +47,25 @@ class InvoiceDigest:
                  supplier_tax_number: str,
                  supplier_name: str,
                  ins_date: datetime,
-                 batch_index: Union[int, None] = None,
-                 supplier_group_tax_number: Union[str, None] = None,
-                 customer_tax_number: Union[str, None] = None,
-                 customer_group_tax_number: Union[str, None] = None,
-                 customer_name: Union[str, None] = None,
-                 payment_method: Union[PaymentMethod, None] = None,
-                 payment_date: Union[date, None] = None,
-                 invoice_appearance: Union[InvoiceAppearance, None] = None,
-                 source: Union[Source, None] = None,
-                 invoice_delivery_date: Union[date, None] = None,
-                 currency: Union[str, None] = None,
-                 invoice_net_amount: Union[float, None] = None,
-                 invoice_net_amount_huf: Union[float, None] = None,
-                 invoice_vat_amount: Union[float, None] = None,
-                 invoice_vat_amount_huf: Union[float, None] = None,
-                 transaction_id: Union[str, None] = None,
-                 index: Union[int, None] = None,
-                 original_invoice_number: Union[str, None] = None,
-                 modification_index: Union[int, None] = None):
+                 batch_index: Optional[int] = None,
+                 supplier_group_tax_number: Optional[str] = None,
+                 customer_tax_number: Optional[str] = None,
+                 customer_group_tax_number: Optional[str] = None,
+                 customer_name: Optional[str] = None,
+                 payment_method: Optional[PaymentMethod] = None,
+                 payment_date: Optional[date] = None,
+                 invoice_appearance: Optional[InvoiceAppearance] = None,
+                 source: Optional[Source] = None,
+                 invoice_delivery_date: Optional[date] = None,
+                 currency: Optional[str] = None,
+                 invoice_net_amount: Optional[float] = None,
+                 invoice_net_amount_huf: Optional[float] = None,
+                 invoice_vat_amount: Optional[float] = None,
+                 invoice_vat_amount_huf: Optional[float] = None,
+                 transaction_id: Optional[str] = None,
+                 index: Optional[int] = None,
+                 original_invoice_number: Optional[str] = None,
+                 modification_index: Optional[int] = None):
         self.invoice_number = invoice_number
         self.batch_index = batch_index
         self.invoice_operation = invoice_operation

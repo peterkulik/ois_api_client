@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Optional
 
 from .VatRate import VatRate
 from .VatRateGrossData import VatRateGrossData
@@ -19,7 +19,7 @@ class SummaryByVatRate:
                  vat_rate: VatRate,
                  vat_rate_net_data: VatRateNetData,
                  vat_rate_vat_data: VatRateVatData,
-                 vat_rate_gross_data: Union[VatRateGrossData, None] = None):
+                 vat_rate_gross_data: Optional[VatRateGrossData] = None):
         self.vat_rate = vat_rate
         self.vat_rate_net_data = vat_rate_net_data
         self.vat_rate_vat_data = vat_rate_vat_data

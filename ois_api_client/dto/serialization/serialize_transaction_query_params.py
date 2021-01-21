@@ -1,11 +1,11 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional
 
 from .serialize_element import serialize_text_element, serialize_int_element
 from ..TransactionQueryParams import TransactionQueryParams
 
 
-def serialize_transaction_query_params(parent: ET.Element, params: TransactionQueryParams) -> Union[ET.Element, None]:
+def serialize_transaction_query_params(parent: ET.Element, params: TransactionQueryParams) -> Optional[ET.Element]:
     if params is None:
         return None
 

@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional
 
 from .XmlReader import XmlReader as XR
 from ..ProductFeeTakeoverData import ProductFeeTakeoverData
@@ -7,7 +7,7 @@ from ..Takeover import Takeover
 from ...constants import NAMESPACE_DATA
 
 
-def deserialize_product_fee_takeover_data(element: ET.Element) -> Union[ProductFeeTakeoverData, None]:
+def deserialize_product_fee_takeover_data(element: ET.Element) -> Optional[ProductFeeTakeoverData]:
     if element is None:
         return None
 

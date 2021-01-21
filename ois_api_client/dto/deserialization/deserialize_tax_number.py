@@ -1,12 +1,12 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional
 
 from .XmlReader import XmlReader as XR
 from ..TaxNumber import TaxNumber
 from ...constants import NAMESPACE_DATA
 
 
-def deserialize_tax_number(element: ET.Element) -> Union[TaxNumber, None]:
+def deserialize_tax_number(element: ET.Element) -> Optional[TaxNumber]:
     if element is None:
         return None
 

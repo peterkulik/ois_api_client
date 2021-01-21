@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional
 
 from .XmlReader import XmlReader as XR
 from .deserialize_simple_address import deserialize_simple_address
@@ -7,7 +7,7 @@ from ..DieselOilPurchase import DieselOilPurchase
 from ...constants import NAMESPACE_DATA
 
 
-def deserialize_diesel_oil_purchase(element: ET.Element) -> Union[DieselOilPurchase, None]:
+def deserialize_diesel_oil_purchase(element: ET.Element) -> Optional[DieselOilPurchase]:
     if element is None:
         return None
 

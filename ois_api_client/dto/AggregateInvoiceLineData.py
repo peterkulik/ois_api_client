@@ -1,5 +1,5 @@
 from datetime import date
-from typing import Union
+from typing import Optional
 
 
 class AggregateInvoiceLineData:
@@ -11,6 +11,6 @@ class AggregateInvoiceLineData:
 
     def __init__(self,
                  line_delivery_date: date,
-                 line_exchange_rate: Union[float, None] = None):
+                 line_exchange_rate: Optional[float] = None):
         self.line_exchange_rate = line_exchange_rate
         self.line_delivery_date = line_delivery_date

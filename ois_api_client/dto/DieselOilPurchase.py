@@ -1,5 +1,5 @@
 from datetime import date
-from typing import Union
+from typing import Optional
 
 from .SimpleAddress import SimpleAddress
 
@@ -17,7 +17,7 @@ class DieselOilPurchase:
                  purchase_location: SimpleAddress,
                  purchase_date: date,
                  vehicle_registration_number: str,
-                 diesel_oil_quantity: Union[float, None] = None):
+                 diesel_oil_quantity: Optional[float] = None):
         self.purchase_location = purchase_location
         self.purchase_date = purchase_date
         self.vehicle_registration_number = vehicle_registration_number

@@ -1,4 +1,4 @@
-from typing import Union, List
+from typing import Optional, Union, List
 
 from .SummaryGrossData import SummaryGrossData
 from .SummaryNormal import SummaryNormal
@@ -16,7 +16,7 @@ class Summary:
 
     def __init__(self,
                  data: Union[SummaryNormal, List[SummarySimplified]],
-                 summary_gross_data: Union[SummaryGrossData, None] = None):
+                 summary_gross_data: Optional[SummaryGrossData] = None):
         if isinstance(data, SummaryNormal):
             self.summary_normal = data
         else:

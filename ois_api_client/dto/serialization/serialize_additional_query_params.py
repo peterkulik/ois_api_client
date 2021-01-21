@@ -1,11 +1,11 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional
 
 from .serialize_element import serialize_text_element
 from ..AdditionalQueryParams import AdditionalQueryParams
 
 
-def serialize_additional_query_params(parent: ET.Element, params: AdditionalQueryParams) -> Union[ET.Element, None]:
+def serialize_additional_query_params(parent: ET.Element, params: AdditionalQueryParams) -> Optional[ET.Element]:
     if params is None:
         return None
 

@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional
 
 from .XmlReader import XmlReader as XR
 from .deserialize_customer_info import deserialize_customer_info
@@ -10,7 +10,7 @@ from ..InvoiceHead import InvoiceHead
 from ...constants import NAMESPACE_DATA
 
 
-def deserialize_invoice_head(element: ET.Element) -> Union[InvoiceHead, None]:
+def deserialize_invoice_head(element: ET.Element) -> Optional[InvoiceHead]:
     if element is None:
         return None
 

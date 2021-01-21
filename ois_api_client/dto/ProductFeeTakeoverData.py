@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Optional
 
 from .Takeover import Takeover
 
@@ -12,6 +12,6 @@ class ProductFeeTakeoverData:
 
     def __init__(self,
                  takeover_reason: Takeover,
-                 takeover_amount: Union[float, None] = None):
+                 takeover_amount: Optional[float] = None):
         self.takeover_reason = takeover_reason
         self.takeover_amount = takeover_amount

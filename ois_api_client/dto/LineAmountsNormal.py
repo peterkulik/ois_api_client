@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Optional
 
 from .LineGrossAmountData import LineGrossAmountData
 from .LineNetAmountData import LineNetAmountData
@@ -18,8 +18,8 @@ class LineAmountsNormal:
     def __init__(self,
                  line_net_amount_data: LineNetAmountData,
                  line_vat_rate: VatRate,
-                 line_vat_data: Union[LineVatData, None] = None,
-                 line_gross_amount_data: Union[LineGrossAmountData, None] = None):
+                 line_vat_data: Optional[LineVatData] = None,
+                 line_gross_amount_data: Optional[LineGrossAmountData] = None):
         self.line_net_amount_data = line_net_amount_data
         self.line_vat_rate = line_vat_rate
         self.line_vat_data = line_vat_data

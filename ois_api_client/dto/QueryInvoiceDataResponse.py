@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Optional
 from .BasicOnlineInvoiceResponse import BasicOnlineInvoiceResponse
 from .BasicResult import BasicResult
 from .InvoiceDataResult import InvoiceDataResult
@@ -19,6 +19,6 @@ class QueryInvoiceDataResponse(BasicOnlineInvoiceResponse):
                  header: BasicHeader,
                  result: BasicResult,
                  software: Software,
-                 invoice_data_result: Union[InvoiceDataResult, None]):
+                 invoice_data_result: Optional[InvoiceDataResult]):
         super().__init__(header, result, software)
         self.invoice_data_result = invoice_data_result

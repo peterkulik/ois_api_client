@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Optional
 from .InvoiceDirection import InvoiceDirection
 
 
@@ -14,8 +14,8 @@ class InvoiceNumberQuery:
     def __init__(self,
                  invoice_number: str,
                  invoice_direction: InvoiceDirection,
-                 batch_index: Union[int, None] = None,
-                 supplier_tax_number: Union[str, None] = None):
+                 batch_index: Optional[int] = None,
+                 supplier_tax_number: Optional[str] = None):
         self.invoice_number = invoice_number
         self.invoice_direction = invoice_direction
         self.batch_index = batch_index

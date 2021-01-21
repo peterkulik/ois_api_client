@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional
 
 from .XmlReader import XmlReader as XR
 from ..InvoiceAppearance import InvoiceAppearance
@@ -46,7 +46,7 @@ def _deserialize_invoice_digest(el: ET.Element) -> InvoiceDigest:
     )
 
 
-def deserialize_invoice_digest_result(parent: ET.Element) -> Union[InvoiceDigestResult, None]:
+def deserialize_invoice_digest_result(parent: ET.Element) -> Optional[InvoiceDigestResult]:
     idr_el = XR.find_child(parent, 'invoiceDigestResult')
 
     if idr_el is None:

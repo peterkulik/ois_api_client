@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional
 
 from .XmlReader import XmlReader as XR
 from .deserialize_additional_data import deserialize_additional_data
@@ -44,7 +44,7 @@ def _get_line_amounts(element: ET.Element) -> Union[LineAmountsNormal, LineAmoun
     return line_amounts
 
 
-def _deserialize_invoice_line(element: ET.Element) -> Union[Line, None]:
+def _deserialize_invoice_line(element: ET.Element) -> Optional[Line]:
     if element is None:
         return None
 
@@ -93,7 +93,7 @@ def _deserialize_invoice_line(element: ET.Element) -> Union[Line, None]:
     return result
 
 
-def deserialize_invoice_lines(element: ET.Element) -> Union[Lines, None]:
+def deserialize_invoice_lines(element: ET.Element) -> Optional[Lines]:
     if element is None:
         return None
 

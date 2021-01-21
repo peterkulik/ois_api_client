@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional
 
 from .XmlReader import XmlReader as XR
 from .deserialize_address import deserialize_address
@@ -8,7 +8,7 @@ from ..CustomerInfo import CustomerInfo
 from ...constants import NAMESPACE_DATA
 
 
-def deserialize_customer_info(element: ET.Element) -> Union[CustomerInfo, None]:
+def deserialize_customer_info(element: ET.Element) -> Optional[CustomerInfo]:
     if element is None:
         return None
 

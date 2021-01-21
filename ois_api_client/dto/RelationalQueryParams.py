@@ -1,5 +1,5 @@
 from datetime import date
-from typing import List, Union
+from typing import Union
 
 from .RelationQueryDate import RelationQueryDate
 from .RelationQueryMonetary import RelationQueryMonetary

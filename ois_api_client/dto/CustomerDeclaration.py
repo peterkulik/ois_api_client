@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Optional
 
 from .ProductStream import ProductStream
 
@@ -12,6 +12,6 @@ class CustomerDeclaration:
 
     def __init__(self,
                  product_stream: ProductStream,
-                 product_fee_weight: Union[float, None] = None):
+                 product_fee_weight: Optional[float] = None):
         self.product_stream = product_stream
         self.product_fee_weight = product_fee_weight

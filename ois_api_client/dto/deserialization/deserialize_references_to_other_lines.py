@@ -1,12 +1,12 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional
 
 from .XmlReader import XmlReader as XR
 from ..ReferencesToOtherLines import ReferencesToOtherLines
 from ...constants import NAMESPACE_DATA
 
 
-def deserialize_references_to_other_lines(element: ET.Element) -> Union[ReferencesToOtherLines, None]:
+def deserialize_references_to_other_lines(element: ET.Element) -> Optional[ReferencesToOtherLines]:
     if element is None:
         return None
 

@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional
 
 from .XmlReader import XmlReader as XR
 from .deserialize_vat_rate import deserialize_vat_rate
@@ -10,7 +10,7 @@ from ..SummaryByVatRate import SummaryByVatRate
 from ...constants import NAMESPACE_DATA
 
 
-def deserialize_summary_by_vat_rate(element: ET.Element) -> Union[SummaryByVatRate, None]:
+def deserialize_summary_by_vat_rate(element: ET.Element) -> Optional[SummaryByVatRate]:
     if element is None:
         return None
 

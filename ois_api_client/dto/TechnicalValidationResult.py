@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Optional
 
 
 class TechnicalValidationResult:
@@ -11,8 +11,8 @@ class TechnicalValidationResult:
 
     def __init__(self,
                  validation_result_code: str,
-                 validation_error_code: Union[str, None] = None,
-                 message: Union[str, None] = None):
+                 validation_error_code: Optional[str] = None,
+                 message: Optional[str] = None):
         self.validation_result_code = validation_result_code
         self.validation_error_code = validation_error_code
         self.message = message

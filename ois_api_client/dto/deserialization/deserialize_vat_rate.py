@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional, Union
 
 from .XmlReader import XmlReader as XR
 from ..VatRate import VatRate, VatPercentage, VatExemption, VatOutOfScope, VatDomesticReverseCharge, MarginSchemeVat, \
@@ -47,7 +47,7 @@ def _get_value(element: ET.Element) -> Union[
         return MarginSchemeNoVat(XR.get_child_bool(element, 'marginSchemeNoVat', NAMESPACE_DATA, False))
 
 
-def deserialize_vat_rate(element: ET.Element) -> Union[VatRate, None]:
+def deserialize_vat_rate(element: ET.Element) -> Optional[VatRate]:
     if element is None:
         return None
 

@@ -1,4 +1,4 @@
-from typing import List, Union
+from typing import List, Optional
 
 from .PaymentEvidenceDocumentData import PaymentEvidenceDocumentData
 from .ProductFeeData import ProductFeeData
@@ -18,7 +18,7 @@ class ProductFeeSummary:
                  product_fee_operation: ProductFeeOperation,
                  product_fee_data: List[ProductFeeData],
                  product_charge_sum: float,
-                 payment_evidence_document_data: Union[PaymentEvidenceDocumentData, None] = None):
+                 payment_evidence_document_data: Optional[PaymentEvidenceDocumentData] = None):
         self.product_fee_operation = product_fee_operation
         self.product_fee_data = product_fee_data
         self.product_charge_sum = product_charge_sum

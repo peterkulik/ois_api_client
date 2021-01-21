@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Optional
 
 
 class DiscountData:
@@ -9,9 +9,9 @@ class DiscountData:
     """
 
     def __init__(self,
-                 discount_description: Union[str, None] = None,
-                 discount_value: Union[float, None] = None,
-                 discount_rate: Union[float, None] = None):
+                 discount_description: Optional[str] = None,
+                 discount_value: Optional[float] = None,
+                 discount_rate: Optional[float] = None):
         self.discount_description = discount_description
         self.discount_value = discount_value
         self.discount_rate = discount_rate

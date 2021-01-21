@@ -1,12 +1,12 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional
 
 from .XmlReader import XmlReader as XR
 from ..Vehicle import Vehicle
 from ...constants import NAMESPACE_DATA
 
 
-def deserialize_vehicle(element: ET.Element) -> Union[Vehicle, None]:
+def deserialize_vehicle(element: ET.Element) -> Optional[Vehicle]:
     if element is None:
         return None
 

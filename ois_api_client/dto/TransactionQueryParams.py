@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Optional
 
 from .ManageInvoiceOperation import ManageInvoiceOperation
 
@@ -13,8 +13,8 @@ class TransactionQueryParams:
 
     def __init__(self,
                  transaction_id: str,
-                 index: Union[int, None] = None,
-                 invoice_operation: Union[ManageInvoiceOperation, None] = None):
+                 index: Optional[int] = None,
+                 invoice_operation: Optional[ManageInvoiceOperation] = None):
         self.transaction_id = transaction_id
         self.index = index
         self.invoice_operation = invoice_operation

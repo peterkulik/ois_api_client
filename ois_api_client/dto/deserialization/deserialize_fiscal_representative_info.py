@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional
 
 from .XmlReader import XmlReader as XR
 from .deserialize_address import deserialize_address
@@ -8,7 +8,7 @@ from ..FiscalRepresentative import FiscalRepresentative
 from ...constants import NAMESPACE_DATA
 
 
-def deserialize_fiscal_representative_info(element: ET.Element) -> Union[FiscalRepresentative, None]:
+def deserialize_fiscal_representative_info(element: ET.Element) -> Optional[FiscalRepresentative]:
     if element is None:
         return None
 

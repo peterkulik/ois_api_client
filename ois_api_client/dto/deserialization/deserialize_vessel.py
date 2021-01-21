@@ -1,12 +1,12 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional
 
 from .XmlReader import XmlReader as XR
 from ..Vessel import Vessel
 from ...constants import NAMESPACE_DATA
 
 
-def deserialize_vessel(element: ET.Element) -> Union[Vessel, None]:
+def deserialize_vessel(element: ET.Element) -> Optional[Vessel]:
     if element is None:
         return None
 

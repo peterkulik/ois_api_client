@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional
 
 from .XmlReader import XmlReader as XR
 from .deserialize_customer_declaration import deserialize_customer_declaration
@@ -25,7 +25,7 @@ def _get_data(element: ET.Element):
     return None
 
 
-def deserialize_product_fee_clause(element: ET.Element) -> Union[ProductFeeClause, None]:
+def deserialize_product_fee_clause(element: ET.Element) -> Optional[ProductFeeClause]:
     if element is None:
         return None
 

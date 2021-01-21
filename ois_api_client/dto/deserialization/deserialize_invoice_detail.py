@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional
 
 from .XmlReader import XmlReader as XR
 from .deserialize_additional_data import deserialize_additional_data
@@ -10,7 +10,7 @@ from ..PaymentMethod import PaymentMethod
 from ...constants import NAMESPACE_DATA
 
 
-def deserialize_invoice_detail(element: ET.Element) -> Union[InvoiceDetail, None]:
+def deserialize_invoice_detail(element: ET.Element) -> Optional[InvoiceDetail]:
     if element is None:
         return None
 

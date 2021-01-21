@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Union
+from typing import Optional
 
 from .Source import Source
 from .OriginalRequestVersion import OriginalRequestVersion
@@ -22,9 +22,9 @@ class AuditData:
                  ins_cus_user: str,
                  source: Source,
                  original_request_version: OriginalRequestVersion,
-                 transaction_id: Union[str, None] = None,
-                 index: Union[int, None] = None,
-                 batch_index: Union[int, None] = None):
+                 transaction_id: Optional[str] = None,
+                 index: Optional[int] = None,
+                 batch_index: Optional[int] = None):
         self.ins_date = ins_date
         self.ins_cus_user = ins_cus_user
         self.source = source

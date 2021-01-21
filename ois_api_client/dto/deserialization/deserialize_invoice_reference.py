@@ -1,12 +1,12 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional
 
 from .XmlReader import XmlReader as XR
 from ..InvoiceReference import InvoiceReference
 from ...constants import NAMESPACE_DATA
 
 
-def deserialize_invoice_reference(element: ET.Element) -> Union[InvoiceReference, None]:
+def deserialize_invoice_reference(element: ET.Element) -> Optional[InvoiceReference]:
     if element is None:
         return None
 

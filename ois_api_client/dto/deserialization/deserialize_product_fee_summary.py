@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional
 
 from .XmlReader import XmlReader as XR
 from .deserialize_payment_evidence_document_data import deserialize_payment_evidence_document_data
@@ -9,7 +9,7 @@ from ..ProductFeeSummary import ProductFeeSummary
 from ...constants import NAMESPACE_DATA
 
 
-def deserialize_product_fee_summary(element: ET.Element) -> Union[ProductFeeSummary, None]:
+def deserialize_product_fee_summary(element: ET.Element) -> Optional[ProductFeeSummary]:
     if element is None:
         return None
 

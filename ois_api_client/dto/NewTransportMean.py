@@ -1,5 +1,5 @@
 from datetime import date
-from typing import Union
+from typing import Optional, Union
 
 from .Aircraft import Aircraft
 from .Vehicle import Vehicle
@@ -18,10 +18,10 @@ class NewTransportMean:
 
     def __init__(self,
                  data: Union[Vehicle, Vessel, Aircraft],
-                 brand: Union[str, None] = None,
-                 serial_num: Union[str, None] = None,
-                 engine_num: Union[str, None] = None,
-                 first_entry_into_service: Union[date, None] = None):
+                 brand: Optional[str] = None,
+                 serial_num: Optional[str] = None,
+                 engine_num: Optional[str] = None,
+                 first_entry_into_service: Optional[date] = None):
         self.brand = brand
         self.serial_num = serial_num
         self.engine_num = engine_num

@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ET
 from datetime import date
-from typing import Union
+from typing import Optional, Union
 
 from .serialize_element import serialize_text_element, serialize_float_element, serialize_date_element
 from ..custom.RangeDate import RangeDate
@@ -60,7 +60,7 @@ def _serialize_query_monetary_param(parent: ET.Element, tag: str,
             _serialize_relation_query_monetary(result, relation_query_monetary)
 
 
-def serialize_relational_query_params(parent: ET.Element, params: RelationalQueryParams) -> Union[ET.Element, None]:
+def serialize_relational_query_params(parent: ET.Element, params: RelationalQueryParams) -> Optional[ET.Element]:
     if params is None:
         return None
 

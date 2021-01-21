@@ -1,12 +1,12 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional
 
 from .XmlReader import XmlReader as XR
 from ..LineNetAmountData import LineNetAmountData
 from ...constants import NAMESPACE_DATA
 
 
-def deserialize_line_net_amount_data(element: ET.Element) -> Union[LineNetAmountData, None]:
+def deserialize_line_net_amount_data(element: ET.Element) -> Optional[LineNetAmountData]:
     if element is None:
         return None
 

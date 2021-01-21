@@ -1,12 +1,12 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional
 
 from .XmlReader import XmlReader as XR
 from ..SummarySimplified import SummarySimplified
 from ...constants import NAMESPACE_DATA
 
 
-def deserialize_summary_simplified(element: ET.Element) -> Union[SummarySimplified, None]:
+def deserialize_summary_simplified(element: ET.Element) -> Optional[SummarySimplified]:
     if element is None:
         return None
 

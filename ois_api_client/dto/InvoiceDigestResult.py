@@ -1,4 +1,4 @@
-from typing import List, Union
+from typing import List, Optional
 from .InvoiceDigest import InvoiceDigest
 
 
@@ -13,7 +13,7 @@ class InvoiceDigestResult:
     def __init__(self,
                  current_page: int,
                  available_page: int,
-                 invoice_digest: Union[List[InvoiceDigest], None] = None):
+                 invoice_digest: Optional[List[InvoiceDigest]] = None):
         self.current_page = current_page
         self.available_page = available_page
         self.invoice_digest = invoice_digest

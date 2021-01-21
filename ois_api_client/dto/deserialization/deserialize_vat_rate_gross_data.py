@@ -1,12 +1,12 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Optional
 
 from .XmlReader import XmlReader as XR
 from ..VatRateGrossData import VatRateGrossData
 from ...constants import NAMESPACE_DATA
 
 
-def deserialize_vat_rate_gross_data(element: ET.Element) -> Union[VatRateGrossData, None]:
+def deserialize_vat_rate_gross_data(element: ET.Element) -> Optional[VatRateGrossData]:
     if element is None:
         return None
 
