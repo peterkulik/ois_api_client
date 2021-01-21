@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-from typing import Optional
+from typing import Optional, Union
 
 from .XmlReader import XmlReader as XR
 from .deserialize_additional_data import deserialize_additional_data
