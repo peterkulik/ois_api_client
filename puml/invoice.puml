@@ -274,6 +274,32 @@ class AdvancePaymentData {
 + advance_exchange_rate: float
 }
 
+class ProductCodes {
++ items: List[ProductCode]
+}
+
+class ProductCode {
++ product_code_category: ProductCodeCategory,
++ product_code_value: Union[ProductCodeValue, ProductCodeOwnValue]
+}
+
+class ProductCodeValue extends str
+
+class ProductCodeOwnValue extends str
+
+enum ProductCodeCategory {
++ VTSZ
++ SZJ
++ KN
++ AHK
++ CSK
++ KT
++ EJ
++ TESZOR
++ OWN
++ OTHER
+}
+
 Invoice "1" --* "0..1" InvoiceReference
 Invoice "1" --* "1" InvoiceHead
 Invoice "1" --* "1" Lines
@@ -316,4 +342,9 @@ LineModificationReference "1" --- "1" LineOperation
 Line "1" --- "0..1" ReferencesToOtherLines
 Line "1" --- "0..1" AdvanceData
 AdvanceData "1" --- "1" AdvancePaymentData
+Line "1" -- "0..1" ProductCodes
+ProductCodes "1" -- "0..*" ProductCode
+ProductCode "1" -- "1" ProductCodeCategory
+ProductCode "1" -- "1" ProductCodeValue
+ProductCode "1" -- "1" ProductCodeOwnValue
 @enduml

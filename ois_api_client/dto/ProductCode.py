@@ -4,6 +4,7 @@ from .ProductCodeCategory import ProductCodeCategory
 
 
 class ProductCodeValue(str):
+    """Field type for inputting product codes"""
     pass
 
 

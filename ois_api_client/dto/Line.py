@@ -6,7 +6,6 @@ from .AggregateInvoiceLineData import AggregateInvoiceLineData
 from .ConventionalInvoiceInfo import ConventionalInvoiceInfo
 from .DieselOilPurchase import DieselOilPurchase
 from .DiscountData import DiscountData
-from .EkaerIds import EkaerIds
 from .LineAmountsNormal import LineAmountsNormal
 from .LineAmountsSimplified import LineAmountsSimplified
 from .LineModificationReference import LineModificationReference
@@ -27,7 +26,6 @@ class Line:
     :param line_expression_indicator: The value is true if the unit of measure of the invoice item is expressible in natural unit
     :param line_modification_reference: Marking the goal of modification of the line (in the case of data supply about changes
     :param references_to_other_lines: References to connected items if it is necessary according to VAT law
-    :param advance_indicator: The value is true if the invoice item is a kind of advance charge
     :param product_codes: Product codes
     :param line_nature_indicator: Indication of the nature of the supply of goods or services on a given line
     :param line_description: Name / description of the product or service
