@@ -42,27 +42,28 @@ class MarginSchemeNoVat:
 
 
 class VatRate:
-    def __init__(self, value=Union[
-        VatPercentage,
-        VatExemption,
-        VatOutOfScope,
-        VatDomesticReverseCharge,
-        MarginSchemeVat,
-        MarginSchemeNoVat
-    ]):
+    """Marking tax rate or tax exempt supply
+    :param vat_percentage: Applied tax rate - section 169 (j) of the VAT law
+    :param vat_exemption: Marking tax exemption -  section 169 (m) of the VAT law
+    :param vat_out_of_scope: Out of scope of the VAT law
+    :param vat_domestic_reverse_charge: Marking the national is reverse charge taxation - section 142 of the VAT law
+    :param margin_scheme_vat: Margin scheme including input tax
+    :param margin_scheme_no_vat: Margin scheme not including input tax"""
 
-        """Marking tax rate or tax exempt supply
-
-        :param value: VatPercentage or VatExemption or VatOutOfScope or VatDomesticReverseCharge or MarginSchemeVat or MarginSchemeNoVat, vat_percentage: Applied tax rate - section 169 (j) of the VAT law, vat_exemption: Marking tax exemption -  section 169 (m) of the VAT law, vat_out_of_scope: Out of scope of the VAT law, vat_domestic_reverse_charge: Marking the national is reverse charge taxation - section 142 of the VAT law, margin_scheme_vat: Margin scheme including input tax, margin_scheme_no_vat: Margin scheme not including input tax"""
-        if isinstance(value, VatPercentage):
-            self.vat_percentage = float(value)
-        elif isinstance(value, VatExemption):
-            self.vat_exemption = str(value)
-        elif isinstance(value, VatOutOfScope):
-            self.vat_out_of_scope = bool(value)
-        elif isinstance(value, VatDomesticReverseCharge):
-            self.vat_domestic_reverse_charge = bool(value)
-        elif isinstance(value, MarginSchemeVat):
-            self.margin_scheme_vat = bool(value)
-        elif isinstance(value, MarginSchemeNoVat):
-            self.margin_scheme_no_vat = bool(value)
+    def __init__(
+            self,
+            vat_percentage: Optional[float] = None,
+            vat_content: Optional[float] = None,
+            vat_exemption: Optional[str] = None,
+            vat_out_of_scope: Optional[bool] = None,
+            vat_domestic_reverse_charge: Optional[bool] = None,
+            margin_scheme_vat: Optional[bool] = None,
+            margin_scheme_no_vat: Optional[bool] = None
+    ):
+        self.vat_percentage = vat_percentage
+        self.vat_content = vat_content
+        self.vat_exemption = vat_exemption
+        self.vat_out_of_scope = vat_out_of_scope
+        self.vat_domestic_reverse_charge = vat_domestic_reverse_charge
+        self.margin_scheme_vat = margin_scheme_vat
+        self.margin_scheme_no_vat = margin_scheme_no_vat
