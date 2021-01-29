@@ -1,44 +1,4 @@
-from typing import Union
-
-
-class VatPercentage(float):
-    pass
-
-
-class VatExemption(str):
-    pass
-
-
-class VatOutOfScope:
-    def __init__(self, value: bool):
-        self.value = value
-
-    def __bool__(self):
-        return self.value
-
-
-class VatDomesticReverseCharge:
-    def __init__(self, value: bool):
-        self.value = value
-
-    def __bool__(self):
-        return self.value
-
-
-class MarginSchemeVat:
-    def __init__(self, value: bool):
-        self.value = value
-
-    def __bool__(self):
-        return self.value
-
-
-class MarginSchemeNoVat:
-    def __init__(self, value: bool):
-        self.value = value
-
-    def __bool__(self):
-        return self.value
+from typing import Optional
 
 
 class VatRate:
