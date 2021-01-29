@@ -5,7 +5,7 @@ from typing import Optional, Dict
 from ois_api_client.dto.xml.get_full_tag import get_full_tag
 
 
-def serialize_text_element(parent: ET.Element, tag: str, text: str, namespace: str,
+def serialize_text_element(parent: ET.Element, tag: str, text: Optional[str], namespace: str,
                            attribs: Dict = None) -> Optional[ET.Element]:
     if text is None:
         return None
@@ -15,21 +15,17 @@ def serialize_text_element(parent: ET.Element, tag: str, text: str, namespace: s
     return result
 
 
-def serialize_int_element(parent: ET.Element, tag: str, value: Optional[int]) -> Optional[ET.Element]:
-    if value is None:
-        return None
-
-    result = ET.SubElement(parent, tag)
-    result.text = str(value)
-    return result
+def serialize_int_element(parent: ET.Element, tag: str, value: Optional[int], namespace: str) -> Optional[ET.Element]:
+    return serialize_text_element(parent, tag, str(value), namespace)
 
 
 def format_float(value: float, decimal_digits: int) -> str:
     return format(float(value), f'.{decimal_digits}f')
 
 
-def serialize_float_element(parent: ET.Element, tag: str, value: float, decimal_digits: int) -> ET.Element:
-    return serialize_text_element(parent, tag, format_float(value, decimal_digits))
+def serialize_float_element(parent: ET.Element, tag: str, value: float, decimal_digits: int,
+                            namespace: str) -> ET.Element:
+    return serialize_text_element(parent, tag, format_float(value, decimal_digits), namespace)
 
 
 def serialize_date_element(parent: ET.Element, tag: str, value: date) -> ET.Element:
