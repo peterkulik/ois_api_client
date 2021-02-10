@@ -300,23 +300,98 @@ enum ProductCodeCategory {
 + OTHER
 }
 
-Invoice "1" --* "0..1" InvoiceReference
-Invoice "1" --* "1" InvoiceHead
-Invoice "1" --* "1" Lines
-InvoiceHead "1" --* "1" SupplierInfo
-InvoiceHead "1" --* "0..1" CustomerInfo
-InvoiceHead "1" --* "0..1" FiscalRepresentative
-InvoiceHead "1" --* "1" InvoiceDetail
-CustomerInfo "1" ----* "0..1" CustomerVatData
-CustomerVatData "1" --* "1" CustomerTaxNumber
-CustomerTaxNumber "1" ---* "0..1" TaxNumber
-SupplierInfo "1" ---* "1" TaxNumber
-SupplierInfo "1" ---* "0..1" TaxNumber
-SupplierInfo "1" --* "1" Address
-CustomerInfo "1" --* "0..1" Address
-FiscalRepresentative "1" --* "1" Address
-Address "1" --* "0..1" SimpleAddress
-Address "1" --* "0..1" DetailedAddress
+enum LineNatureIndicator {
++ PRODUCT
++ SERVICE
++ OTHER
+}
+
+enum UnitOfMeasure {
++ PIECE
++ KILOGRAM
++ TON
++ KWH
++ DAY
++ HOUR
++ MINUTE
++ MONTH
++ LITER
++ KILOMETER
++ CUBIC_METER
++ METER
++ LINEAR_METER
++ CARTON
++ PACK
++ OWN
+}
+
+class DiscountData {
++ discount_description: Optional[str] = None
++ discount_value: Optional[float] = None
++ discount_rate: Optional[float] = None
+}
+
+class LineAmountsNormal {
++ line_net_amount_data: LineNetAmountData
++ line_vat_rate: VatRate
++ line_vat_data: Optional[LineVatData] = None
++ line_gross_amount_data: Optional[LineGrossAmountData] = None
+}
+
+class LineNetAmountData {
++ line_net_amount: float
++ line_net_amount_huf: float
+}
+
+class VatRate {
++ value: Union[
+        VatPercentage,
+        VatExemption,
+        VatOutOfScope,
+        VatDomesticReverseCharge,
+        MarginSchemeVat,
+        MarginSchemeNoVat
+    ]
+}
+
+class VatPercentage extends str
+
+class VatExemption extends str
+
+class VatOutOfScope {
++ value: bool
+}
+
+class VatDomesticReverseCharge {
++ value: bool
+}
+
+class MarginSchemeVat {
++ value: bool
+}
+
+class MarginSchemeNoVat {
++ value: bool
+}
+
+
+Invoice "1" -- "0..1" InvoiceReference
+Invoice "1" -- "1" InvoiceHead
+Invoice "1" -- "1" Lines
+InvoiceHead "1" -- "1" SupplierInfo
+InvoiceHead "1" -- "0..1" CustomerInfo
+InvoiceHead "1" -- "0..1" FiscalRepresentative
+InvoiceHead "1" -- "1" InvoiceDetail
+CustomerInfo "1" ---- "0..1" CustomerVatData
+CustomerVatData "1" -- "1" CustomerTaxNumber
+CustomerTaxNumber "1" --- "0..1" TaxNumber
+SupplierInfo "1" --- "1" TaxNumber
+SupplierInfo "1" --- "0..1" TaxNumber
+SupplierInfo "1" -- "1" Address
+CustomerInfo "1" -- "0..1" Address
+FiscalRepresentative "1" -- "1" Address
+Address "1" -- "0..1" SimpleAddress
+Address "1" -- "0..1" DetailedAddress
 InvoiceDetail -- InvoiceCategory
 InvoiceDetail -- InvoiceAppearance
 InvoiceDetail -- PaymentMethod
@@ -347,4 +422,16 @@ ProductCodes "1" -- "0..*" ProductCode
 ProductCode "1" -- "1" ProductCodeCategory
 ProductCode "1" -- "1" ProductCodeValue
 ProductCode "1" -- "1" ProductCodeOwnValue
+Line "0" -- "1" LineNatureIndicator
+Line "0" -- "1" UnitOfMeasure
+Line "0" -- "1" DiscountData
+Line "0" -- "1" LineAmountsNormal
+LineAmountsNormal "1" -- "1" LineNetAmountData
+LineAmountsNormal "1" -- "1" VatRate
+VatRate "0" -- "1" VatPercentage
+VatRate "0" -- "1" VatExemption
+VatRate "0" -- "1" VatOutOfScope
+VatRate "0" -- "1" VatDomesticReverseCharge
+VatRate "0" -- "1" MarginSchemeVat
+VatRate "0" -- "1" MarginSchemeNoVat
 @enduml

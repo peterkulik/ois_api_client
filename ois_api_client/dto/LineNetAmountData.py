@@ -9,6 +9,9 @@ class LineNetAmountData:
     consideration reduced with the amount of VAT, expressed in HUF.
     """
 
-    def __init__(self, line_net_amount: float, line_net_amount_huf: float):
+    def __init__(
+            self,
+            line_net_amount: float,
+            line_net_amount_huf: float):
         self.line_net_amount = line_net_amount
         self.line_net_amount_huf = line_net_amount_huf
