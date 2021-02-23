@@ -30,8 +30,8 @@ def make_default_header_factory(
 
 
 def make_header_factory(
-        load_parameters: Callable[[], HeaderFactoryParameters]) -> Callable[[Optional[str], Optional[datetime]],
-                                                                            Tuple[dto.BasicHeader, dto.UserHeader]]:
+        load_parameters: Callable[[], HeaderFactoryParameters]
+) -> Callable[[Optional[str], Optional[datetime]], Tuple[dto.BasicHeader, dto.UserHeader]]:
     def _(request_id: Optional[str] = None,
           timestamp: Optional[datetime] = None) -> Tuple[dto.BasicHeader, dto.UserHeader]:
         p = load_parameters()
