@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="ois_api_client",
-    version="0.1.4",
+    version="0.1.7",
     author="Peter Kulik",
     author_email="peter@importas.dev",
     description="A python client library for the hungarian Online Invoice System API",

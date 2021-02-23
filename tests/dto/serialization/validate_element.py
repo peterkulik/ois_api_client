@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ET
 
-from ois_api_client.dto.xml.get_full_tag import get_full_tag
+from ois_api_client.xml.get_full_tag import get_full_tag
 
 
 def validate_tag_name(element: ET.Element, namespace: str, tag_name: str):

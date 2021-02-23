@@ -3,7 +3,7 @@
 # Projekt: Magyar Online Számla Rendszer invoiceData XML XSD séma
 # Author: NAV Informatikai Intézet
 
-# Version: v2.0 2019/08/29
+# Version: v2_0 2019/08/29
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.nav.gov.hu/OSA/2.0/data" targetNamespace="http://schemas.nav.gov.hu/OSA/2.0/data" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:simpleType name="BankAccountNumberType">

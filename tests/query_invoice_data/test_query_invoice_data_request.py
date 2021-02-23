@@ -1,20 +1,24 @@
+import xml.etree.ElementTree as ET
 import ois_api_client as ois
-from ois_api_client import deserialize_invoice_data
+from ois_api_client.header_factory import make_default_header_factory
+from ois_api_client.v3_0 import dto, deserialization
 from tests.common import config
-import pytest
+from tests.common.load_params import load_params
 
 
-@pytest.mark.skip(reason='3.0 api migration')
 def test_query_invoice_data_request():
-    client = ois.Client(config.service_url, config.signature_key, config.replacement_key, config.password)
+    client = ois.Client(config.service_url)
 
-    data = ois.QueryInvoiceDataRequest(
-        header=ois.BasicHeader(request_id=config.get_request_id(), timestamp=config.get_timestamp()),
-        user=config.user,
+    make_header = make_default_header_factory(load_parameters=load_params)
+    header, user = make_header()
+
+    data = dto.QueryInvoiceDataRequest(
+        header=header,
+        user=user,
         software=config.software,
-        invoice_number_query=ois.InvoiceNumberQuery(
+        invoice_number_query=dto.InvoiceNumberQuery(
             invoice_number='12345678/2020',
-            invoice_direction=ois.InvoiceDirection.INBOUND,
+            invoice_direction=dto.InvoiceDirection.INBOUND,
             batch_index=None,
             supplier_tax_number='68558132'
         )
@@ -23,23 +27,25 @@ def test_query_invoice_data_request():
     response = client.query_invoice_data(data)
 
     invoice_data_xml = ois.decode_invoice_data(response.invoice_data_result.invoice_data)
-    invoice_data = deserialize_invoice_data(invoice_data_xml)
+    xml_root = ET.fromstring(invoice_data_xml)
+
+    invoice_data = deserialization.deserialize_invoice_data(xml_root)
 
     assert response is not None
     assert response.result is not None
-    assert response.result.func_code == 'OK'
+    assert response.result.func_code == dto.FunctionCode.OK
     assert response.result.message is None
     assert response.result.error_code is None
     assert response.invoice_data_result is not None
     assert not response.invoice_data_result.compressed_content_indicator
     assert response.invoice_data_result.invoice_data is not None
     assert response.invoice_data_result.audit_data is not None
-    assert response.invoice_data_result.audit_data.ins_date is not None
+    assert response.invoice_data_result.audit_data.insdate is not None
     assert response.invoice_data_result.audit_data.batch_index is None
     assert response.invoice_data_result.audit_data.index is not None
     assert response.invoice_data_result.audit_data.ins_cus_user is not None
-    assert response.invoice_data_result.audit_data.source == ois.Source.XML
-    assert response.invoice_data_result.audit_data.original_request_version == ois.OriginalRequestVersion.v_2_0
+    assert response.invoice_data_result.audit_data.source == dto.Source.XML
+    assert response.invoice_data_result.audit_data.original_request_version == dto.OriginalRequestVersion.O_2_0
     assert response.invoice_data_result.audit_data.transaction_id is not None
 
     assert invoice_data is not None

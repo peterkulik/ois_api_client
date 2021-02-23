@@ -16,7 +16,7 @@ namespace ois_api_client #F7F7F7 {
     class BasicHeader {
     + request_id: str
     + timestamp: datetime
-    - {static} request_version: str = '3.0'
+    - {static} request_version: str = 'v3_0'
     - {static} header_version: str = '1.0'
     }
 

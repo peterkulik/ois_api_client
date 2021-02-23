@@ -1,0 +1,5 @@
+ANNUL = 'http://schemas.nav.gov.hu/OSA/3.0/annul'
+API = 'http://schemas.nav.gov.hu/OSA/3.0/api'
+BASE = 'http://schemas.nav.gov.hu/OSA/3.0/base'
+COMMON = 'http://schemas.nav.gov.hu/NTCA/1.0/common'
+DATA = 'http://schemas.nav.gov.hu/OSA/3.0/data'

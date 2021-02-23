@@ -1,10 +1,15 @@
-import os
-
+from typing import Union
+import xml.etree.ElementTree as ET
+import ois_api_client.v3_0.dto as dto
+import ois_api_client.v3_0.deserialization as deserialization
 import ois_api_client as ois
+from ois_api_client.v3_0 import FunctionCode
 
 
-def _test_technical_validation_message(tvm: ois.TechnicalValidationResult, expected_message: str):
-    assert tvm.validation_result_code == 'ERROR'
+def _test_technical_validation_message(
+        tvm: Union[dto.TechnicalValidationResult],
+        expected_message: str):
+    assert tvm.validation_result_code == dto.TechnicalResultCode.ERROR
     assert tvm.validation_error_code == 'SCHEMA_VIOLATION'
     assert tvm.message == expected_message
 
@@ -17,7 +22,7 @@ xml = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <ns2:header>
         <ns2:requestId>UniqueId</ns2:requestId>
         <ns2:timestamp>2020-11-08T14:23:12.123Z</ns2:timestamp>
-        <ns2:requestVersion>3.0</ns2:requestVersion>
+        <ns2:requestVersion>v3_0</ns2:requestVersion>
         <ns2:headerVersion>1.0</ns2:headerVersion>
     </ns2:header>
     <ns2:result>
@@ -50,20 +55,15 @@ xml = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 
 
 def test_deserialize_general_error_response():
-    # path = os.path.join(os.getcwd(), 'general_error.xml')
-    #
-    # with open(path, 'r') as file:
-    #     general_error_message = file.read()
-
-    general_error = ois.GeneralError(xml)
-    serialized_error = ois.deserialize_general_error_response(general_error.general_error_response)
+    root: ET.Element = ET.fromstring(xml)
+    serialized_error = deserialization.deserialize_general_error_response(root)
 
     assert serialized_error is not None
     assert serialized_error.result is not None
 
     res = serialized_error.result
 
-    assert res.func_code == 'ERROR'
+    assert res.func_code == FunctionCode.ERROR
     assert res.error_code == 'INVALID_REQUEST'
     assert res.message == 'Helytelen kérés!'
 
@@ -71,14 +71,14 @@ def test_deserialize_general_error_response():
 
     software = serialized_error.software
 
-    assert software.id == '123456789012345678'
-    assert software.name == 'Super softwer'
-    assert software.operation == ois.SoftwareOperation.LOCAL_SOFTWARE
-    assert software.main_version == '1.0'
-    assert software.dev_name == 'Super Developer'
-    assert software.dev_contact == 'super@developer.com'
-    assert software.dev_country_code == 'HU'
-    assert software.dev_tax_number == '12345678'
+    assert software.software_id == '123456789012345678'
+    assert software.software_name == 'Super softwer'
+    assert software.software_operation == ois.v3_0.dto.SoftwareOperation.LOCAL_SOFTWARE
+    assert software.software_main_version == '1.0'
+    assert software.software_dev_name == 'Super Developer'
+    assert software.software_dev_contact == 'super@developer.com'
+    assert software.software_dev_country_code == 'HU'
+    assert software.software_dev_tax_number == '12345678'
 
     assert serialized_error.technical_validation_messages is not None
 

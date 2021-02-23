@@ -1,6 +1,4 @@
-NAMESPACE_API = 'http://schemas.nav.gov.hu/OSA/3.0/api'
-NAMESPACE_DATA = 'http://schemas.nav.gov.hu/OSA/3.0/data'
-NAMESPACE_COMMON = 'http://schemas.nav.gov.hu/NTCA/1.0/common'
-NAMESPACE_BASE = 'http://schemas.nav.gov.hu/OSA/3.0/base'
 REQUEST_VERSION = '3.0'
 HEADER_VERSION = '1.0'
+PASSWORD_HASH_CRYPTO_TYPE = 'SHA-512'
+REQUEST_SIGNATURE_CRYPTO_TYPE = 'SHA3-512'
