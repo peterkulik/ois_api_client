@@ -1,3 +1,4 @@
+import uuid
 from dataclasses import dataclass
 from typing import Tuple, Callable, Optional
 from datetime import datetime
@@ -17,7 +18,7 @@ class HeaderFactoryParameters:
 
 
 def _generate_request_id() -> str:
-    return datetime.now().strftime("%Y%m%dT%H%M%S%f")
+    return f'{datetime.now().strftime("%Y%m%dT%H%M%S%f")}_{str(uuid.uuid4()).replace("-", "")}'[0:30]
 
 
 def _generate_timestamp() -> datetime:
