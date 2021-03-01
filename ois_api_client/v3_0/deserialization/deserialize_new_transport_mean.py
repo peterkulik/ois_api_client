@@ -1,8 +1,8 @@
 from typing import Optional
 import xml.etree.ElementTree as ET
 from ...xml.XmlReader import XmlReader as XR
-from ..namespaces import COMMON
 from ..namespaces import BASE
+from ..namespaces import COMMON
 from ..namespaces import DATA
 from ..dto.NewTransportMean import NewTransportMean
 from .deserialize_aircraft import deserialize_aircraft

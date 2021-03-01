@@ -16,7 +16,7 @@ def deserialize_taxpayer_address_item(element: ET.Element) -> Optional[TaxpayerA
     result = TaxpayerAddressItem(
         taxpayer_address_type=create_enum(TaxpayerAddressType, XR.get_child_text(element, 'taxpayerAddressType', API)),
         taxpayer_address=deserialize_detailed_address(
-            XR.find_child(element, 'taxpayerAddress', DATA)
+            XR.find_child(element, 'taxpayerAddress', API)
         ),
     )
 

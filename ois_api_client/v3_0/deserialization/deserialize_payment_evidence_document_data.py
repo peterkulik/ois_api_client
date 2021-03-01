@@ -1,8 +1,8 @@
 from typing import Optional
 import xml.etree.ElementTree as ET
 from ...xml.XmlReader import XmlReader as XR
-from ..namespaces import COMMON
 from ..namespaces import BASE
+from ..namespaces import COMMON
 from ..namespaces import DATA
 from ..dto.PaymentEvidenceDocumentData import PaymentEvidenceDocumentData
 from .deserialize_address import deserialize_address
@@ -18,10 +18,10 @@ def deserialize_payment_evidence_document_data(element: ET.Element) -> Optional[
         evidence_document_date=XR.get_child_date(element, 'evidenceDocumentDate', DATA),
         obligated_name=XR.get_child_text(element, 'obligatedName', DATA),
         obligated_address=deserialize_address(
-            XR.find_child(element, 'obligatedAddress', BASE)
+            XR.find_child(element, 'obligatedAddress', DATA)
         ),
         obligated_tax_number=deserialize_tax_number(
-            XR.find_child(element, 'obligatedTaxNumber', BASE)
+            XR.find_child(element, 'obligatedTaxNumber', DATA)
         ),
     )
 

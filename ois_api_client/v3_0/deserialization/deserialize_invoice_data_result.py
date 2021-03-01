@@ -19,7 +19,7 @@ def deserialize_invoice_data_result(element: ET.Element) -> Optional[InvoiceData
         ),
         compressed_content_indicator=XR.get_child_bool(element, 'compressedContentIndicator', API),
         electronic_invoice_hash=deserialize_crypto(
-            XR.find_child(element, 'electronicInvoiceHash', COMMON)
+            XR.find_child(element, 'electronicInvoiceHash', API)
         ),
     )
 

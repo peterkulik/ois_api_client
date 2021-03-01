@@ -1,8 +1,8 @@
 from typing import Optional
 import xml.etree.ElementTree as ET
 from ...xml.XmlReader import XmlReader as XR
-from ..namespaces import API
 from ..namespaces import BASE
+from ..namespaces import API
 from ..dto.NewCreatedLines import NewCreatedLines
 
 

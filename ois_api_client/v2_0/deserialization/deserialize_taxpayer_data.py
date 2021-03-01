@@ -16,7 +16,7 @@ def deserialize_taxpayer_data(element: ET.Element) -> Optional[TaxpayerData]:
         taxpayer_name=XR.get_child_text(element, 'taxpayerName', API),
         taxpayer_short_name=XR.get_child_text(element, 'taxpayerShortName', API),
         tax_number_detail=deserialize_tax_number(
-            XR.find_child(element, 'taxNumberDetail', DATA)
+            XR.find_child(element, 'taxNumberDetail', API)
         ),
         vat_group_membership=XR.get_child_text(element, 'vatGroupMembership', API),
         taxpayer_address_list=deserialize_taxpayer_address_list(

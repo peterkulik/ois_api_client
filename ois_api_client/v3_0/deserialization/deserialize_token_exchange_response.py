@@ -1,9 +1,9 @@
 from typing import Optional
 import xml.etree.ElementTree as ET
 from ...xml.XmlReader import XmlReader as XR
+from ..namespaces import BASE
 from ..namespaces import COMMON
 from ..namespaces import API
-from ..namespaces import BASE
 from ..dto.TokenExchangeResponse import TokenExchangeResponse
 from .deserialize_basic_header import deserialize_basic_header
 from .deserialize_basic_result import deserialize_basic_result
