@@ -1,3 +1,5 @@
+from typing import Optional
+
 import requests
 import xml.etree.ElementTree as ET
 
@@ -13,8 +15,9 @@ from .serialization.serialize_token_exchange_request import serialize_token_exch
 
 
 class Client:
-    def __init__(self, uri: str):
+    def __init__(self, uri: str, timeout: Optional[int] = 30):
         self._uri = uri
+        self.timeout = timeout
         ET.register_namespace('', ns.API)
 
     def token_exchange(self, data: dto.BasicOnlineInvoiceRequest) -> dto.TokenExchangeResponse:
@@ -44,7 +47,8 @@ class Client:
         with requests.post(url=f'{self._uri}/{operation}',
                            data=data,
                            headers={'Content-Type': 'application/xml',
-                                    'Accept': 'application/xml'}) as response:
+                                    'Accept': 'application/xml'},
+                           timeout=self.timeout) as response:
             if '<GeneralErrorResponse' in response.text:
                 response_content = response.content.decode('utf-8')
                 raise GeneralError(response_content)
