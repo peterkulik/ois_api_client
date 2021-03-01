@@ -6,7 +6,7 @@ from examples.software import software
 
 
 def test_query_invoice_data():
-    client = ois.Client(uri='https://api-test.onlineszamla.nav.gov.hu/invoiceService/v3')
+    client = ois.Client(uri='https://api-test.onlineszamla.nav.gov.hu/invoiceService/v3', timeout=30)
 
     # These headers (header, user) have to be generated for each call
     header, user_header = make_headers()

@@ -7,7 +7,7 @@ from tests.common.load_params import load_params
 
 
 def test_query_invoice_data_request():
-    client = ois.Client(config.service_url)
+    client = ois.Client(uri=config.service_url, timeout=30)
 
     make_header = make_default_header_factory(load_parameters=load_params)
     header, user = make_header()

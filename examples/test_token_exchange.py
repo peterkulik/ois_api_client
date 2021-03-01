@@ -6,7 +6,7 @@ from examples.software import software
 
 
 def test_token_exchange():
-    client = ois.Client(uri='https://api-test.onlineszamla.nav.gov.hu/invoiceService/v3')
+    client = ois.Client(uri='https://api-test.onlineszamla.nav.gov.hu/invoiceService/v3', timeout=30)
     header, user_header = make_headers()
 
     request = dto.BasicOnlineInvoiceRequest(
