@@ -16,14 +16,15 @@ deserialization_mapping: Dict[
 }
 
 
-def deserialize_invoice(query_invoice_data_response: dto.QueryInvoiceDataResponse) -> Union[
-    dto_2_0.InvoiceData, dto_3_0.InvoiceData]:
+def deserialize_invoice(
+        query_invoice_data_response: dto.QueryInvoiceDataResponse) -> Union[dto_2_0.InvoiceData,
+                                                                            dto_3_0.InvoiceData]:
     res = query_invoice_data_response.invoice_data_result
     req_version = res.audit_data.original_request_version
 
     if req_version not in deserialization_mapping:
         raise TypeError(f'Not supported invoice request version {req_version}')
 
-    xml = decode_invoice_data(res.invoice_data)
+    xml = decode_invoice_data(res)
     root = ET.fromstring(xml)
     return deserialization_mapping[req_version](root)

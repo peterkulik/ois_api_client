@@ -25,6 +25,6 @@ def test_query_invoice_data():
 
     response = client.query_invoice_data(data)
 
-    invoice_data_xml = ois.decode_invoice_data(response.invoice_data_result.invoice_data)
+    invoice_data_xml = ois.decode_invoice_data(response.invoice_data_result)
     xml_root = ET.fromstring(invoice_data_xml)
     invoice_data = deserialization.deserialize_invoice_data(xml_root)
