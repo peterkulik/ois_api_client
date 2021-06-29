@@ -1,3 +1,4 @@
+import logging
 from typing import Optional
 
 import requests
@@ -15,14 +16,19 @@ from .serialization.serialize_token_exchange_request import serialize_token_exch
 
 
 class Client:
-    def __init__(self, uri: str, timeout: Optional[int] = 30):
+    def __init__(self, uri: str, timeout: Optional[int] = 30, log_response=False):
         self._uri = uri
         self.timeout = timeout
+        self.log_response = log_response
         ET.register_namespace('', ns.API)
 
     def token_exchange(self, data: dto.BasicOnlineInvoiceRequest) -> dto.TokenExchangeResponse:
         par = serialize_token_exchange_request(data)
         response = self.call_operation('tokenExchange', par)
+
+        if self.log_response:
+            logging.info(response)
+
         root: ET.Element = ET.fromstring(response)
         result = deserialize_token_exchange_response(root)
         return result
@@ -30,6 +36,10 @@ class Client:
     def query_invoice_digest(self, data: dto.QueryInvoiceDigestRequest) -> dto.QueryInvoiceDigestResponse:
         par = serialize_query_invoice_digest_request(data)
         response = self.call_operation('queryInvoiceDigest', par)
+
+        if self.log_response:
+            logging.info(response)
+
         root: ET.Element = ET.fromstring(response)
         result = deserialize_query_invoice_digest_response(root)
         return result
@@ -37,6 +47,10 @@ class Client:
     def query_invoice_data(self, data: dto.QueryInvoiceDataRequest) -> dto.QueryInvoiceDataResponse:
         par = serialize_query_invoice_data_request(data)
         response = self.call_operation('queryInvoiceData', par)
+
+        if self.log_response:
+            logging.info(response)
+
         root: ET.Element = ET.fromstring(response)
         result = deserialize_query_invoice_data_response(root)
         return result

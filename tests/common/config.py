@@ -5,22 +5,9 @@ from ois_api_client.v3_0 import dto
 def get_local_timezone():
     return datetime.now().astimezone().tzinfo
 
-
-# def get_request_id():
-#     return datetime.now().strftime("%Y%m%dT%H%M%S%f")
-#
-#
-# def get_timestamp():
-#     return datetime.now()
-
-
 service_url = 'https://api-test.onlineszamla.nav.gov.hu/invoiceService/v3'
-# signature_key = 'bf-a7fe-4d5ccb8ec0c72VIKJ21AJZ02'
 replacement_key = '3de02VIKJ21BMJBB'
-# password = 'Len123_Ovo'
-# user = dto.UserHeader(
-#     login='mr0tapeogrpmmkg',
-#     tax_number='68293008')
+
 software = dto.Software(
     software_id='HUU10000000TESTNUM',
     software_name='SuperSoftware',
