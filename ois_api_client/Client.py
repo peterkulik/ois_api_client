@@ -63,7 +63,7 @@ class Client:
                            headers={'Content-Type': 'application/xml',
                                     'Accept': 'application/xml'},
                            timeout=self.timeout) as response:
-            if '<GeneralErrorResponse' in response.text:
+            if '<GeneralErrorResponse' in response.text or ':GeneralErrorResponse' in response.text:
                 response_content = response.content.decode('utf-8')
                 raise GeneralError(response_content)
 
