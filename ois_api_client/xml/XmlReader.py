@@ -53,7 +53,17 @@ class XmlReader:
             tag_name: str,
             namespace: str) -> Optional[datetime]:
         text = XmlReader.get_child_text(parent, tag_name, namespace)
-        return None if text is None else datetime.strptime(text, '%Y-%m-%dT%H:%M:%S.%fZ').replace(tzinfo=timezone.utc)
+
+        def parse_datetime():
+            for f in ('%Y-%m-%dT%H:%M:%S.%fZ', '%Y-%m-%dT%H:%M:%SZ'):
+                try:
+                    return datetime.strptime(text, f)
+                except ValueError:
+                    pass
+
+            raise ValueError("Incorrect data format, should be '%Y-%m-%dT%H:%M:%S.%fZ' OR '%Y-%m-%dT%H:%M:%SZ'")
+
+        return None if text is None else parse_datetime().replace(tzinfo=timezone.utc)
 
     @staticmethod
     def find_child(
